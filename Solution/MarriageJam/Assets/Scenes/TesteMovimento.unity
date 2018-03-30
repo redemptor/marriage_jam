@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 82148857}
   - component: {fileID: 82148859}
   m_Layer: 0
-  m_Name: ground
+  m_Name: GROUND
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1176,7 +1176,7 @@ GameObject:
   - component: {fileID: 83943886}
   - component: {fileID: 83943888}
   m_Layer: 0
-  m_Name: wall
+  m_Name: WALL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
