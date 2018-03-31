@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Wall
   - Enemy
   - Player
-  - 
+  - IgnoreEnemy
   - 
   - 
   - 
@@ -40,4 +41,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 1480943487
+    locked: 0
+  - name: Wall
+    uniqueID: 2905652983
+    locked: 0
+  - name: Actor
+    uniqueID: 1283148393
     locked: 0

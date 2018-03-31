@@ -2,239 +2,188 @@
 
 public class Player : Actor
 {
-    enum PLAYER_STATE { IDLE, WALK, JUMP, FALLING, DIE, ATTACK }
+    //enum PLAYER_STATE { IDLE, WALK, JUMP, FALLING, DIE, ATTACK }
     enum PLAYER_ANIM_STATE { IDLE, WALK, JUMP, PUNCH01, PUNCH02, PUNCH03 }
-    enum PLAYER_COLLIDERS { PlayerTop, PlayerBottom, PlayerLeft, PlayerRight }
 
-    private int _TimeReleaseCombo = 0;
-    //private bool _IsCollideTop = false;
-    //private bool _IsCollideBottom = false;
-    //private bool _IsCollideRight = false;
-    //private bool _IsCollideLeft = false;
-    private bool _NeedUpdateAttackAnimation = true;
+    //private int _TimeReleaseCombo = 0;
+    //private bool _NeedUpdateAttackAnimation = true;
 
-    private PLAYER_STATE _PlayerState = PLAYER_STATE.IDLE;
-    private PLAYER_ANIM_STATE _PlayerAttackState = PLAYER_ANIM_STATE.IDLE;
+    //private PLAYER_STATE _PlayerState = PLAYER_STATE.IDLE;
+    //private PLAYER_ANIM_STATE _PlayerAttackState = PLAYER_ANIM_STATE.IDLE;
 
-    public int MaxMoveVelocity;
-    public int MoveVelocity;
-
-    public int MaxJumpPower = -2;
-    public int JumpVelocity;
 
     void Update()
     {
-        animator.SetBool(PLAYER_ANIM_STATE.IDLE.ToString(), IsIddle());
-        animator.SetBool(PLAYER_ANIM_STATE.WALK.ToString(), IsWalk());
-        //animator.SetBool(PLAYER_ANIM_STATE.JUMP.ToString(), IsFalling());
-        //animator.SetBool(PLAYER_ANIM_STATE.JUMP.ToString(), IsJump());
-        animator.SetBool(PLAYER_ANIM_STATE.PUNCH01.ToString(), IsPunch01());
-        animator.SetBool(PLAYER_ANIM_STATE.PUNCH02.ToString(), IsPunch02());
-        animator.SetBool(PLAYER_ANIM_STATE.PUNCH03.ToString(), IsPunch03());
+        SetAnimation();
 
+        if (Time.time > timeNextHit)
+        {
+            SetHit(false);
+            comboHit = 0;
+        }
+
+        if (Input.GetButtonDown(GlobalFields.BUTTONS.ACTION.ToString()) && Time.time > timeNextAttack)
+        {
+            Attack();
+        }
     }
 
     void FixedUpdate()
     {
         Vector3 move = Vector3.zero;
-        move.x = Input.GetAxis("Horizontal") * MoveVelocity * Time.deltaTime;
-        move.y = Input.GetAxis("Vertical") * MoveVelocity * Time.deltaTime;
+
+        if (comboHit == 0)
+        {
+            move.x = Input.GetAxis("Horizontal") * moveVelocity * Time.deltaTime;
+            move.y = Input.GetAxis("Vertical") * moveVelocity * Time.deltaTime;
+        }
 
         if (move.x < 0 && facingRight || move.x > 0 && !facingRight)
         {
             Flip();
         }
 
-        switch (_PlayerState)
-        {
-            case PLAYER_STATE.IDLE:
-                if (move != Vector3.zero)
-                {
-                    _PlayerState = PLAYER_STATE.WALK;
-                }
 
-                if (Input.GetButtonDown(GlobalFields.BUTTONS.ACTION.ToString()))
-                {
-                    _PlayerState = PLAYER_STATE.ATTACK;
-                }
+        //switch (_PlayerState)
+        //{
+        //    case PLAYER_STATE.IDLE:
+        //        if (move != Vector3.zero)
+        //        {
+        //            _PlayerState = PLAYER_STATE.WALK;
+        //        }
 
-                if (Input.GetButton(GlobalFields.BUTTONS.JUMP.ToString()))
-                {
-                    _PlayerState = PLAYER_STATE.JUMP;
-                }
-                break;
-            case PLAYER_STATE.WALK:
-                if (move == Vector3.zero)
-                {
-                    _PlayerState = PLAYER_STATE.IDLE;
-                }
+        //        break;
 
-                if (Input.GetButtonDown(GlobalFields.BUTTONS.ACTION.ToString()))
-                {
-                    _PlayerState = PLAYER_STATE.ATTACK;
-                    return;
-                }
+        //    case PLAYER_STATE.WALK:
+        //        if (move == Vector3.zero)
+        //        {
+        //            _PlayerState = PLAYER_STATE.IDLE;
+        //        }
 
-                //if (Input.GetButton("Jump"))
-                //{
-                //    _PlayerState = PLAYER_STATE.JUMP;
-                //    return;
-                //}
+        //        if (Input.GetButtonDown(GlobalFields.BUTTONS.ACTION.ToString()))
+        //        {
+        //            _PlayerState = PLAYER_STATE.ATTACK;
+        //            return;
+        //        }
 
-                if (move != Vector3.zero)
-                {
-                    _PlayerState = PLAYER_STATE.WALK;
-                }
 
-                //if (_IsCollideTop && move.y > 0) { move.y = 0; }
-                //if (_IsCollideBottom && move.y < 0) { move.y = 0; }
-                //if (_IsCollideRight && move.x > 0) { move.x = 0; }
-                //if (_IsCollideLeft && move.x < 0) { move.x = 0; }
-                break;
-            //case PLAYER_STATE.JUMP:
-            //    move.y = 0;
+        //        if (move != Vector3.zero)
+        //        {
+        //            _PlayerState = PLAYER_STATE.WALK;
+        //        }
 
-            //    if (transform.position.z <= MaxJumpPower)
-            //    {
-            //        _PlayerState = PLAYER_STATE.FALLING;
-            //        return;
-            //    }
-            //    Debug.Log("jumping");
-            //    move.y += JumpVelocity * Time.deltaTime;
-            //    move.z -= JumpVelocity * Time.deltaTime;
-            //    break;
-            //case PLAYER_STATE.FALLING:
-            //    if (transform.position.z < 0)
-            //    {
-            //        move.y -= JumpVelocity * Time.deltaTime;
-            //        move.z += JumpVelocity * Time.deltaTime;
-            //    }
-            //    else
-            //    {
-            //        _PlayerState = PLAYER_STATE.IDLE;
-            //        move.z = 0;
-            //    }
-            //    break;
-            case PLAYER_STATE.ATTACK:
+        //        break;
 
-                if (_NeedUpdateAttackAnimation)
-                {
-                    switch (_PlayerAttackState)
-                    {
-                        case PLAYER_ANIM_STATE.IDLE:
-                            _PlayerAttackState = PLAYER_ANIM_STATE.PUNCH01;
-                            _TimeReleaseCombo = 0;
-                            break;
-                        case PLAYER_ANIM_STATE.PUNCH01:
-                            _PlayerAttackState = PLAYER_ANIM_STATE.PUNCH02;
-                            _TimeReleaseCombo = 0;
-                            break;
-                        case PLAYER_ANIM_STATE.PUNCH02:
-                            _PlayerAttackState = PLAYER_ANIM_STATE.PUNCH03;
-                            _TimeReleaseCombo = 20;
-                            break;
-                    }
-                    _NeedUpdateAttackAnimation = false;
-                }
-                else
-                {
-                    if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1
-                        && !animator.IsInTransition(0))
-                    {
-                        _NeedUpdateAttackAnimation = true;
-                        _PlayerState = PLAYER_STATE.IDLE;
-                    }
-                }
+        //    case PLAYER_STATE.ATTACK:
 
-                break;
-        }
 
-        Debug.Log(move.z);
+
+        //        //if (_NeedUpdateAttackAnimation)
+        //        //{
+        //        //    switch (_PlayerAttackState)
+        //        //    {
+        //        //        case PLAYER_ANIM_STATE.IDLE:
+        //        //            _PlayerAttackState = PLAYER_ANIM_STATE.PUNCH01;
+        //        //            _TimeReleaseCombo = 0;
+        //        //            break;
+        //        //        case PLAYER_ANIM_STATE.PUNCH01:
+        //        //            _PlayerAttackState = PLAYER_ANIM_STATE.PUNCH02;
+        //        //            _TimeReleaseCombo = 0;
+        //        //            break;
+        //        //        case PLAYER_ANIM_STATE.PUNCH02:
+        //        //            _PlayerAttackState = PLAYER_ANIM_STATE.PUNCH03;
+        //        //            _TimeReleaseCombo = 20;
+        //        //            break;
+        //        //    }
+        //        //    _NeedUpdateAttackAnimation = false;
+        //        //}
+        //        //else
+        //        //{
+        //        //    if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1
+        //        //        && !animator.IsInTransition(0))
+        //        //    {
+        //        //        _NeedUpdateAttackAnimation = true;
+        //        //        _PlayerState = PLAYER_STATE.IDLE;
+        //        //    }
+        //        //}
+
+        //        break;
+        //}
+
+
 
         rigidbody2D.velocity = move;
-        ControlAttackCombo();
+
+        //ControlAttackCombo();
     }
 
-    //void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.name.Equals(GlobalFields.MAP_TYPE.WALL.ToString()))
-    //    {
-    //        if (collision.otherCollider.gameObject.name.Equals(PLAYER_COLLIDERS.PlayerTop.ToString()))
-    //        { _IsCollideTop = true; }
-    //        if (collision.otherCollider.gameObject.name.Equals(PLAYER_COLLIDERS.PlayerBottom.ToString()))
-    //        { _IsCollideBottom = true; }
-    //        if (collision.otherCollider.gameObject.name.Equals(PLAYER_COLLIDERS.PlayerRight.ToString()))
-    //        { _IsCollideRight = true; }
-    //        if (collision.otherCollider.gameObject.name.Equals(PLAYER_COLLIDERS.PlayerLeft.ToString()))
-    //        { _IsCollideLeft = true; }
-    //    }
-    //}
+    void SetAnimation()
+    {
+        //animator.SetBool(PLAYER_ANIM_STATE.IDLE.ToString(), IsIddle());
+        animator.SetBool(PLAYER_ANIM_STATE.WALK.ToString(), IsWalk());
+        animator.SetInteger("ATTACK", comboHit);
 
-    //void OnCollisionExit2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.name.Equals(GlobalFields.MAP_TYPE.WALL.ToString()))
-    //    {
-    //        if (collision.otherCollider.gameObject.name.Equals(PLAYER_COLLIDERS.PlayerTop.ToString()))
-    //        { _IsCollideTop = false; }
-    //        if (collision.otherCollider.gameObject.name.Equals(PLAYER_COLLIDERS.PlayerBottom.ToString()))
-    //        { _IsCollideBottom = false; }
-    //        if (collision.otherCollider.gameObject.name.Equals(PLAYER_COLLIDERS.PlayerRight.ToString()))
-    //        { _IsCollideRight = false; }
-    //        if (collision.otherCollider.gameObject.name.Equals(PLAYER_COLLIDERS.PlayerLeft.ToString()))
-    //        { _IsCollideLeft = false; }
-    //    }
-    //}
+        //animator.SetBool(PLAYER_ANIM_STATE.PUNCH01.ToString(), IsPunch01());
+        //animator.SetBool(PLAYER_ANIM_STATE.PUNCH02.ToString(), IsPunch02());
+        //animator.SetBool(PLAYER_ANIM_STATE.PUNCH03.ToString(), IsPunch03());
+    }
+
+    private void Attack()
+    {
+        //_PlayerState = PLAYER_STATE.ATTACK;
+        comboHit++;
+
+        if (comboHit > maxHitCombo)
+        {
+            comboHit = 1;
+        }
+
+        timeNextAttack = Time.time + hitDurations[comboHit - 1];
+        timeNextHit = timeNextAttack;
+    }
 
     private void ControlAttackCombo()
     {
-        if (_PlayerState == PLAYER_STATE.IDLE
-            && _PlayerAttackState != PLAYER_ANIM_STATE.IDLE)
-        {
-            _TimeReleaseCombo++;
-            if (_TimeReleaseCombo >= 20)
-            {
-                _NeedUpdateAttackAnimation = true;
-                _PlayerState = PLAYER_STATE.IDLE;
-                _PlayerAttackState = PLAYER_ANIM_STATE.IDLE;
-            }
-        }
+        //if (_PlayerState == PLAYER_STATE.IDLE
+        //    && _PlayerAttackState != PLAYER_ANIM_STATE.IDLE)
+        //{
+        //    _TimeReleaseCombo++;
+        //    if (_TimeReleaseCombo >= 20)
+        //    {
+        //        _NeedUpdateAttackAnimation = true;
+        //        _PlayerState = PLAYER_STATE.IDLE;
+        //        _PlayerAttackState = PLAYER_ANIM_STATE.IDLE;
+        //    }
+        //}
     }
 
-    //public bool IsJump()
-    //{
-    //    return _PlayerState == PLAYER_STATE.JUMP;
-    //}
 
     public bool IsWalk()
     {
-        return _PlayerState == PLAYER_STATE.WALK;
+        return rigidbody2D.velocity != Vector2.zero;
+        //return _PlayerState == PLAYER_STATE.WALK;
     }
 
-    public bool IsIddle()
-    {
-        return _PlayerState == PLAYER_STATE.IDLE;
-    }
-
-    //public bool IsFalling()
+    //public bool IsIddle()
     //{
-    //    return _PlayerState == PLAYER_STATE.FALLING;
+    //    return _PlayerState == PLAYER_STATE.IDLE;
     //}
 
-    public bool IsPunch01()
-    {
-        return (_PlayerState == PLAYER_STATE.ATTACK
-                 && _PlayerAttackState == PLAYER_ANIM_STATE.PUNCH01);
-    }
+    //public bool IsPunch01()
+    //{
+    //    return (_PlayerState == PLAYER_STATE.ATTACK
+    //             && _PlayerAttackState == PLAYER_ANIM_STATE.PUNCH01);
+    //}
 
-    public bool IsPunch02()
-    {
-        return (_PlayerState == PLAYER_STATE.ATTACK
-                 && _PlayerAttackState == PLAYER_ANIM_STATE.PUNCH02);
-    }
+    //public bool IsPunch02()
+    //{
+    //    return (_PlayerState == PLAYER_STATE.ATTACK
+    //             && _PlayerAttackState == PLAYER_ANIM_STATE.PUNCH02);
+    //}
 
-    public bool IsPunch03()
-    {
-        return (_PlayerState == PLAYER_STATE.ATTACK
-                 && _PlayerAttackState == PLAYER_ANIM_STATE.PUNCH03);
-    }
+    //public bool IsPunch03()
+    //{
+    //    return (_PlayerState == PLAYER_STATE.ATTACK
+    //             && _PlayerAttackState == PLAYER_ANIM_STATE.PUNCH03);
+    //}
 }

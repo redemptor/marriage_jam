@@ -2,11 +2,26 @@
 
 public class Actor : MonoBehaviour
 {
+    public float health;
+
     protected AudioSource audioSource;
     protected new Rigidbody2D rigidbody2D;
     protected SpriteRenderer spriteRenderer;
     protected Animator animator;
     protected bool facingRight = true;
+
+    public int maxMoveVelocity;
+    public int moveVelocity;
+
+    protected bool hit;
+    public int maxHitCombo;
+    protected int comboHit;
+
+    protected float timeNextAttack;
+    protected float timeNextHit;
+    protected float timeCanDamage;
+
+    public float[] hitDurations;
 
     private void Start()
     {
@@ -28,8 +43,31 @@ public class Actor : MonoBehaviour
         audioSource.Play();
     }
 
+    public void SetDamage(float damage)
+    {
+        if (Time.time > timeCanDamage)
+        {
+            health -= damage;
+            timeCanDamage = Time.time + 0.1f;
+        }
+    }
+
+    public void SetHit(bool isHit)
+    {
+        hit = isHit;
+
+        if (isHit && comboHit < maxHitCombo)
+        {
+            timeNextHit += 0.2f;
+        }
+        else
+        {
+            timeNextHit = timeNextAttack;
+        }
+    }
+
     private void FixedUpdate()
     {
-        
+
     }
 }
