@@ -5,4 +5,5 @@ using UnityEngine;
 public class GlobalFields : MonoBehaviour
 {
     public enum MAP_TYPE { WALL, GROUND }
+    public enum BUTTONS { JUMP, ACTION }
 }
