@@ -3,13 +3,17 @@
 public class Actor : MonoBehaviour
 {
     protected AudioSource audioSource;
+    protected new Rigidbody2D rigidbody2D;
     protected SpriteRenderer spriteRenderer;
-    protected bool facingRight;
+    protected Animator animator;
+    protected bool facingRight = true;
 
     private void Start()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
+        animator = gameObject.GetComponent<Animator>();
     }
 
     public void Flip()

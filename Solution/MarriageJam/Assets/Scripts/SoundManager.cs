@@ -21,7 +21,7 @@ public class SoundManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void PlaySoundFX(AudioSource audioSource,AudioClip audioClip)
+    public void PlaySoundFX(AudioSource audioSource, AudioClip audioClip)
     {
         audioSource.clip = audioClip;
         audioSource.Play();
