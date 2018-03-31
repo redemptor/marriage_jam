@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Actor
 {
     enum PLAYER_STATE { IDLE, WALK, JUMP, FALLING, DIE, ATTACK }
     enum PLAYER_ANIM_STATE { IDLE, WALK, JUMP, PUNCH01, PUNCH02, PUNCH03 }
