@@ -14,7 +14,6 @@ public class Actor : MonoBehaviour
     public int moveVelocity;
 
     protected bool hit;
-    public int maxHitCombo;
     protected int comboHit;
 
     protected float timeNextAttack;
@@ -43,7 +42,7 @@ public class Actor : MonoBehaviour
         audioSource.Play();
     }
 
-    public void SetDamage(float damage)
+    public virtual void SetDamage(float damage)
     {
         if (Time.time > timeCanDamage)
         {
@@ -52,11 +51,11 @@ public class Actor : MonoBehaviour
         }
     }
 
-    public void SetHit(bool isHit)
+    public virtual void SetHit(bool isHit)
     {
         hit = isHit;
 
-        if (isHit && comboHit < maxHitCombo)
+        if (isHit && comboHit < hitDurations.Length)
         {
             timeNextHit += 0.2f;
         }

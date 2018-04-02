@@ -95,7 +95,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 0
   m_CollisionDetection: 1
-  m_Constraints: 7
+  m_Constraints: 4
 --- !u!61 &61549257334575178
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -212,7 +212,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  maxHitCombo: 0
+  maxMoveVelocity: 0
+  moveVelocity: 0
+  hitDurations: []
 --- !u!212 &212945655600717408
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -245,8 +247,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1283148393
-  m_SortingLayer: 3
-  m_SortingOrder: 87
+  m_SortingLayer: 0
+  m_SortingOrder: 236
   m_Sprite: {fileID: 21300000, guid: c3bd831ca10c558479216fd96a5b8191, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

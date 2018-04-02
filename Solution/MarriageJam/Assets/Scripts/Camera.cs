@@ -11,8 +11,8 @@ public class Camera : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var posX = Mathf.SmoothDamp(transform.position.x, target.position.x, ref velocity.x, smothTime);
-        var posY = Mathf.SmoothDamp(transform.position.y, target.position.y, ref velocity.y, smothTime);
+        var posX = Mathf.SmoothDamp(transform.position.x + 0.08f, target.position.x, ref velocity.x, smothTime);
+        var posY = transform.position.y;//Mathf.SmoothDamp(transform.position.y, target.position.y, ref velocity.y, smothTime);
 
         transform.position = new Vector3(posX, posY, transform.position.z);
     }

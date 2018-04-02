@@ -5,6 +5,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     public float damage;
+    public List<string> tagTarget;
 
     private Actor actor;
     private BoxCollider2D trigger;
@@ -17,10 +18,8 @@ public class Attack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy")
+        if (tagTarget.Contains(collision.tag))
         {
-            
-            Debug.Log("hit");
             collision.GetComponent<Enemy>().SetDamage(damage);
             actor.SetHit(true);
             //trigger.gameObject.SetActive(false);

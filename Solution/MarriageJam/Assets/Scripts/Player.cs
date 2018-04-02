@@ -56,7 +56,7 @@ public class Player : Actor
     {
         comboHit++;
 
-        if (comboHit > maxHitCombo)
+        if (comboHit > hitDurations.Length)
         {
             comboHit = 1;
         }

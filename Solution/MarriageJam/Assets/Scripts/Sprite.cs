@@ -30,12 +30,8 @@ public class Sprite : MonoBehaviour
 
     void SortingOrder()
     {
-        var reference = (isStatic && collider2D != null)
-            ? collider2D.Select(x => x.bounds.max.y).Max()
-            : (collider2D != null
-                ? collider2D.Select(x => x.bounds.min.y).Min()
-                : spriteRenderer.bounds.min.y);
+        var reference = spriteRenderer.bounds.min;
 
-        spriteRenderer.sortingOrder = (int)(reference * -100);
+        spriteRenderer.sortingOrder = (int)(reference.y * -100);
     }
 }
