@@ -22,7 +22,6 @@ public class Attack : MonoBehaviour
         {
             collision.GetComponent<Actor>().SetDamage(damage);
             actor.SetHit(true);
-            //trigger.gameObject.SetActive(false);
         }
     }
 }

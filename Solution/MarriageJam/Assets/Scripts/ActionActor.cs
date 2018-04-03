@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ActionActor : Actor
 {
@@ -53,5 +49,6 @@ public class ActionActor : Actor
         animator.SetBool(ANIM_STATE.WALK.ToString(), IsWalk());
         animator.SetBool(ANIM_STATE.HIT.ToString(), Stunned);
         animator.SetBool(ANIM_STATE.DIE.ToString(), !Alive);
+        animator.SetBool(ANIM_STATE.KNOCKOUT.ToString(), isKnockOut);
     }
 }
