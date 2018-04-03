@@ -1720,11 +1720,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114595964357397516, guid: f9e6326064baf2d42ae0eaad5281ca72,
-        type: 2}
-      propertyPath: tagTarget.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4000014118356412, guid: f9e6326064baf2d42ae0eaad5281ca72, type: 2}
       propertyPath: m_LocalPosition.x
       value: -3.88
@@ -1756,30 +1751,6 @@ Prefab:
     - target: {fileID: 4000014118356412, guid: f9e6326064baf2d42ae0eaad5281ca72, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114595964357397516, guid: f9e6326064baf2d42ae0eaad5281ca72,
-        type: 2}
-      propertyPath: tagTarget.Array.data[0]
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 114595964357397516, guid: f9e6326064baf2d42ae0eaad5281ca72,
-        type: 2}
-      propertyPath: tagTarget.Array.data[1]
-      value: DestroyableItem
-      objectReference: {fileID: 0}
-    - target: {fileID: 1329139862472758, guid: f9e6326064baf2d42ae0eaad5281ca72, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 114595964357397516, guid: f9e6326064baf2d42ae0eaad5281ca72,
-        type: 2}
-      propertyPath: damage
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114055766104086756, guid: f9e6326064baf2d42ae0eaad5281ca72,
-        type: 2}
-      propertyPath: Name
-      value: gabe
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f9e6326064baf2d42ae0eaad5281ca72, type: 2}

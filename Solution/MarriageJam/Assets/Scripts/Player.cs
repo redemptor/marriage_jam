@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Player : Actor
+public class Player : ActionActor
 {
     public override void Update()
     {
@@ -39,6 +39,7 @@ public class Player : Actor
 
     public override void SetAnimation()
     {
+        base.SetAnimation();
         animator.SetInteger(ANIM_STATE.ATTACK.ToString(), comboHit);
     }
 

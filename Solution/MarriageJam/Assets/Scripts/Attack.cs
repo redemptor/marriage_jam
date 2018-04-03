@@ -7,20 +7,20 @@ public class Attack : MonoBehaviour
     public float damage;
     public List<string> tagTarget;
 
-    private Actor actor;
+    private ActionActor actor;
     private BoxCollider2D trigger;
 
     private void Start()
     {
-        actor = gameObject.GetComponentInParent<Actor>();
+        actor = gameObject.GetComponentInParent<ActionActor>();
         trigger = gameObject.GetComponentInParent<BoxCollider2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (tagTarget.Contains(collision.tag))
+        if (tagTarget.Contains(collision.tag) && collision.isTrigger)
         {
-            collision.GetComponent<Enemy>().SetDamage(damage);
+            collision.GetComponent<Actor>().SetDamage(damage);
             actor.SetHit(true);
             //trigger.gameObject.SetActive(false);
         }

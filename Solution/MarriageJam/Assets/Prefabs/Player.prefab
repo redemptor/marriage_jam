@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 114595964357397516}
   m_Layer: 11
   m_Name: HitAttack
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -255,7 +255,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d8f21e3ed9bea47a9cf2e3f06870a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shakePower: 0
   health: 30
+  Name: gabe
   maxMoveVelocity: 0
   moveVelocity: 200
   hitDurations:
@@ -289,6 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStatic: 0
+  facingRight: 1
 --- !u!212 &212000012508286840
 SpriteRenderer:
   m_ObjectHideFlags: 1

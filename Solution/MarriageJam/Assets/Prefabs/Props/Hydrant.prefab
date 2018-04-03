@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212205533528367534}
   - component: {fileID: 114546364073895908}
   - component: {fileID: 61357576817249556}
+  - component: {fileID: 114560814978250572}
   m_Layer: 0
   m_Name: Hydrant
   m_TagString: Enemy
@@ -54,7 +55,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.03984902}
+  m_Offset: {x: 0, y: 0.13169965}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -65,7 +66,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.19030197}
+  m_Size: {x: 0.15, y: 0.097709835}
   m_EdgeRadius: 0
 --- !u!114 &114546364073895908
 MonoBehaviour:
@@ -79,6 +80,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStatic: 1
+  facingRight: 1
+--- !u!114 &114560814978250572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1058139359035504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a357e09d07a84e49a89a31068ff8f5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakePower: 0.015
+  health: 6
 --- !u!212 &212205533528367534
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -4,34 +4,62 @@ public class Actor : MonoBehaviour
 {
     protected enum ANIM_STATE { IDLE, WALK, ATTACK, HIT, DIE }
 
-    private bool stunned = false;
-    
     protected AudioSource audioSource;
+    protected SpriteRenderer spriteRenderer;
     protected new Rigidbody2D rigidbody2D;
     protected Animator animator;
-    protected float timeNextAttack;
-    protected float timeNextHit;
-    protected float timeCanDamage;
-    protected float timeStunned;
-    protected bool hit;
-    protected int comboHit;
     protected Sprite sprite;
-            
-    public string Name;
-    public bool Stunned { get { return stunned; } set { stunned = value; timeStunned = Time.time + 1f; } }
-    public bool FacingRight { get { return sprite.facingRight; } }
-    public bool Alive { get { return health > 0; } }
-    public int maxMoveVelocity;
-    public int moveVelocity;
-    public float[] hitDurations;
+
+    protected float timeCanDamage;
+
+    public float shakePower;
+
+    public bool FacingRight
+    {
+        get
+        {
+            return sprite.facingRight;
+        }
+    }
+
+    public bool Alive
+    {
+        get
+        {
+            return health > 0;
+        }
+    }
+
     public float health;
+
+    private bool stunned = false;
+    protected float timeStunned;
+
+    private ShakeSprite _shakeSprite;
+
+
+    public bool Stunned
+    {
+        get
+        {
+            return stunned;
+        }
+        set
+        {
+            stunned = value; timeStunned = Time.time + 1f;
+        }
+    }
 
     private void Start()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
         sprite = gameObject.GetComponent<Sprite>();
+
+        _shakeSprite = new ShakeSprite(spriteRenderer);
+
     }
 
     public void Flip()
@@ -42,8 +70,11 @@ public class Actor : MonoBehaviour
 
     public void PlaySounfFX(AudioClip audioClip)
     {
-        audioSource.clip = audioClip;
-        audioSource.Play();
+        if (audioSource != null)
+        {
+            audioSource.clip = audioClip;
+            audioSource.Play();
+        }
     }
 
     public virtual void SetDamage(float damage)
@@ -53,11 +84,10 @@ public class Actor : MonoBehaviour
             health -= damage;
             timeCanDamage = Time.time + 0.2f;
 
-
             if (Alive)
             {
                 Stunned = true;
-                sprite.Shake();
+                Shake();
             }
             else
             {
@@ -66,43 +96,22 @@ public class Actor : MonoBehaviour
         }
     }
 
-    public virtual void SetHit(bool isHit)
+    public void Shake()
     {
-        hit = isHit;
-
-        if (isHit && comboHit < hitDurations.Length)
-        {
-            timeNextHit += 0.2f;
-        }
-        else
-        {
-            timeNextHit = timeNextAttack;
-        }
+        _shakeSprite.Shake(2, sprite.facingRight, shakePower);
     }
 
     public virtual void Update()
     {
         SetAnimation();
-
-        if (Stunned && Time.time > timeStunned)
-        { Stunned = false; }
     }
 
-    public virtual void SetAnimation()
+    private void FixedUpdate()
     {
-        animator.SetBool(ANIM_STATE.WALK.ToString(), IsWalk());
-        animator.SetBool(ANIM_STATE.HIT.ToString(), Stunned);
-        animator.SetBool(ANIM_STATE.DIE.ToString(), !Alive);
+        _shakeSprite.FixedUpdate();
     }
 
-    public virtual void Die()
-    {
+    public virtual void SetAnimation() { }
 
-    }
-
-    public bool IsWalk()
-    {
-        return rigidbody2D.velocity != Vector2.zero;
-    }
-
+    public virtual void Die() { }
 }

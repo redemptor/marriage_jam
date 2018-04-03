@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Enemy : Actor
+public class Enemy : ActionActor
 {
     public float MaxDieDistanceX = 2f;
     public Vector3 DieDistancePower = new Vector3(0.1f, 0f, 0);
@@ -29,7 +29,7 @@ public class Enemy : Actor
         Vector3 currentPosition = transform.position;
 
         if ((Mathf.Abs(currentPosition.x)
-            > (Mathf.Abs(diePosition.x) +MaxDieDistanceX / 2))
+            > (Mathf.Abs(diePosition.x) + MaxDieDistanceX / 2))
             && DieDistancePower.y < 0)
         {
             DieDistancePower.y *= -1;
