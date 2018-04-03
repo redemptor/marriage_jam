@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61357576817249556}
   m_Layer: 0
   m_Name: Hydrant
-  m_TagString: DestroyableItem
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

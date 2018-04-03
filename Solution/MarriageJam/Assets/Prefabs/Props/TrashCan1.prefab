@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61596501015723778}
   m_Layer: 0
   m_Name: TrashCan1
-  m_TagString: DestroyableItem
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,7 +112,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 33
+  m_SortingOrder: 36
   m_Sprite: {fileID: 21300002, guid: 6c382ab30d804f24bac4ead9a982313a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
