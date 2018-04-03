@@ -4,49 +4,45 @@ public class Actor : MonoBehaviour
 {
     protected enum ANIM_STATE { IDLE, WALK, ATTACK, HIT, DIE }
 
+    private bool stunned = false;
+    private ShakeSprite _shakeSprite;
+    private BlinkSprite _blinkSprite;
+
     protected AudioSource audioSource;
     protected SpriteRenderer spriteRenderer;
     protected new Rigidbody2D rigidbody2D;
     protected Animator animator;
     protected Sprite sprite;
-
     protected float timeCanDamage;
-
-    public float shakePower;
-
-    public bool FacingRight
-    {
-        get
-        {
-            return sprite.facingRight;
-        }
-    }
-
-    public bool Alive
-    {
-        get
-        {
-            return health > 0;
-        }
-    }
-
-    public float health;
-
-    private bool stunned = false;
     protected float timeStunned;
 
-    private ShakeSprite _shakeSprite;
-
+    public float shakePower;
+    public bool FinishBlink
+    {
+        get { return _blinkSprite.FinishBlink; }
+    }
+    public bool DoBlink
+    {
+        get { return _blinkSprite.DoBlink; }
+    }
+    public bool FacingRight
+    {
+        get { return sprite.facingRight; }
+    }
+    public bool Alive
+    {
+        get { return health > 0; }
+    }
+    public float health;
 
     public bool Stunned
     {
         get
-        {
-            return stunned;
-        }
+        { return stunned; }
         set
         {
-            stunned = value; timeStunned = Time.time + 1f;
+            stunned = value;
+            timeStunned = Time.time + 1f;
         }
     }
 
@@ -59,7 +55,7 @@ public class Actor : MonoBehaviour
         sprite = gameObject.GetComponent<Sprite>();
 
         _shakeSprite = new ShakeSprite(spriteRenderer);
-
+        _blinkSprite = new BlinkSprite(spriteRenderer);
     }
 
     public void Flip()
@@ -101,6 +97,11 @@ public class Actor : MonoBehaviour
         _shakeSprite.Shake(2, sprite.facingRight, shakePower);
     }
 
+    public void Blink()
+    {
+        _blinkSprite.Blink(5);
+    }
+
     public virtual void Update()
     {
         SetAnimation();
@@ -109,6 +110,7 @@ public class Actor : MonoBehaviour
     private void FixedUpdate()
     {
         _shakeSprite.FixedUpdate();
+        _blinkSprite.FixedUpdate();
     }
 
     public virtual void SetAnimation() { }

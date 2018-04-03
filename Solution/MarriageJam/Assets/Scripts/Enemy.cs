@@ -51,6 +51,15 @@ public class Enemy : ActionActor
         }
         else
         {
+            if (FinishBlink)
+            {
+                Destroy(gameObject);
+            }
+            if (!DoBlink)
+            {
+                Blink();
+            }
+    
             //Blink enemy
             //Delete obj;
             //hide

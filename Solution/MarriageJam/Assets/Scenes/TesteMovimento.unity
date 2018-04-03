@@ -1854,12 +1854,12 @@ Prefab:
     - target: {fileID: 114973427879272172, guid: e94a77dcb4e5d6c4d9e57a76f02da2e0,
         type: 2}
       propertyPath: health
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114973427879272172, guid: e94a77dcb4e5d6c4d9e57a76f02da2e0,
         type: 2}
       propertyPath: DieDistancePower.y
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 114973427879272172, guid: e94a77dcb4e5d6c4d9e57a76f02da2e0,
         type: 2}

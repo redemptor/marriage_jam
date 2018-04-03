@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ShakeSprite
 {
@@ -16,11 +14,6 @@ public class ShakeSprite
         _spriteRenderer = spriteRenderer;
     }
 
-    void Start()
-    {
-
-    }
-    
     public void FixedUpdate()
     {
         if (_timesToShake > 0)
@@ -31,16 +24,13 @@ public class ShakeSprite
 
                 _timeBack = Time.time + 0.1f;
                 _timesToShake--;
+
                 if (_facingRight)
-                {
-                    currentPosition.x -= _power;
-                    _spriteRenderer.transform.position = currentPosition;
-                }
+                { currentPosition.x -= _power; }
                 else
-                {
-                    currentPosition.x += _power;
-                    _spriteRenderer.transform.position = currentPosition;
-                }
+                { currentPosition.x += _power; }
+
+                _spriteRenderer.transform.position = currentPosition;
                 _facingRight = !_facingRight;
             }
         }
@@ -52,4 +42,5 @@ public class ShakeSprite
         _facingRight = facingRight;
         _power = power;
     }
+ 
 }
