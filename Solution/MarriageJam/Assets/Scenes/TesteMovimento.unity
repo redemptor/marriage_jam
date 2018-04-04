@@ -1754,7 +1754,42 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114595964357397516, guid: f9e6326064baf2d42ae0eaad5281ca72,
         type: 2}
-      propertyPath: damage
+      propertyPath: DamageUppercut.Knockout
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114595964357397516, guid: f9e6326064baf2d42ae0eaad5281ca72,
+        type: 2}
+      propertyPath: DamageUppercut.Value
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114595964357397516, guid: f9e6326064baf2d42ae0eaad5281ca72,
+        type: 2}
+      propertyPath: DamageNormal.Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114055766104086756, guid: f9e6326064baf2d42ae0eaad5281ca72,
+        type: 2}
+      propertyPath: DamageNormal.name
+      value: punch
+      objectReference: {fileID: 0}
+    - target: {fileID: 114055766104086756, guid: f9e6326064baf2d42ae0eaad5281ca72,
+        type: 2}
+      propertyPath: DamageNormal.Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114055766104086756, guid: f9e6326064baf2d42ae0eaad5281ca72,
+        type: 2}
+      propertyPath: DamageStrong.name
+      value: uppercut
+      objectReference: {fileID: 0}
+    - target: {fileID: 114055766104086756, guid: f9e6326064baf2d42ae0eaad5281ca72,
+        type: 2}
+      propertyPath: DamageStrong.Value
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114055766104086756, guid: f9e6326064baf2d42ae0eaad5281ca72,
+        type: 2}
+      propertyPath: DamageStrong.Knockout
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

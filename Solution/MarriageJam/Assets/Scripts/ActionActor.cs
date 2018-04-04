@@ -3,6 +3,8 @@
 public class ActionActor : Actor
 {
     public string Name;
+    public Damage DamageNormal;
+    public Damage DamageStrong;
 
     public int maxMoveVelocity;
     public int moveVelocity;
@@ -50,5 +52,10 @@ public class ActionActor : Actor
         animator.SetBool(ANIM_STATE.HIT.ToString(), Stunned);
         animator.SetBool(ANIM_STATE.DIE.ToString(), !Alive);
         animator.SetBool(ANIM_STATE.KNOCKOUT.ToString(), isKnockOut);
+    }
+
+    public Damage GetCurrentDamage()
+    {
+        return DamageNormal;
     }
 }

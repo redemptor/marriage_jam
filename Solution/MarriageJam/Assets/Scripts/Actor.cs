@@ -79,11 +79,11 @@ public class Actor : MonoBehaviour
         }
     }
 
-    public virtual void SetDamage(float damage)
+    public virtual void SetDamage(Damage damage)
     {
         if (Time.time > timeCanDamage)
         {
-            health -= damage;
+            health -= damage.Value;
             timeCanDamage = Time.time + 0.2f;
 
             if (Alive)

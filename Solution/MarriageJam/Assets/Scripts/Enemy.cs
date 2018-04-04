@@ -34,9 +34,9 @@ public class Enemy : ActionActor
         }
     }
 
-    public override void SetDamage(float damage)
+    public override void SetDamage(Damage damage)
     {
-        if (damage > 1)
+        if (damage.Knockout)
         {
             isKnockOut = true;
             timeKnockout = 0;
