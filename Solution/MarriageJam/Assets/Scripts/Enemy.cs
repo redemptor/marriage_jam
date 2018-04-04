@@ -2,54 +2,59 @@
 
 public class Enemy : ActionActor
 {
+    private float KNOCKOUT_TIME = 1.0f;
+
+    private KnockoutActor _knockoutActor;
+    private float timeKnockout;
+
     public float MaxDieDistanceX = 2f;
     public Vector3 DieDistancePower = new Vector3(0.1f, 0f, 0);
-    private Vector3 diePosition;
+
+    public Enemy()
+    {
+        _knockoutActor = new KnockoutActor(this);
+    }
 
     public override void Update()
     {
         base.Update();
 
+        _knockoutActor.Update();
         if (!Alive)
         {
             DieAnimation();
         }
+        if (isKnockOut && !_knockoutActor.DoKnockOut)
+        {
+            if (timeKnockout == 0)
+            { timeKnockout = Time.time + KNOCKOUT_TIME; }
+
+            if (Time.time > timeKnockout)
+                isKnockOut = false;
+        }
+    }
+
+    public override void SetDamage(Damage damage)
+    {
+        if (damage.Knockout)
+        {
+            isKnockOut = true;
+            timeKnockout = 0;
+            _knockoutActor.KnockOut(DieDistancePower, MaxDieDistanceX);
+        }
+
+        base.SetDamage(damage);
     }
 
     public override void Die()
     {
         base.Die();
-        animator.speed = 0;
-        diePosition = transform.position;
-        if (DieDistancePower.y > 0) { DieDistancePower.y *= -1; }
+        _knockoutActor.KnockOut(DieDistancePower, MaxDieDistanceX);
     }
 
     private void DieAnimation()
     {
-        Vector3 currentPosition = transform.position;
-
-        if ((Mathf.Abs(currentPosition.x)
-            > (Mathf.Abs(diePosition.x) + MaxDieDistanceX / 2))
-            && DieDistancePower.y < 0)
-        {
-            DieDistancePower.y *= -1;
-        }
-
-        if (Mathf.Abs(currentPosition.x) > (Mathf.Abs(diePosition.x) + MaxDieDistanceX))
-        {
-            animator.speed = 1;
-        }
-
-        if (animator.speed == 0)
-        {
-            if (FacingRight)
-            { currentPosition -= DieDistancePower; }
-            else
-            { currentPosition += DieDistancePower; }
-
-            transform.position = currentPosition;
-        }
-        else
+        if (!_knockoutActor.DoKnockOut)
         {
             if (FinishBlink)
             {
@@ -59,10 +64,6 @@ public class Enemy : ActionActor
             {
                 Blink();
             }
-    
-            //Blink enemy
-            //Delete obj;
-            //hide
         }
     }
 }

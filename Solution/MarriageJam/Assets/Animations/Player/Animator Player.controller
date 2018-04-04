@@ -38,6 +38,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+  - m_Name: KNOCKOUT
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -382,7 +388,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: b7ed7229062572f47aaa25cb14eb9393, type: 2}
+  m_Motion: {fileID: 7400000, guid: e95bab2b8c3be0a468f39dc6af3b052a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -434,7 +440,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e95bab2b8c3be0a468f39dc6af3b052a, type: 2}
+  m_Motion: {fileID: 7400000, guid: b7ed7229062572f47aaa25cb14eb9393, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

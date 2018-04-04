@@ -10,7 +10,6 @@ public class Sprite : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private new List<Collider2D> collider2D;
-    public bool facingRight = true;
 
     void Start()
     {

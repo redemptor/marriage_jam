@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    public float damage;
     public List<string> tagTarget;
 
     private ActionActor actor;
@@ -20,9 +19,8 @@ public class Attack : MonoBehaviour
     {
         if (tagTarget.Contains(collision.tag) && collision.isTrigger)
         {
-            collision.GetComponent<Actor>().SetDamage(damage);
+            collision.GetComponent<Actor>().SetDamage(actor.GetCurrentDamage());
             actor.SetHit(true);
-            //trigger.gameObject.SetActive(false);
         }
     }
 }

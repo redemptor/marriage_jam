@@ -29,7 +29,7 @@ public class Player : ActionActor
             move.y = Input.GetAxis("Vertical") * moveVelocity * Time.deltaTime;
         }
 
-        if (move.x < 0 && sprite.facingRight || move.x > 0 && !sprite.facingRight)
+        if (move.x < 0 && facingRight || move.x > 0 && !facingRight)
         {
             Flip();
         }

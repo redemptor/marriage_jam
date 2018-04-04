@@ -2,7 +2,7 @@
 
 public class Actor : MonoBehaviour
 {
-    protected enum ANIM_STATE { IDLE, WALK, ATTACK, HIT, DIE }
+    protected enum ANIM_STATE { IDLE, WALK, ATTACK, HIT, DIE, KNOCKOUT }
 
     private bool stunned = false;
     private ShakeSprite _shakeSprite;
@@ -15,8 +15,14 @@ public class Actor : MonoBehaviour
     protected Sprite sprite;
     protected float timeCanDamage;
     protected float timeStunned;
+    protected bool isKnockOut = false;
 
     public float shakePower;
+    public bool facingRight = true;
+    public Animator Animator
+    {
+        get { return animator; }
+    }
     public bool FinishBlink
     {
         get { return _blinkSprite.FinishBlink; }
@@ -27,7 +33,7 @@ public class Actor : MonoBehaviour
     }
     public bool FacingRight
     {
-        get { return sprite.facingRight; }
+        get { return facingRight; }
     }
     public bool Alive
     {
@@ -60,7 +66,7 @@ public class Actor : MonoBehaviour
 
     public void Flip()
     {
-        sprite.facingRight = !sprite.facingRight;
+        facingRight = !facingRight;
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
 
@@ -73,20 +79,24 @@ public class Actor : MonoBehaviour
         }
     }
 
-    public virtual void SetDamage(float damage)
+    public virtual void SetDamage(Damage damage)
     {
         if (Time.time > timeCanDamage)
         {
-            health -= damage;
+            health -= damage.Value;
             timeCanDamage = Time.time + 0.2f;
 
             if (Alive)
             {
-                Stunned = true;
-                Shake();
+                if (!isKnockOut)
+                {
+                    Stunned = true;
+                    Shake();
+                }
             }
             else
             {
+                isKnockOut = false;
                 Die();
             }
         }
@@ -94,7 +104,7 @@ public class Actor : MonoBehaviour
 
     public void Shake()
     {
-        _shakeSprite.Shake(2, sprite.facingRight, shakePower);
+        _shakeSprite.Shake(2, facingRight, shakePower);
     }
 
     public void Blink()
