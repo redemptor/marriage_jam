@@ -4,6 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
+	public Scene scene;
+	public string texto;
+
 	public void LoadLevel(string name){
 		Debug.Log ("Scene carregada: " + name);
 		SceneManager.LoadScene(name);
