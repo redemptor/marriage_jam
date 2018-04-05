@@ -30,7 +30,6 @@ public class FollowActor
         if (_following == null)
         {
             _following = GetRandomPlayerAtScene();
-  
         }
         else
         {

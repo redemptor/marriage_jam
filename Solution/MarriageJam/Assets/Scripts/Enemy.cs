@@ -30,7 +30,7 @@ public class Enemy : ActionActor
             { timeKnockout = Time.time + KNOCKOUT_TIME; }
 
             if (Time.time > timeKnockout)
-                isKnockOut = false;
+            { isKnockOut = false; }
         }
     }
 

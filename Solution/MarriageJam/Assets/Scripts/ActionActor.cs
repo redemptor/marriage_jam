@@ -5,6 +5,7 @@ public class ActionActor : Actor
     public string Name;
     public Damage DamageNormal;
     public Damage DamageStrong;
+    public Damage CurrentDamage;
 
     public int maxMoveVelocity;
     public int moveVelocity;
@@ -14,6 +15,13 @@ public class ActionActor : Actor
     protected float timeNextHit;
     protected bool hit;
     protected int comboHit;
+
+    public override void Start()
+    {
+        base.Start();
+        if (DamageNormal != null)
+        { CurrentDamage = DamageNormal; }
+    }
 
     public virtual void SetHit(bool isHit)
     {
@@ -52,10 +60,5 @@ public class ActionActor : Actor
         animator.SetBool(ANIM_STATE.HIT.ToString(), Stunned);
         animator.SetBool(ANIM_STATE.DIE.ToString(), !Alive);
         animator.SetBool(ANIM_STATE.KNOCKOUT.ToString(), isKnockOut);
-    }
-
-    public Damage GetCurrentDamage()
-    {
-        return DamageNormal;
     }
 }

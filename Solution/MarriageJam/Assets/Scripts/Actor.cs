@@ -52,7 +52,7 @@ public class Actor : MonoBehaviour
         }
     }
 
-    private void Start()
+    public virtual void Start()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -88,7 +88,11 @@ public class Actor : MonoBehaviour
 
             if (Alive)
             {
-                if (!isKnockOut)
+                if (isKnockOut)
+                {
+                    Stunned = false;
+                }
+                else
                 {
                     Stunned = true;
                     Shake();
@@ -96,6 +100,7 @@ public class Actor : MonoBehaviour
             }
             else
             {
+                Stunned = false;
                 isKnockOut = false;
                 Die();
             }

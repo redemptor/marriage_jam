@@ -47,6 +47,16 @@ public class Player : ActionActor
     {
         comboHit++;
 
+        if (comboHit == 1)
+        {
+            CurrentDamage = DamageNormal;
+        }
+
+        if (comboHit == hitDurations.Length)
+        {
+            CurrentDamage = DamageStrong;
+        }
+
         if (comboHit > hitDurations.Length)
         {
             comboHit = 1;

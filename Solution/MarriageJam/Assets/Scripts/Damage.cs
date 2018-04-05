@@ -3,7 +3,7 @@ using UnityEngine;
 
 [Serializable]
 public class Damage  {
-    public string name;
-    public float Value;
-    public bool Knockout;
+    public string Name = "default";
+    public float Value = 1;
+    public bool Knockout = false;
 }
