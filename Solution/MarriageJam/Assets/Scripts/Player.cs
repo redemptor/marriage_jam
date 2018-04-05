@@ -45,6 +45,7 @@ public class Player : ActionActor
 
     private void Attack()
     {
+        Debug.Log(comboHit);
         comboHit++;
 
         if (comboHit == 1)

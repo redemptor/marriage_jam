@@ -55,7 +55,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.13169965}
+  m_Offset: {x: -0.0016210973, y: 0.025517493}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -66,7 +66,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.15, y: 0.097709835}
+  m_Size: {x: 0.09488255, y: 0.053940237}
   m_EdgeRadius: 0
 --- !u!114 &114546364073895908
 MonoBehaviour:
@@ -80,7 +80,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStatic: 1
-  facingRight: 1
 --- !u!114 &114560814978250572
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -93,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shakePower: 0.015
+  facingRight: 1
   health: 6
 --- !u!212 &212205533528367534
 SpriteRenderer:
