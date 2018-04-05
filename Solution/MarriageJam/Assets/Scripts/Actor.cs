@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Actor : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class Actor : MonoBehaviour
     private bool stunned = false;
     private ShakeSprite _shakeSprite;
     private BlinkSprite _blinkSprite;
+    private Vector3 _lastPosition;
 
     protected AudioSource audioSource;
     protected SpriteRenderer spriteRenderer;
@@ -17,16 +19,20 @@ public class Actor : MonoBehaviour
     protected float timeStunned;
     protected bool isKnockOut = false;
 
+    public Rigidbody2D Rigidbody2D { get { return rigidbody2D; } }
     public float shakePower;
+    public bool IsKnockOut { get { return isKnockOut; } }
     public bool facingRight = true;
     public Animator Animator
     {
         get { return animator; }
     }
+
     public bool FinishBlink
     {
         get { return _blinkSprite.FinishBlink; }
     }
+
     public bool DoBlink
     {
         get { return _blinkSprite.DoBlink; }
@@ -62,6 +68,7 @@ public class Actor : MonoBehaviour
 
         _shakeSprite = new ShakeSprite(spriteRenderer);
         _blinkSprite = new BlinkSprite(spriteRenderer);
+        _lastPosition = transform.position;
     }
 
     public void Flip()
@@ -85,6 +92,7 @@ public class Actor : MonoBehaviour
         {
             health -= damage.Value;
             timeCanDamage = Time.time + 0.2f;
+            Rigidbody2D.velocity = new Vector2(0, 0);
 
             if (Alive)
             {
@@ -117,15 +125,31 @@ public class Actor : MonoBehaviour
         _blinkSprite.Blink(5);
     }
 
-    public virtual void Update()
+    public bool IsWalk()
     {
-        SetAnimation();
+        return rigidbody2D.velocity != Vector2.zero;
     }
 
-    private void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         _shakeSprite.FixedUpdate();
         _blinkSprite.FixedUpdate();
+
+        /* W.I.P
+        if (
+            ( Decimal.Round((decimal)_lastPosition.x, 2) - Decimal.Round((decimal)transform.position.x, 2) != 0)
+            && (_lastPosition.x - transform.position.x > 0 && facingRight
+            || _lastPosition.x - transform.position.x < 0 && !facingRight))
+        {
+            Debug.Log(name + ":" + Decimal.Round((decimal)_lastPosition.x,2) + " :" + transform.position.x);
+            Flip();
+        }
+        _lastPosition = transform.position;*/
+    }
+
+    public virtual void Update()
+    {
+        SetAnimation();
     }
 
     public virtual void SetAnimation() { }

@@ -19,8 +19,9 @@ public class Player : ActionActor
         }
     }
 
-    void FixedUpdate()
+    public override void FixedUpdate()
     {
+        base.FixedUpdate();
         Vector3 move = Vector3.zero;
 
         if (comboHit == 0)
@@ -45,7 +46,6 @@ public class Player : ActionActor
 
     private void Attack()
     {
-        Debug.Log(comboHit);
         comboHit++;
 
         if (comboHit == 1)

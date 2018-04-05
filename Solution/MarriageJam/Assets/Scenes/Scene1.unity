@@ -1051,12 +1051,12 @@ Prefab:
     - target: {fileID: 114460659392837550, guid: 4cd91dcfe4e6a8744af00e7af09abd88,
         type: 2}
       propertyPath: DamageNormal.Value
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114460659392837550, guid: 4cd91dcfe4e6a8744af00e7af09abd88,
         type: 2}
       propertyPath: DamageStrong.Value
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 212647269449639622, guid: 4cd91dcfe4e6a8744af00e7af09abd88,
         type: 2}
@@ -1067,6 +1067,21 @@ Prefab:
         type: 2}
       propertyPath: moveVelocity
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460659392837550, guid: 4cd91dcfe4e6a8744af00e7af09abd88,
+        type: 2}
+      propertyPath: DamageStrong.Knockout
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460659392837550, guid: 4cd91dcfe4e6a8744af00e7af09abd88,
+        type: 2}
+      propertyPath: DamageNormal.Name
+      value: punch
+      objectReference: {fileID: 0}
+    - target: {fileID: 114460659392837550, guid: 4cd91dcfe4e6a8744af00e7af09abd88,
+        type: 2}
+      propertyPath: DamageStrong.Name
+      value: uppercut
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4cd91dcfe4e6a8744af00e7af09abd88, type: 2}

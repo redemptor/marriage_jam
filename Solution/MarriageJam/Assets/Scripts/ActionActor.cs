@@ -2,7 +2,6 @@
 
 public class ActionActor : Actor
 {
-    public string Name;
     public Damage DamageNormal;
     public Damage DamageStrong;
     public Damage CurrentDamage;
@@ -47,9 +46,9 @@ public class ActionActor : Actor
         }
     }
 
-    public bool IsWalk()
+    public override void FixedUpdate()
     {
-        return rigidbody2D.velocity != Vector2.zero;
+        base.FixedUpdate();  
     }
 
     public override void SetAnimation()

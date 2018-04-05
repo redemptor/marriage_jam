@@ -5,14 +5,17 @@ public class Enemy : ActionActor
     private float KNOCKOUT_TIME = 1.0f;
 
     private KnockoutActor _knockoutActor;
+    private FollowActor _followActor;
     private float timeKnockout;
 
     public float MaxDieDistanceX = 2f;
     public Vector3 DieDistancePower = new Vector3(0.1f, 0f, 0);
 
-    public Enemy()
+    public override void Start()
     {
+        base.Start();
         _knockoutActor = new KnockoutActor(this);
+        _followActor = new FollowActor(this);
     }
 
     public override void Update()
@@ -32,6 +35,12 @@ public class Enemy : ActionActor
             if (Time.time > timeKnockout)
             { isKnockOut = false; }
         }
+    }
+
+    public override void FixedUpdate()
+    {
+        base.FixedUpdate();
+        _followActor.FixedUpdate();
     }
 
     public override void SetDamage(Damage damage)

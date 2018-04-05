@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FollowActor
 {
-
     private Actor _following;
     private Actor _follower;
 
@@ -18,24 +15,27 @@ public class FollowActor
         _following = actor;
     }
 
-    public Actor GetRandomPlayerAtScene()
+    public void FixedUpdate()
     {
-        //LevelManager.getCurrentScene;
-        //Find at scene tag player
-        return null;
-    }
+        if (!_follower.Alive
+            || _follower.IsKnockOut
+            || _follower.Stunned)
+        { return; }
 
-    public void Update()
-    {
         if (_following == null)
         {
-            _following = GetRandomPlayerAtScene();
+            _following = LevelManager.GetRandomPlayerAtScene();
         }
         else
         {
-            Vector3 currentPosition = _follower.transform.position;
-            currentPosition.x++;
-            _follower.transform.position = currentPosition;
+            Vector3 direction = (_following.transform.position - _follower.transform.position).normalized;
+
+            _follower.Rigidbody2D.velocity = new Vector2(0.0001f, 0.0001f);
+            _follower.Rigidbody2D.MovePosition(
+                   _follower.transform.position
+                   + direction
+                   * ((ActionActor)_follower).moveVelocity
+                   * Time.deltaTime);
         }
     }
 }

@@ -15,6 +15,7 @@ TextureImporter:
     21300016: ennemy_streetboy-one_spritesheet_8
     21300018: ennemy_streetboy-one_spritesheet_9
     21300020: ennemy_streetboy-one_spritesheet_10
+    21300022: ennemy_streetboy-one_spritesheet_11
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -56,8 +57,9 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
