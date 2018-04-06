@@ -24,7 +24,10 @@ public class Player : ActionActor
         base.FixedUpdate();
         Vector3 move = Vector3.zero;
 
-        if (comboHit == 0)
+        if (comboHit == 0
+            && !IsKnockOut
+            && !Stunned
+            && Alive)
         {
             move.x = Input.GetAxis("Horizontal") * moveVelocity * Time.deltaTime;
             move.y = Input.GetAxis("Vertical") * moveVelocity * Time.deltaTime;

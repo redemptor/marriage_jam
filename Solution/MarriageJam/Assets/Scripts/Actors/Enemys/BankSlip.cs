@@ -23,9 +23,9 @@ public class BankSlip : Enemy
         animator.SetInteger(ANIM_STATE.ATTACK.ToString(), comboHit);
     }
 
-
     public override void Attack()
     {
+        if (!Alive || IsKnockOut || Stunned) { return; }
         base.Attack();
 
         comboHit++;
