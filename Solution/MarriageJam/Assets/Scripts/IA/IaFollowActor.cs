@@ -2,15 +2,15 @@
 
 public class IaFollowActor
 {
-    private Actor _following;
-    private Actor _follower;
+    private ActionActor _following;
+    private ActionActor _follower;
 
-    public IaFollowActor(Actor follower)
+    public IaFollowActor(ActionActor follower)
     {
         _follower = follower;
     }
 
-    public void SetFollow(Actor actor)
+    public void SetFollow(ActionActor actor)
     {
         _following = actor;
     }
@@ -29,13 +29,7 @@ public class IaFollowActor
         else
         {
             Vector3 direction = (_following.transform.position - _follower.transform.position).normalized;
-
-            _follower.Rigidbody2D.velocity = new Vector2(0.0001f, 0.0001f);
-            _follower.Rigidbody2D.MovePosition(
-                   _follower.transform.position
-                   + direction
-                   * ((ActionActor)_follower).moveVelocity
-                   * Time.deltaTime);
+            _follower.Rigidbody2D.velocity = direction * _follower.moveVelocity * Time.deltaTime;
         }
     }
 }

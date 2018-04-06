@@ -39,8 +39,9 @@ public class Player : ActionActor
         animator.SetInteger(ANIM_STATE.ATTACK.ToString(), comboHit);
     }
 
-    private void Attack()
+    public override void Attack()
     {
+        base.Attack();
         comboHit++;
 
         if (comboHit == 1)
