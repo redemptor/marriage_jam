@@ -60,4 +60,9 @@ public class ActionActor : Actor
         animator.SetBool(ANIM_STATE.DIE.ToString(), !Alive);
         animator.SetBool(ANIM_STATE.KNOCKOUT.ToString(), isKnockOut);
     }
+
+    public override void Die()
+    {
+        base.Die();
+    }
 }

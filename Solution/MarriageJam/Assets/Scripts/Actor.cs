@@ -135,16 +135,17 @@ public class Actor : MonoBehaviour
         _shakeSprite.FixedUpdate();
         _blinkSprite.FixedUpdate();
 
-        /* W.I.P
         if (
-            ( Decimal.Round((decimal)_lastPosition.x, 2) - Decimal.Round((decimal)transform.position.x, 2) != 0)
+            Alive
+            && !stunned
+            && !IsKnockOut
+            && (Decimal.Round((decimal)_lastPosition.x, 2) - Decimal.Round((decimal)transform.position.x, 2) != 0)
             && (_lastPosition.x - transform.position.x > 0 && facingRight
             || _lastPosition.x - transform.position.x < 0 && !facingRight))
         {
-            Debug.Log(name + ":" + Decimal.Round((decimal)_lastPosition.x,2) + " :" + transform.position.x);
             Flip();
         }
-        _lastPosition = transform.position;*/
+        _lastPosition = transform.position;
     }
 
     public virtual void Update()
@@ -154,5 +155,7 @@ public class Actor : MonoBehaviour
 
     public virtual void SetAnimation() { }
 
-    public virtual void Die() { }
+    public virtual void Die() {
+        Rigidbody2D.velocity = new Vector2(0, 0);
+    }
 }

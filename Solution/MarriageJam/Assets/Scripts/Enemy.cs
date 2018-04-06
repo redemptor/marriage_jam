@@ -5,7 +5,8 @@ public class Enemy : ActionActor
     private float KNOCKOUT_TIME = 1.0f;
 
     private KnockoutActor _knockoutActor;
-    private FollowActor _followActor;
+    private IaFollowActor _iaFollowActor;
+    private IaAttackMeleeActor _iaAttackMeleeActor;
     private float timeKnockout;
 
     public float MaxDieDistanceX = 2f;
@@ -15,7 +16,8 @@ public class Enemy : ActionActor
     {
         base.Start();
         _knockoutActor = new KnockoutActor(this);
-        _followActor = new FollowActor(this);
+      _iaFollowActor = new IaFollowActor(this);
+     //   _iaAttackMeleeActor = new IaAttackMeleeActor();
     }
 
     public override void Update()
@@ -40,7 +42,17 @@ public class Enemy : ActionActor
     public override void FixedUpdate()
     {
         base.FixedUpdate();
-        _followActor.FixedUpdate();
+        if (!IsKnockOut && !Stunned && Alive)
+        {
+            _iaFollowActor.FixedUpdate();
+           // _iaAttackMeleeActor.FixedUpdate();
+        }
+    }
+
+    public override void SetAnimation()
+    {
+        base.SetAnimation();
+        animator.SetInteger(ANIM_STATE.ATTACK.ToString(), 0);
     }
 
     public override void SetDamage(Damage damage)

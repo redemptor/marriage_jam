@@ -4,6 +4,7 @@ public class KnockoutActor
 {
     private float _maxDieDistanceX = 2f;
     private Vector3 _dieDistancePower = new Vector3(0.1f, 0f, 0);
+    private Vector3 _dieDistancePowerInversed = new Vector3(0.1f, 0f, 0);
     private Vector3 diePosition;
     private Actor _actor;
 
@@ -20,11 +21,13 @@ public class KnockoutActor
     public void KnockOut(Vector3 dieDistancePower, float maxDieDistanceX)
     {
         _dieDistancePower = dieDistancePower;
+        _dieDistancePowerInversed = new Vector3(-dieDistancePower.x, dieDistancePower.y, dieDistancePower.z);
         _maxDieDistanceX = maxDieDistanceX;
 
         _actor.Animator.speed = 0;
         diePosition = _actor.transform.position;
         if (_dieDistancePower.y > 0) { _dieDistancePower.y *= -1; }
+        if (_dieDistancePowerInversed.y > 0) { _dieDistancePowerInversed.y *= -1; }
     }
 
     public void Update()
@@ -33,12 +36,18 @@ public class KnockoutActor
         {
             Vector3 currentPosition = _actor.transform.position;
 
+            //After actor up, will follown down
             if ((Mathf.Abs(currentPosition.x) > (Mathf.Abs(diePosition.x) + _maxDieDistanceX / 2))
                 && _dieDistancePower.y < 0)
             { _dieDistancePower.y *= -1; }
+            if ((Mathf.Abs(currentPosition.x) < (Mathf.Abs(diePosition.x) - _maxDieDistanceX / 2))
+                 && _dieDistancePowerInversed.y < 0)
+            { _dieDistancePowerInversed.y *= -1; }
 
             //Verify actor is finish the knockout. When finish, play animator again
             if (Mathf.Abs(currentPosition.x) > (Mathf.Abs(diePosition.x) + _maxDieDistanceX))
+            { _actor.Animator.speed = 1; }
+            if (Mathf.Abs(currentPosition.x) < (Mathf.Abs(diePosition.x) - _maxDieDistanceX))
             { _actor.Animator.speed = 1; }
 
             if (_actor.Animator.speed == 0)
@@ -46,7 +55,7 @@ public class KnockoutActor
                 if (_actor.FacingRight)
                 { currentPosition -= _dieDistancePower; }
                 else
-                { currentPosition += _dieDistancePower; }
+                { currentPosition -= _dieDistancePowerInversed; }
 
                 _actor.transform.position = currentPosition;
             }

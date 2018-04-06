@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-public class FollowActor
+public class IaFollowActor
 {
     private Actor _following;
     private Actor _follower;
 
-    public FollowActor(Actor follower)
+    public IaFollowActor(Actor follower)
     {
         _follower = follower;
     }
