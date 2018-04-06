@@ -50,6 +50,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1887155001540354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4511360605351208}
+  - component: {fileID: 61008616585898344}
+  m_Layer: 12
+  m_Name: GroundCollision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4155325219650046
 Transform:
   m_ObjectHideFlags: 1
@@ -63,6 +79,19 @@ Transform:
   m_Father: {fileID: 4511952240354536}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4511360605351208
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1887155001540354}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4511952240354536}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4511952240354536
 Transform:
   m_ObjectHideFlags: 1
@@ -70,10 +99,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1470436839958266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.0506792, y: -0.20588258, z: 0}
+  m_LocalPosition: {x: -1.594, y: -0.556, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 4155325219650046}
+  - {fileID: 4511360605351208}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -97,6 +127,31 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!61 &61008616585898344
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1887155001540354}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.015465677, y: -0.13502565}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.32, y: 0.32}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.20695174, y: 0.04700184}
+  m_EdgeRadius: 0
 --- !u!61 &61018040418612400
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -128,7 +183,7 @@ BoxCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1470436839958266}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -226,24 +281,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d8f21e3ed9bea47a9cf2e3f06870a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakePower: 0
+  shakePower: 0.015
   facingRight: 0
   health: 30
-  Name: Gabe
   DamageNormal:
-    Name: default
-    Value: 2
+    Name: punch
+    Value: 1
     Knockout: 0
   DamageStrong:
-    Name: default
-    Value: 4
-    Knockout: 0
+    Name: uppercut
+    Value: 2
+    Knockout: 1
   CurrentDamage:
     Name: default
-    Value: 2
+    Value: 1
     Knockout: 0
   maxMoveVelocity: 0
-  moveVelocity: 40
+  moveVelocity: 50
   hitDurations:
   - 0.41
   - 0.31
@@ -281,7 +335,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 36
+  m_SortingOrder: 71
   m_Sprite: {fileID: 21300000, guid: 8c2ba15a375c8a542842241c1b4d2cd6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

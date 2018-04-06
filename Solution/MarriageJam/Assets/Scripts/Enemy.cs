@@ -16,8 +16,8 @@ public class Enemy : ActionActor
     {
         base.Start();
         _knockoutActor = new KnockoutActor(this);
-      _iaFollowActor = new IaFollowActor(this);
-     //   _iaAttackMeleeActor = new IaAttackMeleeActor();
+        _iaFollowActor = new IaFollowActor(this);
+        //   _iaAttackMeleeActor = new IaAttackMeleeActor();
     }
 
     public override void Update()
@@ -45,7 +45,7 @@ public class Enemy : ActionActor
         if (!IsKnockOut && !Stunned && Alive)
         {
             _iaFollowActor.FixedUpdate();
-           // _iaAttackMeleeActor.FixedUpdate();
+            // _iaAttackMeleeActor.FixedUpdate();
         }
     }
 
