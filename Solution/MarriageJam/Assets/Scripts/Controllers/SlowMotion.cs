@@ -11,7 +11,6 @@ public class SlowMotion : MonoBehaviour
 	
 	void Update ()
 	{
-		Debug.Log("Time Scale Value: " + Time.timeScale);
 		SlowMotionCalculate();
 
 		//Test temp slow motion

@@ -92,7 +92,8 @@ public class Actor : MonoBehaviour
         {
             health -= damage.Value;
             timeCanDamage = Time.time + 0.2f;
-            Rigidbody2D.velocity = new Vector2(0, 0);
+            if (Rigidbody2D != null)
+            { Rigidbody2D.velocity = new Vector2(0, 0); }
 
             if (Alive)
             {
@@ -155,7 +156,8 @@ public class Actor : MonoBehaviour
 
     public virtual void SetAnimation() { }
 
-    public virtual void Die() {
+    public virtual void Die()
+    {
         Rigidbody2D.velocity = new Vector2(0, 0);
     }
 }

@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 114252579357703066}
   m_Layer: 11
   m_Name: ActorApproach
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 114349712941561818}
   m_Layer: 11
   m_Name: HitAttack
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -299,6 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagTarget:
   - Player
+  TimeToAttack: 0.5
 --- !u!114 &114349712941561818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -338,6 +339,7 @@ MonoBehaviour:
     Name: default
     Value: 1
     Knockout: 0
+  waiting: 0
   maxMoveVelocity: 0
   moveVelocity: 25
   hitDurations:

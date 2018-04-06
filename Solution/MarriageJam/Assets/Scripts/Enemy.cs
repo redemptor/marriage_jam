@@ -42,12 +42,12 @@ public class Enemy : ActionActor
     {
         base.FixedUpdate();
 
-        if (Alive && attacking)
+        if (Alive && (attacking || waiting))
         {
             Rigidbody2D.velocity = new Vector2(0f, 0f);
         }
 
-        if (!IsKnockOut && !Stunned && !attacking && Alive)
+        if (!IsKnockOut && !Stunned && !attacking && !waiting && Alive)
         {
             _iaFollowActor.FixedUpdate();
         }

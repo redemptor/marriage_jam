@@ -16,8 +16,11 @@ public class Attack : MonoBehaviour
     {
         if (tagTarget.Contains(collision.tag) && collision.isTrigger)
         {
-            collision.GetComponent<Actor>().SetDamage(actor.CurrentDamage);
-            actor.SetHit(true);
+            if (collision.GetComponent<Actor>() != null)
+            {
+                collision.GetComponent<Actor>().SetDamage(actor.CurrentDamage);
+                actor.SetHit(true);
+            }
         }
     }
 }

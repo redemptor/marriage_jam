@@ -4,6 +4,8 @@ using UnityEngine;
 public class IaAttackMeleeActor : MonoBehaviour
 {
     public List<string> tagTarget;
+    public float TimeToAttack = 1;
+    private float timeToAttackTrigger = 0;
 
     private ActionActor actor;
 
@@ -16,14 +18,31 @@ public class IaAttackMeleeActor : MonoBehaviour
     {
         if (tagTarget.Contains(collision.tag) && collision.isTrigger)
         {
-            actor.Attack();
+            actor.waiting = true;
+            if (timeToAttackTrigger == 0)
+            { timeToAttackTrigger = Time.time + TimeToAttack; }
         }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (tagTarget.Contains(collision.tag) && collision.isTrigger)
+        {
+            if (Time.time > timeToAttackTrigger)
+            {
+                actor.Attack();
+                timeToAttackTrigger = Time.time + TimeToAttack;
+            }
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (tagTarget.Contains(collision.tag) && collision.isTrigger)
         {
+            timeToAttackTrigger = 0;
+            actor.waiting = false;
             actor.StopAttack();
         }
     }

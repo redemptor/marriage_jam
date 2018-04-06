@@ -5,6 +5,7 @@ public class ActionActor : Actor
     public Damage DamageNormal;
     public Damage DamageStrong;
     public Damage CurrentDamage;
+    public bool waiting;
 
     public int maxMoveVelocity;
     public int moveVelocity;
@@ -13,6 +14,7 @@ public class ActionActor : Actor
     protected float timeNextAttack;
     protected float timeNextHit;
     protected bool hit;
+
     protected int comboHit;
 
     public override void Start()
