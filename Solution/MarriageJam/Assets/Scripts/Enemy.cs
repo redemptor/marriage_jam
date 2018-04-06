@@ -3,11 +3,10 @@
 public class Enemy : ActionActor
 {
     private float KNOCKOUT_TIME = 1.0f;
-
+    private float timeKnockout;
+    private bool attacking = false;
     private KnockoutActor _knockoutActor;
     private IaFollowActor _iaFollowActor;
-    private IaAttackMeleeActor _iaAttackMeleeActor;
-    private float timeKnockout;
 
     public float MaxDieDistanceX = 2f;
     public Vector3 DieDistancePower = new Vector3(0.1f, 0f, 0);
@@ -17,7 +16,6 @@ public class Enemy : ActionActor
         base.Start();
         _knockoutActor = new KnockoutActor(this);
         _iaFollowActor = new IaFollowActor(this);
-        //   _iaAttackMeleeActor = new IaAttackMeleeActor();
     }
 
     public override void Update()
@@ -25,6 +23,7 @@ public class Enemy : ActionActor
         base.Update();
 
         _knockoutActor.Update();
+
         if (!Alive)
         {
             DieAnimation();
@@ -42,17 +41,21 @@ public class Enemy : ActionActor
     public override void FixedUpdate()
     {
         base.FixedUpdate();
-        if (!IsKnockOut && !Stunned && Alive)
+
+        if (Alive && attacking)
+        {
+            Rigidbody2D.velocity = new Vector2(0f, 0f);
+        }
+
+        if (!IsKnockOut && !Stunned && !attacking && Alive)
         {
             _iaFollowActor.FixedUpdate();
-            // _iaAttackMeleeActor.FixedUpdate();
         }
     }
 
     public override void SetAnimation()
     {
         base.SetAnimation();
-        animator.SetInteger(ANIM_STATE.ATTACK.ToString(), 0);
     }
 
     public override void SetDamage(Damage damage)
@@ -87,4 +90,17 @@ public class Enemy : ActionActor
             }
         }
     }
+
+    public override void StopAttack()
+    {
+        attacking = false;
+        base.StopAttack();
+    }
+
+    public override void Attack()
+    {
+        attacking = true;
+        base.Attack();
+    }
+
 }

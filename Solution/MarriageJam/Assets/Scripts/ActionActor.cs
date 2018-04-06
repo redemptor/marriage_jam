@@ -48,7 +48,7 @@ public class ActionActor : Actor
 
     public override void FixedUpdate()
     {
-        base.FixedUpdate();  
+        base.FixedUpdate();
     }
 
     public override void SetAnimation()
@@ -65,4 +65,7 @@ public class ActionActor : Actor
     {
         base.Die();
     }
+
+    public virtual void Attack() { }
+    public virtual void StopAttack() { }
 }
