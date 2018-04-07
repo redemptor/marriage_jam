@@ -2,6 +2,8 @@
 
 public class Player : ActionActor
 {
+    public int score = 0;
+
     public override void Update()
     {
         base.Update();
@@ -65,4 +67,6 @@ public class Player : ActionActor
         timeNextAttack = Time.time + hitDurations[comboHit - 1];
         timeNextHit = timeNextAttack;
     }
+
+
 }

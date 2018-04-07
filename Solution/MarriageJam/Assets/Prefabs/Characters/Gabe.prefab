@@ -100,7 +100,7 @@ Transform:
   m_GameObject: {fileID: 1470436839958266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.594, y: -0.556, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 4155325219650046}
   - {fileID: 4511360605351208}
@@ -306,6 +306,7 @@ MonoBehaviour:
   - 0.41
   - 0.31
   - 0.51
+  score: 0
 --- !u!212 &212647269449639622
 SpriteRenderer:
   m_ObjectHideFlags: 1
