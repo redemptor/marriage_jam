@@ -27,7 +27,6 @@ public class Actor : MonoBehaviour
     {
         get
         {
-            Debug.LogFormat("===> {0} - {1}", name, spriteRenderer.isVisible.ToString().ToUpper());
             return spriteRenderer.isVisible;
         }
     }
@@ -92,7 +91,6 @@ public class Actor : MonoBehaviour
 
     public virtual void Flip()
     {
-        Debug.Log("Flip");
         facingRight = !facingRight;
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
@@ -159,18 +157,6 @@ public class Actor : MonoBehaviour
     {
         _shakeSprite.FixedUpdate();
         _blinkSprite.FixedUpdate();
-
-        //if (
-        //    Alive
-        //    && !stunned
-        //    && !IsKnockOut
-        //    && (Decimal.Round((decimal)_lastPosition.x, 2) - Decimal.Round((decimal)transform.position.x, 2) != 0)
-        //    && (_lastPosition.x - transform.position.x > 0 && facingRight
-        //    || _lastPosition.x - transform.position.x < 0 && !facingRight))
-        //{
-        //    Flip();
-        //}
-        //_lastPosition = transform.position;
     }
 
     public virtual void Update()

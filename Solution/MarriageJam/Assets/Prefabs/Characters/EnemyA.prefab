@@ -299,7 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tagTarget:
   - Player
-  TimeToAttack: 0.5
+  TimeToAttack: 0.1
 --- !u!114 &114349712941561818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -349,8 +349,8 @@ MonoBehaviour:
   - 0.41
   - 0.31
   - 0.51
-  MaxDieDistanceX: 0.5
-  DieDistancePower: {x: 0.1, y: 0.05, z: 0}
+  MaxDieDistanceX: 0.4
+  DieDistancePower: {x: 0.02, y: 0.01, z: 0}
 --- !u!212 &212873305906010562
 SpriteRenderer:
   m_ObjectHideFlags: 1

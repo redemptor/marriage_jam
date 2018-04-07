@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class ActionActor : Actor
@@ -8,7 +7,9 @@ public class ActionActor : Actor
     public Damage DamageStrong;
     public Damage CurrentDamage;
     public bool waiting;
-
+    public int ComboHit {
+        get { return comboHit; }
+    }
     public int maxMoveVelocity;
     public int moveVelocity;
     public float[] hitDurations;
@@ -78,6 +79,7 @@ public class ActionActor : Actor
     public override void Die()
     {
         base.Die();
+        comboHit = 0;
     }
 
     public virtual void Attack() { }

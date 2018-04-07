@@ -5,6 +5,7 @@ public class IaAttackMeleeActor : MonoBehaviour
 {
     public List<string> tagTarget;
     public float TimeToAttack = 1;
+    public float TimeWaitingAfterCombo = 1;
     private float timeToAttackTrigger = 0;
 
     private ActionActor actor;
@@ -32,6 +33,13 @@ public class IaAttackMeleeActor : MonoBehaviour
             {
                 actor.Attack();
                 timeToAttackTrigger = Time.time + TimeToAttack;
+
+                if (actor.hitDurations.Length > 0 && actor.ComboHit > 0)
+                {
+                    timeToAttackTrigger += actor.hitDurations[actor.ComboHit - 1];
+                    if (actor.hitDurations.Length == actor.ComboHit)
+                    { timeToAttackTrigger += TimeWaitingAfterCombo; }
+                }
             }
         }
 

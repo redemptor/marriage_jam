@@ -2,7 +2,7 @@
 
 public class IaFollowActor
 {
-    private float MAX_TIME_RANDOM_MOVE = 3;
+    private float MAX_TIME_RANDOM_MOVE = 4;
 
     private ActionActor _following;
     private ActionActor _follower;
@@ -44,9 +44,14 @@ public class IaFollowActor
 
             if (randomMove)
             {
+                int randomX = Random.Range(0, 3);
+                if (randomX == 2) { randomX = -1; }
+                int randomY = Random.Range(0, 3);
+                if (randomY == 2) { randomY = -1; }
+
                 Vector3 direction = new Vector3(
-                     Random.Range(-0.6f, 0.6f),
-                     Random.Range(-0.6f, 0.6f),
+                     randomX,
+                     randomY,
                      0);
                 _follower.Rigidbody2D.velocity = direction * _follower.moveVelocity * Time.deltaTime;
 
