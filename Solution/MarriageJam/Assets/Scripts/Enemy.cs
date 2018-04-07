@@ -8,7 +8,7 @@ public class Enemy : ActionActor
     private KnockoutActor _knockoutActor;
     private IaFollowActor _iaFollowActor;
 
-    public float MaxDieDistanceX = 2f;
+    public float MaxDieDistanceX = 0.5f;
     public Vector3 DieDistancePower = new Vector3(0.1f, 0f, 0);
 
     public override void Start()

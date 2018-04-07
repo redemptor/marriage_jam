@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4645167420369098}
   - component: {fileID: 61405427003208326}
-  m_Layer: 12
+  m_Layer: 9
   m_Name: GroundCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1243939742687024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.559, y: -0.529, z: 0}
+  m_LocalPosition: {x: -0.5140463, y: -0.6146216, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4191183381379322}
@@ -144,7 +144,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1243939742687024}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -331,14 +331,17 @@ MonoBehaviour:
     Name: punch
     Value: 1
     Knockout: 0
+    AttackFromRight: 0
   DamageStrong:
     Name: uppercut
     Value: 2
     Knockout: 1
+    AttackFromRight: 0
   CurrentDamage:
     Name: default
     Value: 1
     Knockout: 0
+    AttackFromRight: 0
   waiting: 0
   maxMoveVelocity: 0
   moveVelocity: 25
@@ -346,7 +349,7 @@ MonoBehaviour:
   - 0.41
   - 0.31
   - 0.51
-  MaxDieDistanceX: 2
+  MaxDieDistanceX: 0.5
   DieDistancePower: {x: 0.1, y: 0.05, z: 0}
 --- !u!212 &212873305906010562
 SpriteRenderer:
@@ -381,7 +384,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1283148393
   m_SortingLayer: 0
-  m_SortingOrder: 68
+  m_SortingOrder: 77
   m_Sprite: {fileID: 21300000, guid: 8c2ba15a375c8a542842241c1b4d2cd6, type: 3}
   m_Color: {r: 0.86206913, g: 0, b: 1, a: 1}
   m_FlipX: 0

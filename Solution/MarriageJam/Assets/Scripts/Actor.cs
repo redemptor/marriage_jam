@@ -23,11 +23,12 @@ public class Actor : MonoBehaviour
     public float shakePower;
     public bool IsKnockOut { get { return isKnockOut; } }
     public bool facingRight = true;
-    public bool IsVisible {
-        get {
-            //TODO : este código não esta funcionando, nem o OnBecameVisible;
-            return true;
-          //  return sprite.IsVisible;
+    public bool IsVisible
+    {
+        get
+        {
+            Debug.LogFormat("===> {0} - {1}", name, spriteRenderer.isVisible.ToString().ToUpper());
+            return spriteRenderer.isVisible;
         }
     }
 
@@ -91,6 +92,7 @@ public class Actor : MonoBehaviour
 
     public virtual void Flip()
     {
+        Debug.Log("Flip");
         facingRight = !facingRight;
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }

@@ -288,14 +288,18 @@ MonoBehaviour:
     Name: punch
     Value: 1
     Knockout: 0
+    AttackFromRight: 0
   DamageStrong:
     Name: uppercut
     Value: 2
     Knockout: 1
+    AttackFromRight: 0
   CurrentDamage:
     Name: default
     Value: 1
     Knockout: 0
+    AttackFromRight: 0
+  waiting: 0
   maxMoveVelocity: 0
   moveVelocity: 50
   hitDurations:
