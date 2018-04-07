@@ -5,10 +5,10 @@ public class Actor : MonoBehaviour
 {
     protected enum ANIM_STATE { IDLE, WALK, ATTACK, HIT, DIE, KNOCKOUT }
 
-    private bool stunned = false;
-    private ShakeSprite _shakeSprite;
-    private BlinkSprite _blinkSprite;
-    private Vector3 _lastPosition;
+    protected bool stunned = false;
+    protected ShakeSprite _shakeSprite;
+    protected BlinkSprite _blinkSprite;
+    protected Vector3 _lastPosition;
 
     protected AudioSource audioSource;
     protected SpriteRenderer spriteRenderer;
@@ -107,9 +107,13 @@ public class Actor : MonoBehaviour
             if (!sprite.isStatic)
             {
                 if (FacingRight && !damage.AttackFromRight)
-                { Flip(); }
+                {
+                    Flip();
+                }
                 else if (!FacingRight && damage.AttackFromRight)
-                { Flip(); }
+                {
+                    Flip();
+                }
             }
 
             if (Rigidbody2D != null)
@@ -156,17 +160,17 @@ public class Actor : MonoBehaviour
         _shakeSprite.FixedUpdate();
         _blinkSprite.FixedUpdate();
 
-        if (
-            Alive
-            && !stunned
-            && !IsKnockOut
-            && (Decimal.Round((decimal)_lastPosition.x, 2) - Decimal.Round((decimal)transform.position.x, 2) != 0)
-            && (_lastPosition.x - transform.position.x > 0 && facingRight
-            || _lastPosition.x - transform.position.x < 0 && !facingRight))
-        {
-            Flip();
-        }
-        _lastPosition = transform.position;
+        //if (
+        //    Alive
+        //    && !stunned
+        //    && !IsKnockOut
+        //    && (Decimal.Round((decimal)_lastPosition.x, 2) - Decimal.Round((decimal)transform.position.x, 2) != 0)
+        //    && (_lastPosition.x - transform.position.x > 0 && facingRight
+        //    || _lastPosition.x - transform.position.x < 0 && !facingRight))
+        //{
+        //    Flip();
+        //}
+        //_lastPosition = transform.position;
     }
 
     public virtual void Update()

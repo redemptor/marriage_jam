@@ -1,5 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class ActionActor : Actor
 {
     public Damage DamageNormal;
@@ -51,6 +53,16 @@ public class ActionActor : Actor
     public override void FixedUpdate()
     {
         base.FixedUpdate();
+
+        if (
+            Alive
+            && !Stunned
+            && !IsKnockOut
+            && (rigidbody2D.velocity.x < 0 && facingRight
+            || rigidbody2D.velocity.x > 0 && !facingRight))
+        {
+            Flip();
+        }
     }
 
     public override void SetAnimation()
