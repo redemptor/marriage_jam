@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy:
-  - {fileID: 1926023579047814, guid: e94a77dcb4e5d6c4d9e57a76f02da2e0, type: 2}
+  - {fileID: 1243939742687024, guid: 667e441acd4d46748b368669ca88900c, type: 2}
   spawnerPoints:
   - {fileID: 0}
   - {fileID: 0}
