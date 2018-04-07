@@ -70,4 +70,11 @@ public class ActionActor : Actor
 
     public virtual void Attack() { }
     public virtual void StopAttack() { }
+
+    public override void Flip()
+    {
+        base.Flip();
+        DamageNormal.AttackFromRight = !facingRight;
+        DamageStrong.AttackFromRight = !facingRight;
+    }
 }

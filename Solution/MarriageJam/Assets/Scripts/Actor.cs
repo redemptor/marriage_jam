@@ -23,6 +23,14 @@ public class Actor : MonoBehaviour
     public float shakePower;
     public bool IsKnockOut { get { return isKnockOut; } }
     public bool facingRight = true;
+    public bool IsVisible {
+        get {
+            //TODO : este código não esta funcionando, nem o OnBecameVisible;
+            return true;
+          //  return sprite.IsVisible;
+        }
+    }
+
     public Animator Animator
     {
         get { return animator; }
@@ -71,11 +79,6 @@ public class Actor : MonoBehaviour
         _lastPosition = transform.position;
     }
 
-    public void Flip()
-    {
-        facingRight = !facingRight;
-        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-    }
 
     public void PlaySounfFX(AudioClip audioClip)
     {
@@ -86,12 +89,27 @@ public class Actor : MonoBehaviour
         }
     }
 
+    public virtual void Flip()
+    {
+        facingRight = !facingRight;
+        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+    }
+
     public virtual void SetDamage(Damage damage)
     {
         if (Time.time > timeCanDamage)
         {
             health -= damage.Value;
             timeCanDamage = Time.time + 0.2f;
+
+            if (!sprite.isStatic)
+            {
+                if (FacingRight && !damage.AttackFromRight)
+                { Flip(); }
+                else if (!FacingRight && damage.AttackFromRight)
+                { Flip(); }
+            }
+
             if (Rigidbody2D != null)
             { Rigidbody2D.velocity = new Vector2(0, 0); }
 

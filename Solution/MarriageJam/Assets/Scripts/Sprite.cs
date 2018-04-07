@@ -6,10 +6,15 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class Sprite : MonoBehaviour
 {
-    public bool isStatic;
-
     private SpriteRenderer spriteRenderer;
     private new List<Collider2D> collider2D;
+
+    public bool isStatic;
+    public bool IsVisible
+    {
+        get
+        { return spriteRenderer.isVisible; }
+    }
 
     void Start()
     {
@@ -34,4 +39,6 @@ public class Sprite : MonoBehaviour
 
         spriteRenderer.sortingOrder = (int)(reference.y * -100);
     }
+
+
 }

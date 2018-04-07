@@ -6,4 +6,5 @@ public class Damage  {
     public string Name = "default";
     public float Value = 1;
     public bool Knockout = false;
+    public bool AttackFromRight = false;
 }

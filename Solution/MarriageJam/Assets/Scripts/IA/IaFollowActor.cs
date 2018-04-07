@@ -16,6 +16,11 @@ public class IaFollowActor
 
     public void DoRandomMove()
     {
+        if (!_follower.IsVisible)
+        {
+            randomMove = false;
+        }
+
         if (timeRandomMove == 0)
         {
             timeRandomMove = Time.time + MAX_TIME_RANDOM_MOVE;
