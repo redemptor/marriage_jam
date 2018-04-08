@@ -105,8 +105,8 @@ TextureImporter:
       name: coin_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 21
+        x: 8
+        y: 8
         width: 16
         height: 16
       alignment: 7

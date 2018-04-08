@@ -105,10 +105,10 @@ TextureImporter:
       name: gift_0
       rect:
         serializedVersion: 2
-        x: 20
-        y: 20
-        width: 19
-        height: 19
+        x: 7
+        y: 7
+        width: 20
+        height: 20
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

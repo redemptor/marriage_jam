@@ -105,10 +105,10 @@ TextureImporter:
       name: flower_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 16
-        width: 19
-        height: 25
+        x: 8
+        y: 2
+        width: 20
+        height: 27
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
