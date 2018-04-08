@@ -13,11 +13,11 @@ public class SpawnerEnimy : MonoBehaviour
     public int numberOfEnimy;
 
     private int _currentEnimy;
-    private Camera _camera;
+    private FollowCamera _camera;
 
     void Start()
     {
-        _camera = (Camera)FindObjectOfType(typeof(Camera));
+        _camera = (FollowCamera)FindObjectOfType(typeof(FollowCamera));
     }
 
     void Update()

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class FollowCamera : MonoBehaviour
 {
     public Transform target;
     [Range(0f, 2f)]
