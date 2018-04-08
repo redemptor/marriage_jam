@@ -33,3 +33,7 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+/Solution/MarriageJam/.vs/MarriageJam/v15/Server/sqlite3/db.lock
+/Solution/MarriageJam/.vs/MarriageJam/v15/Server/sqlite3/storage.ide
+/Solution/MarriageJam/.vs/MarriageJam/v15/Server/sqlite3/storage.ide-shm
+/Solution/MarriageJam/.vs/MarriageJam/v15/Server/sqlite3/storage.ide-wal
