@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-    public Transform target;
+    const float offset = 0;
+
+    public Transform[] targets;
     [Range(0f, 2f)]
     public float smothTime = 0.5f;
     [Header("Camera Limit")]
-    public Vector3 minCameraPos = new Vector3 (-7.95f, 0f, -10f);
-    public Vector3 maxCameraPos = new Vector3 (14.35f, 0f, -10f);
+    public Vector3 minCameraPos = new Vector3(-7.95f, 0f, -10f);
+    public Vector3 maxCameraPos = new Vector3(14.35f, 0f, -10f);
     [HideInInspector]
     public bool camFollow = true;
 
@@ -23,9 +26,18 @@ public class FollowCamera : MonoBehaviour
 
     private void CameraFollow(bool active)
     {
-        if(active)
+        if (active)
         {
-            var posX = Mathf.SmoothDamp(transform.position.x + 0.02f, target.position.x, ref velocity.x, smothTime);
+            var center = Vector2.zero;
+
+            foreach (var target in targets)
+            {
+                center += (Vector2)target.transform.position;
+            }
+
+            center /= targets.Length;
+
+            var posX = Mathf.SmoothDamp(transform.position.x + offset, center.x, ref velocity.x, smothTime);
             var posY = transform.position.y;
             //Mathf.SmoothDamp(transform.position.y, target.position.y, ref velocity.y, smothTime);
 
@@ -35,7 +47,7 @@ public class FollowCamera : MonoBehaviour
 
     private void LimitCamera()
     {
-        transform.position = new Vector3 
+        transform.position = new Vector3
         (
             Mathf.Clamp(transform.position.x, minCameraPos.x, maxCameraPos.x),
             Mathf.Clamp(transform.position.y, minCameraPos.y, maxCameraPos.y),

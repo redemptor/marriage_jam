@@ -6,14 +6,11 @@ public class Collectable : MonoBehaviour
     public AnimationCurve curve;
 
     private Vector3 currentPosition;
-    private new Collider2D collider;
     private SpriteRenderer item;
     private SpriteRenderer shadow;
 
     private void Start()
     {
-        collider = GetComponent<Collider2D>();
-
         var sprites = GetComponentsInChildren<SpriteRenderer>();
         item = sprites.FirstOrDefault(x => x.name.Equals("Item"));
         shadow = sprites.FirstOrDefault(x => x.name.Equals("Shadow"));
@@ -41,7 +38,5 @@ public class Collectable : MonoBehaviour
 
         var shadowScale = 1 - curve.Evaluate(Time.time) * 4f;
         shadow.transform.localScale = new Vector3(shadowScale, shadowScale, shadow.transform.localScale.z);
-
-        //collider.offset = new Vector2(0f, -curve.Evaluate(Time.time));
     }
 }
