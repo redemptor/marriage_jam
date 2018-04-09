@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-    const float offset = 0;
+     const float offset = 0;
 
     public Transform[] targets;
     [Range(0f, 2f)]
@@ -17,6 +17,11 @@ public class FollowCamera : MonoBehaviour
     public bool camFollow = true;
 
     private Vector2 velocity;
+
+    private void Start()
+    {
+        //Screen.SetResolution(320, 180, true);
+    }
 
     private void FixedUpdate()
     {

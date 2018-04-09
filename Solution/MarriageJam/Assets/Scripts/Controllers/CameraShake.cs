@@ -33,7 +33,8 @@ public class CameraShake : MonoBehaviour
 		{
 			if(durantion > 0)
 			{
-				Handheld.Vibrate();
+                //TODO: [raphael] tratar, deixar condicional
+				//Handheld.Vibrate();
 				_mainCamera.localPosition = _startPosition + Random.insideUnitSphere * power;
 				durantion -= Time.deltaTime * slowDownAmount;
 			}

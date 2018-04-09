@@ -94,7 +94,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players:
   - {fileID: 0}
-  - {fileID: 0}
   speed: 50
   busStop: {fileID: 0}
   timeStop: 2

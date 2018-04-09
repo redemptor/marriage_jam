@@ -45,11 +45,11 @@ TagManager:
   - name: Sky
     uniqueID: 2515317185
     locked: 0
-  - name: Cloud
-    uniqueID: 2631716557
-    locked: 0
   - name: Background 1
     uniqueID: 1480943487
+    locked: 0
+  - name: Cloud
+    uniqueID: 2631716557
     locked: 0
   - name: Background 2
     uniqueID: 2213090569
