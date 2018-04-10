@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4645167420369098}
-  - component: {fileID: 61405427003208326}
+  - component: {fileID: 70634307352870642}
   m_Layer: 16
   m_Name: GroundCollision
   m_TagString: Untagged
@@ -182,31 +182,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.08958852, y: 0.07444754}
   m_EdgeRadius: 0
---- !u!61 &61405427003208326
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1475368304418638}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.01546568, y: -0.1350257}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.2069517, y: 0.04700184}
-  m_EdgeRadius: 0
 --- !u!61 &61545865813527986
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -257,6 +232,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.08958852, y: 0.07444754}
   m_EdgeRadius: 0
+--- !u!70 &70634307352870642
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1475368304418638}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.014902823, y: -0.1378373}
+  m_Size: {x: 0.2077591, y: 0.0432691}
+  m_Direction: 1
 --- !u!95 &95599080908722556
 Animator:
   serializedVersion: 3

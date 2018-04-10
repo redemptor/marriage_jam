@@ -47,6 +47,7 @@ public class Bus : MonoBehaviour
             }
 
             gameCamera.targets = GameManager.instance.players.Select(x => x.transform).ToArray();
+            SoundManager.instance.PlayMusicLevel1();
         }
 
         if (transform.position.x < busStop.position.x || timeStop <= 0)
