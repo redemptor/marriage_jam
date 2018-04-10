@@ -280,17 +280,17 @@ MonoBehaviour:
   NameActorSprite: {fileID: 21300034, guid: 9be44dd53dc08a046a4c3b72b4d37771, type: 3}
   DamageNormal:
     Name: punch
-    Value: 1
+    Value: 10
     Knockout: 0
     AttackFromRight: 0
   DamageStrong:
     Name: uppercut
-    Value: 1
+    Value: 20
     Knockout: 1
     AttackFromRight: 0
   CurrentDamage:
     Name: punch
-    Value: 1
+    Value: 10
     Knockout: 0
     AttackFromRight: 0
   waiting: 0

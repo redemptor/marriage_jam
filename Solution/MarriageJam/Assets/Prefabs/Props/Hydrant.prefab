@@ -91,10 +91,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a357e09d07a84e49a89a31068ff8f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakePower: 0.015
+  shakePower: 0.007
   facingRight: 1
-  health: 6
-  DropItens: []
+  health: 60
+  DropItens:
+  - {fileID: 1914864913972482, guid: 484806ff554ab18479dd4df6d9b657aa, type: 2}
+  - {fileID: 1715686517791732, guid: 77a199c9dae4eba4cad1bc5aa05914f7, type: 2}
+  - {fileID: 1749195919444444, guid: 8bc77700cd12400488ac67273991afbd, type: 2}
 --- !u!212 &212205533528367534
 SpriteRenderer:
   m_ObjectHideFlags: 1
