@@ -5,11 +5,14 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
+
     public AudioSource musicSource;
+    public AudioSource sfxSource;
 
     public AudioClip musicEnvironment1;
     public AudioClip musicMenu;
     public AudioClip musicLevel1;
+    public AudioClip sfxGO;
 
     private void Awake()
     {
@@ -51,9 +54,18 @@ public class SoundManager : MonoBehaviour
         PlayMusic(musicMenu);
     }
 
-    public void PlaySoundFX(AudioSource audioSource, AudioClip audioClip)
+    public void PlaySfxGO()
     {
-        audioSource.clip = audioClip;
-        audioSource.Play();
+        PlaySoundFX(sfxGO);
+    }
+
+
+    public void PlaySoundFX(AudioClip audioClip)
+    {
+        if (sfxSource != null && audioClip != null)
+        {
+            sfxSource.clip = audioClip;
+            sfxSource.Play();
+        }
     }
 }
