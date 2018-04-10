@@ -34,6 +34,8 @@ public class SpawnerEnimy : MonoBehaviour
             {
                 _camera.camFollow = true;
                 //FindObjectOfType<LimitPlayerCam>().LimitCamActive(false);
+                FindObjectOfType<GoOnIndication>().TurnOnSignaling();
+                Destroy(this.gameObject);
             }
         }
     }
