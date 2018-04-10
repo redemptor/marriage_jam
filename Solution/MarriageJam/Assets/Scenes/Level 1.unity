@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goImage: {fileID: 1230678242}
-  blinkCycle: 6
+  blinkCycle: 3
   blinkDelay: 0.3
 --- !u!1001 &10813834
 Prefab:
