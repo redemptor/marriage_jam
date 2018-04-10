@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 20777321299376886}
   - component: {fileID: 124910100751573824}
   - component: {fileID: 81153122964967338}
-  - component: {fileID: 114710952165316748}
   - component: {fileID: 61750138411394714}
+  - component: {fileID: 114710952165316748}
   - component: {fileID: 114870117646406638}
   m_Layer: 0
   m_Name: Main Camera
@@ -140,14 +140,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f88f1386dd63147198d003daff00d37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenResolution: {x: 682, y: 383}
-  internalResolution: {x: 321, y: 180}
-  upscaledResolution: {x: 963, y: 540}
+  screenResolution: {x: 977, y: 535}
+  internalResolution: {x: 329, y: 180}
+  upscaledResolution: {x: 987, y: 540}
   smooth: 0
   forceSquarePixels: 1
   pixels: {x: 320, y: 180}
   pixelsPerUnit: 100
-  finalBlitStretch: {x: 0.99851155, y: 1}
+  finalBlitStretch: {x: 0.9991194, y: 1}
   mainCamera: {fileID: 20777321299376886}
   mainCanvas: {fileID: 0}
 --- !u!124 &124910100751573824

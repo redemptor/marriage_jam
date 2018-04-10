@@ -14,7 +14,7 @@ public class Actor : MonoBehaviour
     protected SpriteRenderer spriteRenderer;
     protected new Rigidbody2D rigidbody2D;
     protected Animator animator;
-    protected Sprite sprite;
+    protected CustomSprite sprite;
     protected float timeCanDamage;
     protected float timeStunned;
     protected bool isKnockOut = false;
@@ -53,7 +53,9 @@ public class Actor : MonoBehaviour
     {
         get { return health > 0; }
     }
-    public float health;
+
+    public int health;
+    public int maxHealth { get; private set; }
 
     public bool Stunned
     {
@@ -66,17 +68,23 @@ public class Actor : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        maxHealth = health;
+    }
+
     public virtual void Start()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
-        sprite = gameObject.GetComponent<Sprite>();
+        sprite = gameObject.GetComponent<CustomSprite>();
 
         _shakeSprite = new ShakeSprite(spriteRenderer);
         _blinkSprite = new BlinkSprite(spriteRenderer);
         _lastPosition = transform.position;
+
     }
 
 

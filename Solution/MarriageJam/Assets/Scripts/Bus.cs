@@ -5,7 +5,6 @@ using UnityEngine;
 public class Bus : MonoBehaviour
 {
     const float offset = 0.1f;
-    public Player[] players;
 
     public float speed = 20f;
     public Transform busStop;
@@ -22,23 +21,30 @@ public class Bus : MonoBehaviour
         gameCamera = (FollowCamera)FindObjectOfType(typeof(FollowCamera));
         gameCamera.targets = new[] { transform };
 
-        foreach (var player in players)
+        foreach (var player in GameManager.instance.players)
         {
-            player.gameObject.SetActive(false);
+            if (player != null)
+            {
+                player.gameObject.SetActive(false);
+            }
         }
     }
 
     private void FixedUpdate()
     {
-        if (timeStop <= 0 && !players[0].isActiveAndEnabled)
+        if (timeStop <= 0 && !GameManager.instance.players[0].isActiveAndEnabled)
         {
-            for (int i = 0; i < players.Length; i++)
+            for (int i = 0; i < GameManager.instance.players.Length; i++)
             {
-                players[i].transform.position = new Vector2(busStop.position.x - offset + (i * offset * 2), busStop.position.y);
-                players[i].gameObject.SetActive(true);
+                if (GameManager.instance.players[i] != null)
+                {
+                    GameManager.instance.players[i].transform.position = new Vector2(busStop.position.x - offset + (i * offset * 2), busStop.position.y);
+                    GameManager.instance.players[i].gameObject.SetActive(true);
+                    GameManager.instance.huds[i].SetPlayer(GameManager.instance.players[i]);
+                }
             }
 
-            gameCamera.targets = players.Select(x => x.transform).ToArray();
+            gameCamera.targets = GameManager.instance.players.Select(x => x.transform).ToArray();
         }
 
         if (transform.position.x < busStop.position.x || timeStop <= 0)

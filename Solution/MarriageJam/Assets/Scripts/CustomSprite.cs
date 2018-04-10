@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
 [ExecuteInEditMode]
-public class Sprite : MonoBehaviour
+public class CustomSprite : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
     private new List<Collider2D> collider2D;

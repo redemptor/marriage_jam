@@ -92,8 +92,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 531f67896ed0d484fb4909db0689af9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players:
-  - {fileID: 0}
   speed: 50
   busStop: {fileID: 0}
   timeStop: 2

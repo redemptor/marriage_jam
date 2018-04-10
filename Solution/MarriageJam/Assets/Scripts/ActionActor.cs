@@ -3,11 +3,16 @@
 [RequireComponent(typeof(Rigidbody2D))]
 public class ActionActor : Actor
 {
+    public Sprite NormalAvatar;
+    public Sprite HittedAvatar;
+    public Sprite NameActorSprite;
+
     public Damage DamageNormal;
     public Damage DamageStrong;
     public Damage CurrentDamage;
     public bool waiting;
-    public int ComboHit {
+    public int ComboHit
+    {
         get { return comboHit; }
     }
     public int maxMoveVelocity;
