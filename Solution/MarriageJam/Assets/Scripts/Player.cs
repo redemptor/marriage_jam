@@ -2,12 +2,25 @@
 
 public class Player : ActionActor
 {
+    private KnockoutActor _knockoutActor;
+    private float KNOCKOUT_TIME = 1.0f;
+    private float timeKnockout;
+
     public int score = 0;
+
+    public float MaxDieDistanceX = 0.5f;
+    public Vector3 DieDistancePower = new Vector3(0.1f, 0f, 0);
+
+    public override void Start()
+    {
+        base.Start();
+        _knockoutActor = new KnockoutActor(this);
+    }
 
     public override void Update()
     {
         base.Update();
-        SetAnimation();
+        _knockoutActor.Update();
 
         if (Time.time > timeNextHit)
         {
@@ -18,6 +31,30 @@ public class Player : ActionActor
         if (Input.GetButtonDown(GlobalFields.BUTTONS.Attack.ToString()) && Time.time > timeNextAttack)
         {
             Attack();
+        }
+
+        if (isKnockOut && !_knockoutActor.DoKnockOut)
+        {
+            if (timeKnockout == 0)
+            { timeKnockout = Time.time + KNOCKOUT_TIME; }
+
+            if (Time.time > timeKnockout)
+            { isKnockOut = false; }
+        }
+    }
+
+    public override void SetDamage(Damage damage)
+    {
+        if (damage.Knockout)
+        {
+            isKnockOut = true;
+            timeKnockout = 0;
+            _knockoutActor.KnockOut(DieDistancePower, MaxDieDistanceX);
+        }
+
+        if (!_knockoutActor.DoKnockOut)
+        {
+            base.SetDamage(damage);
         }
     }
 

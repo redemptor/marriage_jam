@@ -50,6 +50,11 @@ public class ActionActor : Actor
     {
         base.Update();
 
+        if (waiting)
+        {
+            Rigidbody2D.velocity = new Vector2(0, 0);
+        }
+
         if (Stunned && Time.time > timeStunned)
         {
             Stunned = false;

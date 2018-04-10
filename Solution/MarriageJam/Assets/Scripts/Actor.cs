@@ -8,7 +8,6 @@ public class Actor : MonoBehaviour
     protected bool stunned = false;
     protected ShakeSprite _shakeSprite;
     protected BlinkSprite _blinkSprite;
-    protected Vector3 _lastPosition;
 
     protected AudioSource audioSource;
     protected SpriteRenderer spriteRenderer;
@@ -83,12 +82,10 @@ public class Actor : MonoBehaviour
 
         _shakeSprite = new ShakeSprite(spriteRenderer);
         _blinkSprite = new BlinkSprite(spriteRenderer);
-        _lastPosition = transform.position;
-
     }
 
 
-    public void PlaySounfFX(AudioClip audioClip)
+    public void PlaySoundEFX(AudioClip audioClip)
     {
         if (audioSource != null)
         {
