@@ -302,6 +302,12 @@ Prefab:
       propertyPath: spawnDelay
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114064820694399776, guid: 7e23af1c90870cc4492e7b8ccbe6a9e3,
+        type: 2}
+      propertyPath: enemy.Array.data[0]
+      value: 
+      objectReference: {fileID: 1243939742687024, guid: d83d570036615b24c8f6be88000a6c79,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e23af1c90870cc4492e7b8ccbe6a9e3, type: 2}
   m_IsPrefabParent: 0
@@ -638,6 +644,12 @@ Prefab:
       propertyPath: spawnDelay
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114064820694399776, guid: 7e23af1c90870cc4492e7b8ccbe6a9e3,
+        type: 2}
+      propertyPath: enemy.Array.data[0]
+      value: 
+      objectReference: {fileID: 1243939742687024, guid: d83d570036615b24c8f6be88000a6c79,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e23af1c90870cc4492e7b8ccbe6a9e3, type: 2}
   m_IsPrefabParent: 0
@@ -4744,6 +4756,12 @@ Prefab:
       propertyPath: spawnDelay
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114064820694399776, guid: 7e23af1c90870cc4492e7b8ccbe6a9e3,
+        type: 2}
+      propertyPath: enemy.Array.data[0]
+      value: 
+      objectReference: {fileID: 1243939742687024, guid: d83d570036615b24c8f6be88000a6c79,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e23af1c90870cc4492e7b8ccbe6a9e3, type: 2}
   m_IsPrefabParent: 0
@@ -7603,6 +7621,12 @@ Prefab:
       propertyPath: spawnDelay
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114064820694399776, guid: 7e23af1c90870cc4492e7b8ccbe6a9e3,
+        type: 2}
+      propertyPath: enemy.Array.data[0]
+      value: 
+      objectReference: {fileID: 1243939742687024, guid: d83d570036615b24c8f6be88000a6c79,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e23af1c90870cc4492e7b8ccbe6a9e3, type: 2}
   m_IsPrefabParent: 0
@@ -8276,6 +8300,12 @@ Prefab:
       propertyPath: spawnDelay
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114064820694399776, guid: 7e23af1c90870cc4492e7b8ccbe6a9e3,
+        type: 2}
+      propertyPath: enemy.Array.data[0]
+      value: 
+      objectReference: {fileID: 1243939742687024, guid: d83d570036615b24c8f6be88000a6c79,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e23af1c90870cc4492e7b8ccbe6a9e3, type: 2}
   m_IsPrefabParent: 0
@@ -8974,6 +9004,12 @@ Prefab:
       propertyPath: spawnDelay
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114064820694399776, guid: 7e23af1c90870cc4492e7b8ccbe6a9e3,
+        type: 2}
+      propertyPath: enemy.Array.data[0]
+      value: 
+      objectReference: {fileID: 1243939742687024, guid: d83d570036615b24c8f6be88000a6c79,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7e23af1c90870cc4492e7b8ccbe6a9e3, type: 2}
   m_IsPrefabParent: 0

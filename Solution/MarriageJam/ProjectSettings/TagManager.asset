@@ -8,6 +8,7 @@ TagManager:
   - DestroyableItem
   - Ground
   - Collectable
+  - Bullet
   layers:
   - Default
   - TransparentFX

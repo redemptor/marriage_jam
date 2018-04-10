@@ -13,8 +13,6 @@ public class PlayerItemCollector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.tag);
-
         if (collision.CompareTag("Collectable"))
         {
             var itemHealth = collision.GetComponent<CollectableHealth>();

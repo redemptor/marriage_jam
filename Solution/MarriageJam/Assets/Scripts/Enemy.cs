@@ -4,10 +4,10 @@ public class Enemy : ActionActor
 {
     private float KNOCKOUT_TIME = 1.0f;
     private float timeKnockout;
-    private bool attacking = false;
     private KnockoutActor _knockoutActor;
-    private IaFollowActor _iaFollowActor;
 
+    protected bool attacking = false;
+    
     public float MaxDieDistanceX = 0.5f;
     public Vector3 DieDistancePower = new Vector3(0.1f, 0f, 0);
 
@@ -15,7 +15,6 @@ public class Enemy : ActionActor
     {
         base.Start();
         _knockoutActor = new KnockoutActor(this);
-        _iaFollowActor = new IaFollowActor(this);
     }
 
     public override void Update()
@@ -46,16 +45,6 @@ public class Enemy : ActionActor
         {
             Rigidbody2D.velocity = new Vector2(0f, 0f);
         }
-
-        if (!IsKnockOut && !Stunned && !attacking && !waiting && Alive)
-        {
-            _iaFollowActor.FixedUpdate();
-        }
-    }
-
-    public override void SetAnimation()
-    {
-        base.SetAnimation();
     }
 
     public override void SetDamage(Damage damage)
@@ -102,5 +91,4 @@ public class Enemy : ActionActor
         attacking = true;
         base.Attack();
     }
-
 }

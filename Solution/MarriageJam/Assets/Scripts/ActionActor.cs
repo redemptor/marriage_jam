@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(AudioSource))]
 public class ActionActor : Actor
 {
     public Sprite NormalAvatar;
@@ -49,6 +50,11 @@ public class ActionActor : Actor
     public override void Update()
     {
         base.Update();
+
+        if (waiting)
+        {
+            Rigidbody2D.velocity = new Vector2(0, 0);
+        }
 
         if (Stunned && Time.time > timeStunned)
         {

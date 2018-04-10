@@ -37,25 +37,32 @@ public class KnockoutActor
             Vector3 currentPosition = _actor.transform.position;
 
             //After actor up, will follown down
-            if ((Mathf.Abs(currentPosition.x) > (Mathf.Abs(diePosition.x) + _maxDieDistanceX / 2))
+            if (_actor.FacingRight)
+            {
+                if ((Mathf.Abs(currentPosition.x) > (Mathf.Abs(diePosition.x) + _maxDieDistanceX / 2))
                 && _dieDistancePower.y < 0)
-            {
-                _dieDistancePower.y *= -1;
+                {
+                    _dieDistancePower.y *= -1;
+                }
             }
-            if ((Mathf.Abs(currentPosition.x) < (Mathf.Abs(diePosition.x) - _maxDieDistanceX / 2))
-                 && _dieDistancePowerInversed.y < 0)
+            else
             {
-                _dieDistancePowerInversed.y *= -1;
+                if ((Mathf.Abs(currentPosition.x) > (Mathf.Abs(diePosition.x) + _maxDieDistanceX / 2))
+                     && _dieDistancePowerInversed.y < 0)
+                {
+                    _dieDistancePowerInversed.y *= -1;
+                }
             }
 
             //Verify actor is finish the knockout. When finish, play animator again
-            if (Mathf.Abs(currentPosition.x) > (Mathf.Abs(diePosition.x) + _maxDieDistanceX))
+            if (Mathf.Abs(currentPosition.x) > (Mathf.Abs(diePosition.x) + _maxDieDistanceX)
+                || Mathf.Abs(currentPosition.x) < (Mathf.Abs(diePosition.x) - _maxDieDistanceX)
+                )
             {
                 _actor.Animator.speed = 1;
-            }
-            if (Mathf.Abs(currentPosition.x) < (Mathf.Abs(diePosition.x) - _maxDieDistanceX))
-            {
-                _actor.Animator.speed = 1;
+                currentPosition.y = diePosition.y;
+                _actor.transform.position = currentPosition;
+
             }
 
             if (_actor.Animator.speed == 0)
@@ -68,7 +75,6 @@ public class KnockoutActor
                 {
                     currentPosition -= _dieDistancePowerInversed;
                 }
-
                 _actor.transform.position = currentPosition;
             }
         }
