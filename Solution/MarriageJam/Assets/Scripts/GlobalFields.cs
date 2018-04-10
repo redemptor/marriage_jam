@@ -6,5 +6,5 @@ public class GlobalFields : MonoBehaviour
 {
     public enum MAP_TYPE { WALL, GROUND }
     public enum TAGS { Player, Enemy, DestroyableItem }
-    public enum BUTTONS { JUMP, ACTION }
+    public enum BUTTONS { Attack }
 }

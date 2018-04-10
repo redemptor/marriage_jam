@@ -15,7 +15,7 @@ public class Player : ActionActor
             comboHit = 0;
         }
 
-        if (Input.GetButtonDown(GlobalFields.BUTTONS.ACTION.ToString()) && Time.time > timeNextAttack)
+        if (Input.GetButtonDown(GlobalFields.BUTTONS.Attack.ToString()) && Time.time > timeNextAttack)
         {
             Attack();
         }
