@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4645167420369098}
   - component: {fileID: 61405427003208326}
-  m_Layer: 12
+  m_Layer: 16
   m_Name: GroundCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,15 +327,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakePower: 0.015
   facingRight: 1
-  health: 10
+  health: 50
+  NormalAvatar: {fileID: 0}
+  HittedAvatar: {fileID: 0}
+  NameActorSprite: {fileID: 0}
   DamageNormal:
     Name: punch
-    Value: 1
+    Value: 5
     Knockout: 0
     AttackFromRight: 0
   DamageStrong:
     Name: uppercut
-    Value: 2
+    Value: 15
     Knockout: 1
     AttackFromRight: 0
   CurrentDamage:

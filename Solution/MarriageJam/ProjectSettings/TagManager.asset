@@ -24,8 +24,8 @@ TagManager:
   - IgnoreEnemy
   - Actor
   - LimitPlayerCam
-  - 
-  - 
+  - PlayerCollision
+  - EnemyCollision
   - 
   - 
   - 

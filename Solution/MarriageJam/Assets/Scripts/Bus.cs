@@ -34,6 +34,8 @@ public class Bus : MonoBehaviour
     {
         if (timeStop <= 0 && !GameManager.instance.players[0].isActiveAndEnabled)
         {
+            gameCamera.minCameraPos.x = busStop.position.x;
+
             for (int i = 0; i < GameManager.instance.players.Length; i++)
             {
                 if (GameManager.instance.players[i] != null)

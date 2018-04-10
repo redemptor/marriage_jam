@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 4511360605351208}
   - component: {fileID: 70724841680252014}
   - component: {fileID: 114556981344005756}
-  m_Layer: 12
+  m_Layer: 15
   m_Name: GroundCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ MonoBehaviour:
     AttackFromRight: 0
   DamageStrong:
     Name: uppercut
-    Value: 20
+    Value: 30
     Knockout: 1
     AttackFromRight: 0
   CurrentDamage:
