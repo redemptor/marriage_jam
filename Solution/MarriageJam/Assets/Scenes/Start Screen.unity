@@ -157,6 +157,11 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: ec5009f962ec53a42b7d417bf50e901a, type: 3}
+    - target: {fileID: 82285676593200628, guid: 8a0ff33e095a887478ab427d9d1b649c,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8a0ff33e095a887478ab427d9d1b649c, type: 2}
   m_IsPrefabParent: 0

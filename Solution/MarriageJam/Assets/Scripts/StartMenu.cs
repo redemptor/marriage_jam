@@ -9,6 +9,7 @@ public class StartMenu : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		r = GetComponent<Renderer>();
+        SoundManager.instance.PlayMusicMenu();
 	}
 	
 	// Update is called once per frame
