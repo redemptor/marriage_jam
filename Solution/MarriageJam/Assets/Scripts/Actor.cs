@@ -108,6 +108,12 @@ public class Actor : MonoBehaviour
         if (Time.time > timeCanDamage)
         {
             health -= damage.Value;
+
+            if (health < 0)
+            {
+                health = 0;
+            }
+
             timeCanDamage = Time.time + 0.2f;
 
             if (!sprite.isStatic)

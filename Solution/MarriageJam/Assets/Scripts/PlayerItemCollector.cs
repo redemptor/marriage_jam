@@ -22,6 +22,11 @@ public class PlayerItemCollector : MonoBehaviour
             if (itemHealth != null)
             {
                 player.health += itemHealth.health;
+
+                if (player.health > player.maxHealth)
+                {
+                    player.health = player.maxHealth;
+                }
             }
 
             var itemScore = collision.GetComponent<CollectableScore>();
