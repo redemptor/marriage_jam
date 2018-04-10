@@ -2,7 +2,10 @@
 
 public class Player : ActionActor
 {
+    const string buttonNameFormat = "P{0}_{1}";
+
     public int score = 0;
+    public int joystickNumber;
 
     public override void Update()
     {
@@ -15,7 +18,7 @@ public class Player : ActionActor
             comboHit = 0;
         }
 
-        if (Input.GetButtonDown(GlobalFields.BUTTONS.Attack.ToString()) && Time.time > timeNextAttack)
+        if (Input.GetButtonDown(GetButtonName(GlobalFields.BUTTONS.Attack.ToString())) && Time.time > timeNextAttack)
         {
             Attack();
         }
@@ -31,8 +34,8 @@ public class Player : ActionActor
             && !Stunned
             && Alive)
         {
-            move.x = Input.GetAxis("Horizontal") * moveVelocity * Time.deltaTime;
-            move.y = Input.GetAxis("Vertical") * moveVelocity * Time.deltaTime;
+            move.x = Input.GetAxis(GetButtonName("Horizontal")) * moveVelocity * Time.deltaTime;
+            move.y = Input.GetAxis(GetButtonName("Vertical")) * moveVelocity * Time.deltaTime;
         }
 
         rigidbody2D.velocity = move;
@@ -68,5 +71,8 @@ public class Player : ActionActor
         timeNextHit = timeNextAttack;
     }
 
-
+    private string GetButtonName(string button)
+    {
+        return string.Format(buttonNameFormat, joystickNumber, button);
+    }
 }

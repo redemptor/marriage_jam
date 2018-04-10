@@ -301,6 +301,7 @@ MonoBehaviour:
   - 0.31
   - 0.51
   score: 0
+  joystickNumber: 1
 --- !u!114 &114556981344005756
 MonoBehaviour:
   m_ObjectHideFlags: 1
