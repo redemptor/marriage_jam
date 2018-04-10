@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
     public static SoundManager instance;
     public AudioSource musicSource;
 
+    public AudioClip musicEnvironment1;
     public AudioClip musicMenu;
     public AudioClip musicLevel1;
 
@@ -33,6 +34,11 @@ public class SoundManager : MonoBehaviour
     public void StopMusic()
     {
         musicSource.Stop();
+    }
+
+    public void PlayMusicEnvironment1()
+    {
+        PlayMusic(musicEnvironment1);
     }
 
     public void PlayMusicLevel1()

@@ -10,15 +10,20 @@ public class Bus : MonoBehaviour
     public Transform busStop;
     public float timeStop = 2f;
 
-    [SerializeField]
+    public AudioSource audioSourceFX;
+    public AudioClip sfxDoorOpen;
+    public AudioClip sfxDoorClose;
+
     private FollowCamera gameCamera;
     private new Rigidbody2D rigidbody2D;
+
+    private bool doorClosed;
 
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
 
-        gameCamera = (FollowCamera)FindObjectOfType(typeof(FollowCamera));
+        gameCamera = Camera.main.GetComponent<FollowCamera>();
         gameCamera.targets = new[] { transform };
 
         foreach (var player in GameManager.instance.players)
@@ -32,6 +37,12 @@ public class Bus : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (timeStop <= sfxDoorClose.length && !doorClosed)
+        {
+            PlaySoundFX(sfxDoorClose);
+            doorClosed = true;
+        }
+
         if (timeStop <= 0 && !GameManager.instance.players[0].isActiveAndEnabled)
         {
             gameCamera.minCameraPos.x = busStop.position.x;
@@ -47,6 +58,7 @@ public class Bus : MonoBehaviour
             }
 
             gameCamera.targets = GameManager.instance.players.Select(x => x.transform).ToArray();
+
             SoundManager.instance.PlayMusicLevel1();
         }
 
@@ -56,6 +68,11 @@ public class Bus : MonoBehaviour
         }
         else
         {
+            if (rigidbody2D.velocity != Vector2.zero)
+            {
+                PlaySoundFX(sfxDoorOpen);
+            }
+
             rigidbody2D.velocity = Vector2.zero;
             timeStop -= Time.deltaTime;
         }
@@ -67,6 +84,15 @@ public class Bus : MonoBehaviour
         {
             Debug.Log("Start Game");
             Destroy(gameObject);
+        }
+    }
+
+    public void PlaySoundFX(AudioClip audioClip)
+    {
+        if (audioSourceFX != null)
+        {
+            audioSourceFX.clip = audioClip;
+            audioSourceFX.Play();
         }
     }
 }

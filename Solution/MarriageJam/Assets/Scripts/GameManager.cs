@@ -28,12 +28,15 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        SoundManager.instance.StopMusic();
+        //if (SoundManager.instance != null)
+        //{
+        //    SoundManager.instance.StopMusic();
+        //}
     }
 
     void Update()
     {
-        if (players.All(x=>!x.Alive) && !reloading)
+        if (players.All(x => !x.Alive) && !reloading)
         {
             reloading = true;
             Invoke("ReloadLevel", 3f);
