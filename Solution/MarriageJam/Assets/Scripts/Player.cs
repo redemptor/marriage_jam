@@ -14,6 +14,9 @@ public class Player : ActionActor
     public float MaxDieDistanceX = 0.5f;
     public Vector3 DieDistancePower = new Vector3(0.1f, 0f, 0);
 
+    public AudioClip SfxHitAir;
+
+
     public override void Start()
     {
         base.Start();
@@ -93,6 +96,7 @@ public class Player : ActionActor
         if (comboHit == 1)
         {
             CurrentDamage = DamageNormal;
+            PlaySoundsFX(SfxHitAir, false);
         }
 
         if (comboHit == hitDurations.Length)

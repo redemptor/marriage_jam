@@ -11,6 +11,11 @@ public class ActionActor : Actor
     public Damage DamageNormal;
     public Damage DamageStrong;
     public Damage CurrentDamage;
+
+    public AudioClip SfxHit1;
+    public AudioClip SfxHit2;
+    public AudioClip SfxHit3;
+
     public bool waiting;
     public int ComboHit
     {
@@ -31,6 +36,13 @@ public class ActionActor : Actor
         base.Start();
         if (DamageNormal != null)
         { CurrentDamage = DamageNormal; }
+    }
+
+    public override void SetDamage(Damage damage)
+    {
+        base.SetDamage(damage);
+
+        PlayCurrentSoundHit(1);
     }
 
     public virtual void SetHit(bool isHit)
@@ -101,5 +113,21 @@ public class ActionActor : Actor
         base.Flip();
         DamageNormal.AttackFromRight = !facingRight;
         DamageStrong.AttackFromRight = !facingRight;
+    }
+
+    public void PlayCurrentSoundHit(int combo)
+    {
+        switch (combo)
+        {
+            case 1:
+                PlaySoundsFX(SfxHit1, false);
+                break;
+            case 2:
+                PlaySoundsFX(SfxHit2, false);
+                break;
+            case 3:
+                PlaySoundsFX(SfxHit3, false);
+                break;
+        }
     }
 }

@@ -455,6 +455,9 @@ MonoBehaviour:
     Value: 10
     Knockout: 0
     AttackFromRight: 0
+  SfxHit1: {fileID: 8300000, guid: 8de7957feeb6c6b41be8a01322d4dae4, type: 3}
+  SfxHit2: {fileID: 0}
+  SfxHit3: {fileID: 0}
   waiting: 0
   maxMoveVelocity: 0
   moveVelocity: 30
@@ -466,6 +469,7 @@ MonoBehaviour:
   joystickNumber: 1
   MaxDieDistanceX: 0.4
   DieDistancePower: {x: 0.02, y: 0.01, z: 0}
+  SfxHitAir: {fileID: 0}
 --- !u!114 &114556981344005756
 MonoBehaviour:
   m_ObjectHideFlags: 1

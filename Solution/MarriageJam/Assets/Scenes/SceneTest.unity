@@ -261,6 +261,10 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1256255162209554, guid: a4e52410576bfa345a445bd0ea70ca5c, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a4e52410576bfa345a445bd0ea70ca5c, type: 2}
   m_IsPrefabParent: 0
@@ -326,7 +330,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4001630186800240, guid: d83d570036615b24c8f6be88000a6c79, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.39
+      value: -1.06
       objectReference: {fileID: 0}
     - target: {fileID: 4001630186800240, guid: d83d570036615b24c8f6be88000a6c79, type: 2}
       propertyPath: m_LocalPosition.y
@@ -366,6 +370,19 @@ Prefab:
       propertyPath: SfxKnockout
       value: 
       objectReference: {fileID: 8300000, guid: 9baf3b42973bfb94d9f7bb356e6eef63, type: 3}
+    - target: {fileID: 114685485346430142, guid: d83d570036615b24c8f6be88000a6c79,
+        type: 2}
+      propertyPath: SfxHit1
+      value: 
+      objectReference: {fileID: 8300000, guid: 8de7957feeb6c6b41be8a01322d4dae4, type: 3}
+    - target: {fileID: 1693555372691916, guid: d83d570036615b24c8f6be88000a6c79, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1604301610335234, guid: d83d570036615b24c8f6be88000a6c79, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d83d570036615b24c8f6be88000a6c79, type: 2}
   m_IsPrefabParent: 0
