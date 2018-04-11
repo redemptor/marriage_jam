@@ -19,7 +19,7 @@ public class LevelManager : MonoBehaviour
 
     public static ActionActor GetRandomPlayerAtScene()
     {
-        GameObject[] players = GameObject.FindGameObjectsWithTag(GlobalFields.TAGS.Player.ToString());
+        GameObject[] players = GameObject.FindGameObjectsWithTag(TAGS.Player.ToString());
         GameObject player = players[Random.Range(0, players.Length)];
         return player.GetComponent<ActionActor>();
     }

@@ -31,7 +31,7 @@ public class Player : ActionActor
             comboHit = 0;
         }
 
-        if (Input.GetButtonDown(GetButtonName(GlobalFields.BUTTONS.Attack.ToString())) && Time.time > timeNextAttack)
+        if (GameManager.instance.State == GameState.Play && Input.GetButtonDown(GetButtonName(BUTTONS.Attack.ToString())) && Time.time > timeNextAttack)
         {
             Attack();
         }
@@ -66,7 +66,8 @@ public class Player : ActionActor
         base.FixedUpdate();
         Vector3 move = Vector3.zero;
 
-        if (comboHit == 0
+        if (GameManager.instance.State == GameState.Play
+            && comboHit == 0
             && !IsKnockOut
             && !Stunned
             && Alive)

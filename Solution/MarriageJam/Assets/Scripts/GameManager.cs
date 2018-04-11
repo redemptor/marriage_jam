@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public Player[] players;
     public PlayerHUD[] huds;
+    public GameState State;
 
     private bool reloading;
 

@@ -117,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a357e09d07a84e49a89a31068ff8f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakePower: 0.007
+  shakePower: 0.01
   facingRight: 1
   health: 40
   DropItens:

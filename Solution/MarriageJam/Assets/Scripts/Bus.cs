@@ -14,6 +14,8 @@ public class Bus : MonoBehaviour
     public AudioClip sfxDoorOpen;
     public AudioClip sfxDoorClose;
 
+    public GameObject[] DestroyObjects;
+
     private FollowCamera gameCamera;
     private new Rigidbody2D rigidbody2D;
 
@@ -33,6 +35,8 @@ public class Bus : MonoBehaviour
                 player.gameObject.SetActive(false);
             }
         }
+
+        GameManager.instance.State = GameState.Wait;
     }
 
     private void FixedUpdate()
@@ -53,13 +57,11 @@ public class Bus : MonoBehaviour
                 {
                     GameManager.instance.players[i].transform.position = new Vector2(busStop.position.x - offset + (i * offset * 2), busStop.position.y);
                     GameManager.instance.players[i].gameObject.SetActive(true);
-                    GameManager.instance.huds[i].SetPlayer(GameManager.instance.players[i]);
                 }
             }
 
             gameCamera.targets = GameManager.instance.players.Select(x => x.transform).ToArray();
 
-            SoundManager.instance.PlayMusicLevel1();
         }
 
         if (transform.position.x < busStop.position.x || timeStop <= 0)
@@ -71,6 +73,11 @@ public class Bus : MonoBehaviour
             if (rigidbody2D.velocity != Vector2.zero)
             {
                 PlaySoundFX(sfxDoorOpen);
+
+                foreach (var obj in DestroyObjects)
+                {
+                    Destroy(obj);
+                }
             }
 
             rigidbody2D.velocity = Vector2.zero;
@@ -82,7 +89,13 @@ public class Bus : MonoBehaviour
     {
         if (transform.position.x > busStop.position.x)
         {
-            Debug.Log("Start Game");
+            GameManager.instance.State = GameState.Play;
+            SoundManager.instance.PlayMusicLevel1();
+            for (int i = 0; i < GameManager.instance.players.Length; i++)
+            {
+                GameManager.instance.huds[i].SetPlayer(GameManager.instance.players[i]);
+            }
+
             Destroy(gameObject);
         }
     }
