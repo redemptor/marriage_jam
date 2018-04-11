@@ -69,17 +69,17 @@ public class Actor : MonoBehaviour
 
     private void Awake()
     {
-        maxHealth = health;
-    }
-
-    public virtual void Start()
-    {
         audioSource = gameObject.GetComponent<AudioSource>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
         sprite = gameObject.GetComponent<CustomSprite>();
 
+        maxHealth = health;
+    }
+
+    public virtual void Start()
+    {
         _shakeSprite = new ShakeSprite(spriteRenderer);
         _blinkSprite = new BlinkSprite(spriteRenderer);
     }

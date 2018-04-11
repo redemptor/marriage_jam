@@ -6,12 +6,14 @@ public class AzeitonatorBall : Actor
     public List<string> tagTarget;
     public float velocity = 2;
     public Damage damage;
+
     private Vector2 direction = new Vector2(1, 0);
     private bool reversed = false;
 
     public override void Start()
     {
         base.Start();
+        
         direction = new Vector2(velocity, 0);
         if (!facingRight && direction.x > 0)
         {
@@ -51,10 +53,20 @@ public class AzeitonatorBall : Actor
         }
     }
 
+    public void SetSortingOrder(int sortingOrder)
+    {
+        spriteRenderer.sortingOrder = sortingOrder;
+    }
+
     public override void Die()
     {
         base.Die();
         Destroy(gameObject);
+    }
+
+    private void OnBecameInvisible()
+    {
+        Die();
     }
 
 }

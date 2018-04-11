@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shakePower: 0
-  facingRight: 1
+  facingRight: 0
   health: 0
   tagTarget:
   - Player
@@ -129,7 +129,7 @@ MonoBehaviour:
     Name: shoot
     Value: 1
     Knockout: 1
-    AttackFromRight: 0
+    AttackFromRight: 1
 --- !u!212 &212479214694874870
 SpriteRenderer:
   m_ObjectHideFlags: 1

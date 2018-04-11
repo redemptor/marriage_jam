@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1256255162209554}
   m_IsPrefabParent: 1
+--- !u!1 &1052451011133108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4367342098461984}
+  m_Layer: 10
+  m_Name: SpawnAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: -1577725955494882426, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1256255162209554
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,7 +90,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4346712007474088}
-  - component: {fileID: 61186430607207268}
+  - component: {fileID: 70900284081456284}
   m_Layer: 12
   m_Name: GroundCollision
   m_TagString: Untagged
@@ -103,12 +118,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1256255162209554}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.24, y: 0, z: 0}
+  m_LocalPosition: {x: 5.3652925, y: -0.5881692, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4071360868023854}
   - {fileID: 4774235652708198}
   - {fileID: 4346712007474088}
+  - {fileID: 4367342098461984}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -124,6 +140,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4221971330184954}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4367342098461984
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1052451011133108}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.183, y: -0.002, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4221971330184954}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4774235652708198
 Transform:
@@ -158,31 +187,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &61186430607207268
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1952643399077016}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.01546568, y: -0.1350257}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.2069517, y: 0.04700184}
-  m_EdgeRadius: 0
 --- !u!61 &61540141267885750
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -220,7 +224,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.008925855, y: -0.0036974996}
+  m_Offset: {x: -0.03160429, y: -0.021606237}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -231,7 +235,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.29265416, y: 0.29151788}
+  m_Size: {x: 0.28699875, y: 0.19914633}
   m_EdgeRadius: 0
 --- !u!61 &61718088967526180
 BoxCollider2D:
@@ -258,6 +262,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.09071311, y: 0.08027584}
   m_EdgeRadius: 0
+--- !u!70 &70900284081456284
+CapsuleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1952643399077016}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.025287442, y: -0.16883497}
+  m_Size: {x: 0.27874148, y: 0.048304446}
+  m_Direction: 1
 --- !u!82 &82524203267280046
 AudioSource:
   m_ObjectHideFlags: 1
@@ -437,6 +456,8 @@ MonoBehaviour:
   DistanceRanged: {x: 2.5, y: 0, z: 0}
   AzeitonatorBallObj: {fileID: 114254143431317052, guid: f85cc1cf6fdda5d4d816a590fe3b510e,
     type: 2}
+  spawnAttak: {fileID: 4367342098461984}
+  delayShoot: 0.5
   SfxWalk: {fileID: 8300000, guid: b53f8a5c1431d2641976797739fb262e, type: 3}
   SfxShoot: {fileID: 8300000, guid: ce721aa8e99f3964b9ae4749c896ae01, type: 3}
   SfxGetHit: {fileID: 8300000, guid: 48c45b46dff5d014f982969a344ce0c4, type: 3}
@@ -476,7 +497,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 20
+  m_SortingOrder: 79
   m_Sprite: {fileID: 21300000, guid: 52854beccb5909b47a9586e98a809cce, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

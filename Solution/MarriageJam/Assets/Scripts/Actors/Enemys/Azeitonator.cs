@@ -9,6 +9,9 @@ public class Azeitonator : Enemy
 
     public Vector3 DistanceRanged;
     public AzeitonatorBall AzeitonatorBallObj;
+    public Transform spawnAttak;
+    public float delayShoot;
+
     private IaAttackRangedActor ActorApproach;
     private IaRangedFollowActor _iaRangedFollowActor;
     private IaFollowActor _iaFollowActor;
@@ -128,11 +131,19 @@ public class Azeitonator : Enemy
             timeNextAttack = Time.time + hitDurations[0];
             timeNextHit = timeNextAttack;
 
-            AzeitonatorBallObj.facingRight = facingRight;
-            AzeitonatorBallObj.damage = DamageNormal;
-            Instantiate(AzeitonatorBallObj, transform.position, Quaternion.identity);
+            Invoke("Shoot", delayShoot);
         }
+
         base.Attack();
+    }
+
+    private void Shoot()
+    {
+        AzeitonatorBallObj.facingRight = facingRight;
+        AzeitonatorBallObj.damage = DamageNormal;
+
+        var azeitonatorBall = Instantiate(AzeitonatorBallObj, spawnAttak.position, Quaternion.identity);
+        azeitonatorBall.SetSortingOrder(spriteRenderer.sortingOrder + 5);
     }
 
     private void AttackRecoilControll()
