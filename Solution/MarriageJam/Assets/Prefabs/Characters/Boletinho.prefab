@@ -426,6 +426,8 @@ MonoBehaviour:
   - 0.41
   MaxDieDistanceX: 0.4
   DieDistancePower: {x: 0.02, y: 0.01, z: 0}
+  SfxDie: {fileID: 8300000, guid: 7544a3d42c158534c92c398cdfa05908, type: 3}
+  SfxKnockout: {fileID: 8300000, guid: 9baf3b42973bfb94d9f7bb356e6eef63, type: 3}
 --- !u!212 &212873305906010562
 SpriteRenderer:
   m_ObjectHideFlags: 1

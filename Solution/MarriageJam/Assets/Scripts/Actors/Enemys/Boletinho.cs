@@ -4,6 +4,9 @@ public class Boletinho : Enemy
 {
     private IaFollowActor _iaFollowActor;
 
+    public AudioClip SfxDie;
+    public AudioClip SfxKnockout;
+
     public override void Start()
     {
         base.Start();
@@ -58,5 +61,22 @@ public class Boletinho : Enemy
 
         timeNextAttack = Time.time + hitDurations[comboHit - 1];
         timeNextHit = timeNextAttack;
+    }
+
+    public override void SetDamage(Damage damage)
+    {
+        if (damage.Knockout)
+        {
+            PlaySoundsFX(SfxKnockout, false);
+        }
+
+        base.SetDamage(damage);
+    }
+
+    public override void Die()
+    {
+        base.Die();
+
+        PlaySoundsFX(SfxDie, false);
     }
 }

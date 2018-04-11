@@ -434,12 +434,15 @@ MonoBehaviour:
   - 0
   MaxDieDistanceX: 0.4
   DieDistancePower: {x: 0.02, y: 0, z: 0}
-  tagTarget:
-  - Player
   DistanceRanged: {x: 2.5, y: 0, z: 0}
   AzeitonatorBallObj: {fileID: 114254143431317052, guid: f85cc1cf6fdda5d4d816a590fe3b510e,
     type: 2}
-  sfxWalk: {fileID: 8300000, guid: b53f8a5c1431d2641976797739fb262e, type: 3}
+  SfxWalk: {fileID: 8300000, guid: b53f8a5c1431d2641976797739fb262e, type: 3}
+  SfxShoot: {fileID: 8300000, guid: ce721aa8e99f3964b9ae4749c896ae01, type: 3}
+  SfxGetHit: {fileID: 8300000, guid: 48c45b46dff5d014f982969a344ce0c4, type: 3}
+  SfxGetHitAzeitona: {fileID: 8300000, guid: 5ad5d55ed89aa174585491a025e05cac, type: 3}
+  tagTarget:
+  - Player
 --- !u!212 &212914022788572244
 SpriteRenderer:
   m_ObjectHideFlags: 1

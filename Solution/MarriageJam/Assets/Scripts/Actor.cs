@@ -84,13 +84,22 @@ public class Actor : MonoBehaviour
         _blinkSprite = new BlinkSprite(spriteRenderer);
     }
 
-
-    public void PlaySoundsFX(AudioClip audioClip)
+    public void PlaySoundsFX(AudioClip audioClip, bool loop)
     {
         if (audioSource != null)
         {
             audioSource.clip = audioClip;
+            audioSource.loop = loop;
             audioSource.Play();
+        }
+    }
+
+    public void StopSoundsFX(AudioClip audioClip)
+    {
+        if (audioSource != null)
+        {
+            audioSource.clip = audioClip;
+            audioSource.Stop();
         }
     }
 

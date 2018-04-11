@@ -8,8 +8,6 @@ AnimatorOverrideController:
   m_Name: Animator Gabe
   m_Controller: {fileID: 9100000, guid: 821763e6f12a188498f1f9ed2cf97451, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 3532ba376ea46304f9defe682ba69df9, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 2dc37ee774e3c004d9b390320ef48475, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: b30dbd14c9a0098459272abdafd4a1a4, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 2e36ee6823aba23408575d8a7a70ed50, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 922f5c00120871147abb411006260cd9, type: 2}
@@ -23,4 +21,6 @@ AnimatorOverrideController:
   - m_OriginalClip: {fileID: 7400000, guid: b6f027476dfa51a47a21452fa79ca340, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 1ce2e756ce075504b965bd008eb2e4a4, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 1f4f25014456c70418f32abc65ece3ee, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2dc37ee774e3c004d9b390320ef48475, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 3532ba376ea46304f9defe682ba69df9, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: 2dc37ee774e3c004d9b390320ef48475, type: 2}

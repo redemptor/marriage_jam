@@ -3,11 +3,12 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
-    public AnimationCurve curve;
-
     private Vector3 currentPosition;
     private SpriteRenderer item;
     private SpriteRenderer shadow;
+
+    public AudioClip SfxGet;
+    public AnimationCurve curve;
 
     private void Start()
     {

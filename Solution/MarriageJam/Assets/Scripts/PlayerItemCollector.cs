@@ -5,10 +5,12 @@ using UnityEngine;
 public class PlayerItemCollector : MonoBehaviour
 {
     private Player player;
+    protected AudioSource audioSource;
 
     void Start()
     {
         player = GetComponentInParent<Player>();
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,6 +26,12 @@ public class PlayerItemCollector : MonoBehaviour
                 if (player.health > player.maxHealth)
                 {
                     player.health = player.maxHealth;
+
+                    if (itemHealth.SfxGet != null)
+                    {
+                        audioSource.clip = itemHealth.SfxGet;
+                        audioSource.Play();
+                    }
                 }
             }
 
@@ -32,6 +40,12 @@ public class PlayerItemCollector : MonoBehaviour
             if (itemScore != null)
             {
                 player.score += itemScore.score;
+
+                if (itemScore.SfxGet != null)
+                {
+                    audioSource.clip = itemScore.SfxGet;
+                    audioSource.Play();
+                }
             }
 
             Destroy(collision.gameObject);

@@ -3,24 +3,26 @@ using UnityEngine;
 
 public class Azeitonator : Enemy
 {
-    public List<string> tagTarget;
-
     private float ATTACK_RECOIL_MAX_TIME = 0.5f;
     private float MAX_TIME_CHANGE_ATTACK = 2;
+    private float MAX_TIME_RANGED_ATTACK = 4;
 
     public Vector3 DistanceRanged;
     public AzeitonatorBall AzeitonatorBallObj;
-
+    private IaAttackRangedActor ActorApproach;
     private IaRangedFollowActor _iaRangedFollowActor;
     private IaFollowActor _iaFollowActor;
-
-    private IaAttackRangedActor ActorApproach;
     private float AttackRecoilCount = 0;
+    private bool playingSfxWalk = false;
 
     private bool DoRangedAttack = false;
     private float timeChangeAttack = 0;
 
-    public AudioClip sfxWalk;
+    public AudioClip SfxWalk;
+    public AudioClip SfxShoot;
+    public AudioClip SfxGetHit;
+    public AudioClip SfxGetHitAzeitona;
+    public List<string> tagTarget;
 
     public override void Start()
     {
@@ -29,8 +31,6 @@ public class Azeitonator : Enemy
         _iaRangedFollowActor = new IaRangedFollowActor(this, DistanceRanged);
         _iaFollowActor = new IaFollowActor(this);
     }
-
-    bool a = false;
 
     public override void FixedUpdate()
     {
@@ -52,7 +52,11 @@ public class Azeitonator : Enemy
                     transform.Find("ActorApproach").gameObject.SetActive(false);
                 }
 
-                PlaySoundsFX(sfxWalk);
+                if (!playingSfxWalk)
+                {
+                    PlaySoundsFX(SfxWalk, true);
+                    playingSfxWalk = true;
+                }
             }
         }
 
@@ -68,7 +72,14 @@ public class Azeitonator : Enemy
         {
             if (timeChangeAttack == 0)
             {
-                timeChangeAttack = Time.time + MAX_TIME_CHANGE_ATTACK;
+                if (DoRangedAttack)
+                {
+                    timeChangeAttack = Time.time + MAX_TIME_RANGED_ATTACK;
+                }
+                else
+                {
+                    timeChangeAttack = Time.time + MAX_TIME_CHANGE_ATTACK;
+                }
             }
             if (Time.time > timeChangeAttack)
             {
@@ -100,6 +111,9 @@ public class Azeitonator : Enemy
     {
         if (!Alive || IsKnockOut || Stunned) { return; }
 
+        StopSoundsFX(SfxWalk);
+        playingSfxWalk = false;
+
         if (comboHit == 1)
         {
             return;
@@ -108,6 +122,7 @@ public class Azeitonator : Enemy
         if (!attacking && comboHit == 0)
         {
             comboHit = 1;
+            PlaySoundsFX(SfxShoot, false);
             CurrentDamage = DamageNormal;
 
             timeNextAttack = Time.time + hitDurations[0];
@@ -151,11 +166,13 @@ public class Azeitonator : Enemy
     {
         if (damage.Name.Equals("shoot"))
         {
+            PlaySoundsFX(SfxGetHitAzeitona, false);
+            playingSfxWalk = false;
             base.SetDamage(damage);
         }
         else
         {
-            //Play sfx hit wrong
+            PlaySoundsFX(SfxGetHit, false);
         }
     }
 
@@ -164,6 +181,8 @@ public class Azeitonator : Enemy
         if (tagTarget.Contains(collision.tag) && collision.isTrigger)
         {
             _iaFollowActor.ForceRandomMove(true);
+            playingSfxWalk = false;
+            PlaySoundsFX(SfxGetHit, false);
         }
     }
 

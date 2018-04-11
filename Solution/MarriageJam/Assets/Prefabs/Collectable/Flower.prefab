@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a1e8ff698550c1419018ff206b36d88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SfxGet: {fileID: 8300000, guid: 13a73a94ec2029e449177cd016060dfa, type: 3}
   curve:
     serializedVersion: 2
     m_Curve: []
