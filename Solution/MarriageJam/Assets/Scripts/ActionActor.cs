@@ -49,7 +49,7 @@ public class ActionActor : Actor
     {
         if (Alive)
         {
-            if (health-damage.Value <= 0)
+            if (health - damage.Value <= 0)
             {
                 audioSourceKnockout.clip = SfxDie;
                 audioSourceKnockout.Play();
@@ -62,7 +62,8 @@ public class ActionActor : Actor
         }
 
         base.SetDamage(damage);
-        PlayCurrentSoundHit(damage.Combo);
+        if (damage.SfxHit != null)
+        { PlaySoundsFX(damage.SfxHit, false); }
     }
 
     public virtual void SetHit(bool isHit)
@@ -135,21 +136,5 @@ public class ActionActor : Actor
         base.Flip();
         DamageNormal.AttackFromRight = !facingRight;
         DamageStrong.AttackFromRight = !facingRight;
-    }
-
-    public void PlayCurrentSoundHit(int combo)
-    {
-        switch (combo)
-        {
-            case 1:
-                PlaySoundsFX(SfxHit1, false);
-                break;
-            case 2:
-                PlaySoundsFX(SfxHit2, false);
-                break;
-            case 3:
-                PlaySoundsFX(SfxHit3, false);
-                break;
-        }
     }
 }

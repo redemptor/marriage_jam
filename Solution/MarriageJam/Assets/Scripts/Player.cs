@@ -99,16 +99,21 @@ public class Player : ActionActor
             case 1:
                 CurrentDamage = DamageNormal;
                 CurrentDamage.Combo = 1;
+                CurrentDamage.SfxHit = SfxHit1;
                 PlaySoundsFX(SfxHitAir, false);
                 break;
-            case 2: CurrentDamage.Combo = 2; break;
-            case 3: CurrentDamage.Combo = 3; break;
+            case 2:
+                CurrentDamage.Combo = 2;
+                CurrentDamage.SfxHit = SfxHit2;
+                break;
+
         }
 
         if (comboHit == hitDurations.Length)
         {
             CurrentDamage = DamageStrong;
             CurrentDamage.Combo = 3;
+            CurrentDamage.SfxHit = SfxHit3;
         }
 
         if (comboHit > hitDurations.Length)

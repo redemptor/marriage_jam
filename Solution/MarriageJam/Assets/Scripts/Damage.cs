@@ -9,4 +9,5 @@ public class Damage
     public int Combo = 0;
     public bool Knockout = false;
     public bool AttackFromRight = false;
+    public AudioClip SfxHit;
 }

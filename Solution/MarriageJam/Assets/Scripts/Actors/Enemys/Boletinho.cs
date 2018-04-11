@@ -48,9 +48,13 @@ public class Boletinho : Enemy
             case 1:
                 CurrentDamage = DamageNormal;
                 CurrentDamage.Combo = 1;
+                CurrentDamage.SfxHit = SfxHit1;
+
                 break;
-            case 2: CurrentDamage.Combo = 2; break;
-            case 3: CurrentDamage.Combo = 3; break;
+            case 2:
+                CurrentDamage.Combo = 2;
+                CurrentDamage.SfxHit = SfxHit1;
+                break;
         }
 
         if (comboHit == hitDurations.Length)
@@ -58,6 +62,7 @@ public class Boletinho : Enemy
             CurrentDamage = DamageStrong;
             _iaFollowActor.ForceRandomMove(true);
             CurrentDamage.Combo = 3;
+            CurrentDamage.SfxHit = SfxHit1;
         }
 
         if (comboHit > hitDurations.Length)
