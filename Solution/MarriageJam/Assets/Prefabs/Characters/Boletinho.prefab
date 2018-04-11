@@ -398,7 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakePower: 0.015
   facingRight: 1
-  health: 60
+  health: 50
   NormalAvatar: {fileID: 0}
   HittedAvatar: {fileID: 0}
   NameActorSprite: {fileID: 0}

@@ -54,6 +54,7 @@ TextureImporter:
     21300094: Props_24
     21300096: Props_25
     21300098: Props_26
+    21300100: Props_27
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -532,6 +533,20 @@ TextureImporter:
         y: 350
         width: 24
         height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Props_27
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 192
+        width: 16
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
