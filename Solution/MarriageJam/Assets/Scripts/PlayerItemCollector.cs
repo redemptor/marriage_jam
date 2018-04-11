@@ -26,8 +26,9 @@ public class PlayerItemCollector : MonoBehaviour
                 if (player.health > player.maxHealth)
                 {
                     player.health = player.maxHealth;
-                    player.PlaySoundsFX(itemHealth.SfxGet, false);
                 }
+
+                player.PlaySoundsFX(itemHealth.SfxGet, false);
             }
 
             var itemScore = collision.GetComponent<CollectableScore>();

@@ -21,11 +21,6 @@ public class SpawnerEnimy : MonoBehaviour
     void Start()
     {
         _camera = (FollowCamera)FindObjectOfType(typeof(FollowCamera));
-
-        if (GameManager.difficulty == Difficulty.Hard && enemyHard.Any())
-        {
-            enemy = enemyHard;
-        }
     }
 
     void Update()
@@ -50,6 +45,11 @@ public class SpawnerEnimy : MonoBehaviour
 
     private void SpawnEnemy()
     {
+        if (GameManager.difficulty == Difficulty.Hard && enemyHard.Any())
+        {
+            enemy = enemyHard;
+        }
+
         Instantiate(enemy[Random.Range(0, enemy.Length)], spawnerPoints[Random.Range(0, spawnerPoints.Length)].position, Quaternion.identity);
         _currentEnimy++;
 

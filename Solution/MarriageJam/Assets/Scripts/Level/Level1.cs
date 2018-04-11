@@ -16,10 +16,36 @@ public class Level1 : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.instance.players.Any() && GameManager.instance.players.All(x => !x.Alive) && !reloading)
+
+        if (GameManager.instance.players.Any())
         {
-            reloading = true;
-            Invoke("ReloadLevel", 3f);
+            if (GameManager.instance.players.All(x => !x.Alive) && !reloading)
+            {
+                reloading = true;
+                if(GameManager.difficulty == Difficulty.Hard)
+                {
+                    SceneManager.LoadScene("Continue Screen");
+                }
+                else
+                {
+                    Invoke("ReloadLevel", 3f);
+                }
+            }
+            else if (GameManager.instance.players.Any(x => !x.Alive) && GameManager.instance.players.Any(x => x.Alive))
+            {
+                Invoke("RevivePlayers", 3f);
+            }
+        }
+    }
+
+    public void RevivePlayers()
+    {
+        if (GameManager.instance.players.Any(x => !x.Alive))
+        {
+            foreach (var playerDead in GameManager.instance.players.Where(x => !x.Alive))
+            {
+                playerDead.Revive();
+            }
         }
     }
 

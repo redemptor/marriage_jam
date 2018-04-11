@@ -133,7 +133,7 @@ public class Continue : MonoBehaviour {
 		while(characters <= textContinue.Length-1){
 			text.text += textContinue[characters];
 			characters+=1;
-			yield return new WaitForSeconds(0.1f);
+			yield return new WaitForSeconds(0.07f);
 		}
 		_state = States.buttonShow;
 	}

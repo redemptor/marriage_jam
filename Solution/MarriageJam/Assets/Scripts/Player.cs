@@ -113,6 +113,11 @@ public class Player : ActionActor
         timeNextHit = timeNextAttack;
     }
 
+    public void Revive()
+    {
+        health = maxHealth;
+    }
+
     private string GetButtonName(string button)
     {
         return string.Format(buttonNameFormat, joystickNumber, button);
