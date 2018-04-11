@@ -86,7 +86,7 @@ public class Actor : MonoBehaviour
 
     public void PlaySoundsFX(AudioClip audioClip, bool loop)
     {
-        if (audioSource != null)
+        if (audioSource != null && audioClip != null)
         {
             audioSource.clip = audioClip;
             audioSource.loop = loop;

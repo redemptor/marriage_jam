@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class SpawnerEnimy : MonoBehaviour
 {
     public GameObject[] enemy;
+    public GameObject[] enemyHard;
+
     public Transform[] spawnerPoints;
     [Range(0.5f, 5f)]
     public float spawnDelay = 1;
@@ -18,6 +21,11 @@ public class SpawnerEnimy : MonoBehaviour
     void Start()
     {
         _camera = (FollowCamera)FindObjectOfType(typeof(FollowCamera));
+
+        if (GameManager.difficulty == Difficulty.Hard && enemyHard.Any())
+        {
+            enemy = enemyHard;
+        }
     }
 
     void Update()

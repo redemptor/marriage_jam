@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Collectable
   - Bullet
+  - PlayerHUD
   layers:
   - Default
   - TransparentFX

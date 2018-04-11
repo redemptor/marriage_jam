@@ -83,7 +83,7 @@ public class Continue : MonoBehaviour {
 	}
 
 	IEnumerator FadeInImage(SpriteRenderer image){
-		for(float f = 0f;f <=0.5f;f+=0.01f){
+		for(float f = 0f;f <=1f;f+=0.01f){
 			Color c = image.color;
 			c.a = f;
 			image.color = c;
@@ -118,6 +118,9 @@ public class Continue : MonoBehaviour {
 	}
 
 	IEnumerator SceneChange(){
+        GameManager.difficulty = Difficulty.Normal;
+        GameManager.NumPlayers = 2;
+
 		SceneManager.LoadScene("Level 1");
 		yield return null;
 		Debug.Log("terminou SceneChange");

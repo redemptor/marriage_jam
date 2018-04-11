@@ -330,9 +330,9 @@ MonoBehaviour:
   shakePower: 0.015
   facingRight: 1
   health: 100
-  NormalAvatar: {fileID: 21300004, guid: 9be44dd53dc08a046a4c3b72b4d37771, type: 3}
-  HittedAvatar: {fileID: 21300006, guid: 9be44dd53dc08a046a4c3b72b4d37771, type: 3}
-  NameActorSprite: {fileID: 21300034, guid: 9be44dd53dc08a046a4c3b72b4d37771, type: 3}
+  NormalAvatar: {fileID: 21300000, guid: 9be44dd53dc08a046a4c3b72b4d37771, type: 3}
+  HittedAvatar: {fileID: 21300002, guid: 9be44dd53dc08a046a4c3b72b4d37771, type: 3}
+  NameActorSprite: {fileID: 21300032, guid: 9be44dd53dc08a046a4c3b72b4d37771, type: 3}
   DamageNormal:
     Name: punch
     Value: 10
@@ -359,7 +359,7 @@ MonoBehaviour:
   - 0.31
   - 0.51
   score: 0
-  joystickNumber: 1
+  joystickNumber: 2
   MaxDieDistanceX: 0.4
   DieDistancePower: {x: 0.02, y: 0.01, z: 0}
   SfxHitAir: {fileID: 8300000, guid: 45bcc273647f2d547a8c60237352c001, type: 3}

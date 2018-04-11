@@ -8,12 +8,14 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public static Difficulty difficulty = Difficulty.Normal;
+    public static int NumPlayers = 1;
+
+    public Player[] playersPrefabs;
 
     public Player[] players;
     public PlayerHUD[] huds;
     public GameState State;
-
-    private bool reloading;
 
     private void Awake()
     {
@@ -25,6 +27,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        //DontDestroyOnLoad(gameObject);
     }
 
     void Start()
@@ -35,18 +39,43 @@ public class GameManager : MonoBehaviour
         //}
     }
 
-    void Update()
+    public void SpawnPlayers(Vector2 position)
     {
-        if (players.All(x => !x.Alive) && !reloading)
+        players = new Player[NumPlayers];
+
+        for (int i = 0; i < NumPlayers; i++)
         {
-            reloading = true;
-            Invoke("ReloadLevel", 3f);
+            var player = playersPrefabs[i];
+            player.joystickNumber = i + 1;
+
+            players[i] = Instantiate(player, position, Quaternion.identity);
+            huds[i].SetPlayer(players[i]);
+        }
+    }
+
+    public void ShowHUD(bool show)
+    {
+        foreach (var hud in huds)
+        {
+            if (hud.player != null)
+            {
+                hud.gameObject.SetActive(show);
+
+            }
+            else
+            {
+                hud.gameObject.SetActive(false);
+
+            }
+
         }
     }
 
     public void ReloadLevel()
     {
-        reloading = false;
+        //players = new Player[0];
+        //State = GameState.Wait;
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
     }
 }

@@ -22,3 +22,10 @@ public enum GameState
     Pause,
     Win
 }
+
+public enum Difficulty
+{
+    Easy,
+    Normal,
+    Hard
+}

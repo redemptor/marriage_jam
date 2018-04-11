@@ -51,8 +51,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4295b3bf6098e304cb0e58e9474d7714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players:
-  - {fileID: 0}
+  playersPrefabs:
+  - {fileID: 114460659392837550, guid: 4cd91dcfe4e6a8744af00e7af09abd88, type: 2}
+  - {fileID: 114290675396058920, guid: f1a8dbe20be34114c8df133e616351f8, type: 2}
+  players: []
   huds:
   - {fileID: 0}
   - {fileID: 0}
+  State: 0

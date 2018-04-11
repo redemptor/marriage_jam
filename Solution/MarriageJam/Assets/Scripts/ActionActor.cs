@@ -41,8 +41,6 @@ public class ActionActor : Actor
     public override void SetDamage(Damage damage)
     {
         base.SetDamage(damage);
-
-        PlayCurrentSoundHit(1);
     }
 
     public virtual void SetHit(bool isHit)
@@ -56,6 +54,11 @@ public class ActionActor : Actor
         else
         {
             timeNextHit = timeNextAttack;
+        }
+
+        if (isHit)
+        {
+            PlayCurrentSoundHit(1);
         }
     }
 

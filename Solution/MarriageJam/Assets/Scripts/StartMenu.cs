@@ -13,6 +13,9 @@ public class StartMenu : MonoBehaviour
     {
         r = GetComponent<Renderer>();
         SoundManager.instance.PlayMusicMenu();
+
+        GameManager.difficulty = Difficulty.Hard;
+        GameManager.NumPlayers = 1;
     }
 
     // Update is called once per frame

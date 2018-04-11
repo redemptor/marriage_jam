@@ -391,7 +391,7 @@ Prefab:
         type: 2}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 3eed0ed1714c7b14e87421d34fda32a8, type: 2}
+      objectReference: {fileID: 9100000, guid: 964b55ef3f408a54fa7ec220632926db, type: 2}
     - target: {fileID: 212018764975524098, guid: c910d0dde1616394e97b55daa4787a27,
         type: 2}
       propertyPath: m_Color.a

@@ -20,6 +20,7 @@ public class Bus : MonoBehaviour
     private new Rigidbody2D rigidbody2D;
 
     private bool doorClosed;
+    private bool spawnPlayer;
 
     void Start()
     {
@@ -28,13 +29,13 @@ public class Bus : MonoBehaviour
         gameCamera = Camera.main.GetComponent<FollowCamera>();
         gameCamera.targets = new[] { transform };
 
-        foreach (var player in GameManager.instance.players)
-        {
-            if (player != null)
-            {
-                player.gameObject.SetActive(false);
-            }
-        }
+        //foreach (var player in GameManager.instance.players)
+        //{
+        //    if (player != null)
+        //    {
+        //        player.gameObject.SetActive(false);
+        //    }
+        //}
 
         GameManager.instance.State = GameState.Wait;
     }
@@ -47,21 +48,23 @@ public class Bus : MonoBehaviour
             doorClosed = true;
         }
 
-        if (timeStop <= 0 && !GameManager.instance.players[0].isActiveAndEnabled)
+        if (timeStop <= 0 && !spawnPlayer)
         {
             gameCamera.minCameraPos.x = busStop.position.x;
 
-            for (int i = 0; i < GameManager.instance.players.Length; i++)
-            {
-                if (GameManager.instance.players[i] != null)
-                {
-                    GameManager.instance.players[i].transform.position = new Vector2(busStop.position.x - offset + (i * offset * 2), busStop.position.y);
-                    GameManager.instance.players[i].gameObject.SetActive(true);
-                }
-            }
+            //for (int i = 0; i < GameManager.instance.players.Length; i++)
+            //{
+            //    if (GameManager.instance.players[i] != null)
+            //    {
+            //        GameManager.instance.players[i].transform.position = new Vector2(busStop.position.x - offset + (i * offset * 2), busStop.position.y);
+            //        GameManager.instance.players[i].gameObject.SetActive(true);
+            //    }
+            //}
+            GameManager.instance.SpawnPlayers(busStop.position);
+            GameManager.instance.ShowHUD(false);
 
             gameCamera.targets = GameManager.instance.players.Select(x => x.transform).ToArray();
-
+            spawnPlayer = true;
         }
 
         if (transform.position.x < busStop.position.x || timeStop <= 0)
@@ -91,10 +94,13 @@ public class Bus : MonoBehaviour
         {
             GameManager.instance.State = GameState.Play;
             SoundManager.instance.PlayMusicLevel1();
-            for (int i = 0; i < GameManager.instance.players.Length; i++)
-            {
-                GameManager.instance.huds[i].SetPlayer(GameManager.instance.players[i]);
-            }
+
+            //for (int i = 0; i < GameManager.instance.players.Length; i++)
+            //{
+            //    GameManager.instance.huds[i].SetPlayer(GameManager.instance.players[i]);
+            //}
+
+            GameManager.instance.ShowHUD(true);
 
             Destroy(gameObject);
         }
