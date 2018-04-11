@@ -41,7 +41,7 @@ public class Enemy : ActionActor
     {
         base.FixedUpdate();
 
-        if (Alive && (attacking || waiting))
+        if (Alive && (attacking || waiting) && !isKnockOut)
         {
             Rigidbody2D.velocity = new Vector2(0f, 0f);
         }

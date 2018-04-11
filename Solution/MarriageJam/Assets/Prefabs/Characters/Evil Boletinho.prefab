@@ -356,6 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e7dd6dfbf3cf747b32ba646dd01cf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SfxDie: {fileID: 8300000, guid: 7544a3d42c158534c92c398cdfa05908, type: 3}
   shakePower: 0.015
   facingRight: 1
   health: 70
@@ -365,21 +366,28 @@ MonoBehaviour:
   DamageNormal:
     Name: punch
     Value: 10
+    Combo: 0
     Knockout: 0
     AttackFromRight: 0
+    SfxHit: {fileID: 0}
   DamageStrong:
     Name: uppercut
     Value: 15
+    Combo: 0
     Knockout: 1
     AttackFromRight: 0
+    SfxHit: {fileID: 0}
   CurrentDamage:
     Name: default
     Value: 1
+    Combo: 0
     Knockout: 0
     AttackFromRight: 0
+    SfxHit: {fileID: 0}
   SfxHit1: {fileID: 8300000, guid: 8de7957feeb6c6b41be8a01322d4dae4, type: 3}
   SfxHit2: {fileID: 0}
   SfxHit3: {fileID: 0}
+  SfxKnockout: {fileID: 8300000, guid: 9baf3b42973bfb94d9f7bb356e6eef63, type: 3}
   waiting: 0
   maxMoveVelocity: 0
   moveVelocity: 25
@@ -387,10 +395,8 @@ MonoBehaviour:
   - 0.41
   - 0.41
   - 0.41
-  MaxDieDistanceX: 0.4
-  DieDistancePower: {x: 0.02, y: 0.01, z: 0}
-  SfxDie: {fileID: 8300000, guid: 7544a3d42c158534c92c398cdfa05908, type: 3}
-  SfxKnockout: {fileID: 8300000, guid: 9baf3b42973bfb94d9f7bb356e6eef63, type: 3}
+  MaxDieDistanceX: 0.3
+  DieDistancePower: {x: 1, y: 1, z: 0}
 --- !u!114 &114238948764588184
 MonoBehaviour:
   m_ObjectHideFlags: 1

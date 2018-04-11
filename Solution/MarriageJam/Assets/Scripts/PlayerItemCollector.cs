@@ -28,7 +28,7 @@ public class PlayerItemCollector : MonoBehaviour
                     player.health = player.maxHealth;
                 }
 
-                player.PlaySoundsFX(itemHealth.SfxGet, false);
+                player.PlaySoundFXCH02(itemHealth.SfxGet, false);
             }
 
             var itemScore = collision.GetComponent<CollectableScore>();
@@ -36,7 +36,7 @@ public class PlayerItemCollector : MonoBehaviour
             if (itemScore != null)
             {
                 player.score += itemScore.score;
-                player.PlaySoundsFX(itemScore.SfxGet, false);
+                player.PlaySoundFXCH02(itemScore.SfxGet, false);
             }
 
             Destroy(collision.gameObject);

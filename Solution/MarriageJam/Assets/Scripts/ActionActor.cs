@@ -4,8 +4,6 @@
 [RequireComponent(typeof(AudioSource))]
 public class ActionActor : Actor
 {
-    private AudioSource audioSourceKnockout;
-
     public Sprite NormalAvatar;
     public Sprite HittedAvatar;
     public Sprite NameActorSprite;
@@ -17,7 +15,6 @@ public class ActionActor : Actor
     public AudioClip SfxHit1;
     public AudioClip SfxHit2;
     public AudioClip SfxHit3;
-    public AudioClip SfxDie;
     public AudioClip SfxKnockout;
 
     public bool waiting;
@@ -41,8 +38,6 @@ public class ActionActor : Actor
         if (DamageNormal != null)
         { CurrentDamage = DamageNormal; }
 
-        audioSourceKnockout = gameObject.AddComponent<AudioSource>();
-        audioSourceKnockout.clip = SfxKnockout;
     }
 
     public override void SetDamage(Damage damage)
@@ -51,19 +46,15 @@ public class ActionActor : Actor
         {
             if (health - damage.Value <= 0)
             {
-                audioSourceKnockout.clip = SfxDie;
-                audioSourceKnockout.Play();
+                PlaySoundFXCH02(SfxDie, false);
             }
             else if (damage.Knockout)
             {
-                audioSourceKnockout.clip = SfxKnockout;
-                audioSourceKnockout.Play();
+                PlaySoundFXCH02(SfxKnockout, false);
             }
         }
 
         base.SetDamage(damage);
-        if (damage.SfxHit != null)
-        { PlaySoundsFX(damage.SfxHit, false); }
     }
 
     public virtual void SetHit(bool isHit)
@@ -78,15 +69,13 @@ public class ActionActor : Actor
         {
             timeNextHit = timeNextAttack;
         }
-
-
     }
 
     public override void Update()
     {
         base.Update();
 
-        if (waiting)
+        if (waiting && !isKnockOut && Alive)
         {
             Rigidbody2D.velocity = new Vector2(0, 0);
         }

@@ -425,6 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e66b826520f2af4eab9e5339fec95f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SfxDie: {fileID: 0}
   shakePower: 0.015
   facingRight: 1
   health: 100
@@ -455,15 +456,14 @@ MonoBehaviour:
   SfxHit1: {fileID: 0}
   SfxHit2: {fileID: 0}
   SfxHit3: {fileID: 0}
-  SfxDie: {fileID: 0}
   SfxKnockout: {fileID: 0}
   waiting: 0
   maxMoveVelocity: 0
   moveVelocity: 40
   hitDurations:
   - 0
-  MaxDieDistanceX: 0.4
-  DieDistancePower: {x: 0.02, y: 0, z: 0}
+  MaxDieDistanceX: 1
+  DieDistancePower: {x: 1, y: 0, z: 0}
   DistanceRanged: {x: 2.5, y: 0, z: 0}
   AzeitonatorBallObj: {fileID: 114254143431317052, guid: f85cc1cf6fdda5d4d816a590fe3b510e,
     type: 2}

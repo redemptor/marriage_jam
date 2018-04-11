@@ -18,39 +18,56 @@ public class KnockoutActor
         _actor = actor;
     }
 
+    /**
+     * Need call this function to start a new KnockOut effect
+     * */
     public void KnockOut(Vector3 dieDistancePower, float maxDieDistanceX)
     {
+        _actor.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+
         _dieDistancePower = dieDistancePower;
         _dieDistancePowerInversed = new Vector3(-dieDistancePower.x, dieDistancePower.y, dieDistancePower.z);
         _maxDieDistanceX = maxDieDistanceX;
 
         _actor.Animator.speed = 0;
         diePosition = _actor.transform.position;
-        if (_dieDistancePower.y > 0) { _dieDistancePower.y *= -1; }
-        if (_dieDistancePowerInversed.y > 0) { _dieDistancePowerInversed.y *= -1; }
+        //    if (_dieDistancePower.y > 0) { _dieDistancePower.y *= -1; }
+        //  if (_dieDistancePowerInversed.y > 0) { _dieDistancePowerInversed.y *= -1; }
+
+        if (_actor.FacingRight)
+        {
+            _actor.GetComponent<Rigidbody2D>().velocity = _dieDistancePowerInversed;
+        }
+        else
+        {
+            _actor.GetComponent<Rigidbody2D>().velocity = _dieDistancePower;
+        }
     }
 
     public void Update()
     {
         if (_actor.Animator.speed == 0)
         {
+
             Vector3 currentPosition = _actor.transform.position;
 
             //After actor up, will follown down
             if (_actor.FacingRight)
             {
                 if ((Mathf.Abs(currentPosition.x) > (Mathf.Abs(diePosition.x) + _maxDieDistanceX / 2))
-                && _dieDistancePower.y < 0)
+                && _dieDistancePower.y > 0)
                 {
                     _dieDistancePower.y *= -1;
+                    _actor.GetComponent<Rigidbody2D>().velocity = new Vector2(-1, -1);
                 }
             }
             else
             {
                 if ((Mathf.Abs(currentPosition.x) > (Mathf.Abs(diePosition.x) + _maxDieDistanceX / 2))
-                     && _dieDistancePowerInversed.y < 0)
+                     && _dieDistancePowerInversed.y > 0)
                 {
                     _dieDistancePowerInversed.y *= -1;
+                    _actor.GetComponent<Rigidbody2D>().velocity = new Vector2(1, -1);
                 }
             }
 
@@ -62,7 +79,7 @@ public class KnockoutActor
                 _actor.Animator.speed = 1;
                 currentPosition.y = diePosition.y;
                 _actor.transform.position = currentPosition;
-
+                _actor.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             }
 
             if (_actor.Animator.speed == 0)
@@ -75,7 +92,13 @@ public class KnockoutActor
                 {
                     currentPosition -= _dieDistancePowerInversed;
                 }
-                _actor.transform.position = currentPosition;
+                //    _actor.transform.position = currentPosition;
+            }
+
+            //Collide with stage, need stop
+            if(_actor.GetComponent<Rigidbody2D>().velocity == Vector2.zero)
+            {
+                _actor.Animator.speed = 1;
             }
         }
     }

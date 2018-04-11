@@ -58,7 +58,6 @@ GameObject:
   - component: {fileID: 95491204493973898}
   - component: {fileID: 114838509546617776}
   - component: {fileID: 114290675396058920}
-  - component: {fileID: 61754274148779026}
   - component: {fileID: 61677062639293826}
   - component: {fileID: 82067471727246892}
   m_Layer: 11
@@ -101,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1581349485091092}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.46152985, y: -0.35266432, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4532361006055256}
@@ -153,31 +152,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 0.123486996, y: 0.06173095}
-  m_EdgeRadius: 0
---- !u!61 &61754274148779026
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1581349485091092}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.015465677, y: -0.13502565}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.20695174, y: 0.04700184}
   m_EdgeRadius: 0
 --- !u!61 &61893961394876652
 BoxCollider2D:
@@ -327,6 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3d8f21e3ed9bea47a9cf2e3f06870a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SfxDie: {fileID: 8300000, guid: 144992e18713e8b4c8ffd651fd0e5701, type: 3}
   shakePower: 0.015
   facingRight: 1
   health: 100
@@ -339,22 +314,24 @@ MonoBehaviour:
     Combo: 0
     Knockout: 0
     AttackFromRight: 0
+    SfxHit: {fileID: 0}
   DamageStrong:
     Name: uppercut
     Value: 30
     Combo: 0
     Knockout: 1
     AttackFromRight: 0
+    SfxHit: {fileID: 0}
   CurrentDamage:
     Name: punch
     Value: 10
     Combo: 0
     Knockout: 0
     AttackFromRight: 0
+    SfxHit: {fileID: 0}
   SfxHit1: {fileID: 8300000, guid: 8de7957feeb6c6b41be8a01322d4dae4, type: 3}
   SfxHit2: {fileID: 8300000, guid: 8de7957feeb6c6b41be8a01322d4dae4, type: 3}
   SfxHit3: {fileID: 8300000, guid: 8de7957feeb6c6b41be8a01322d4dae4, type: 3}
-  SfxDie: {fileID: 8300000, guid: 144992e18713e8b4c8ffd651fd0e5701, type: 3}
   SfxKnockout: {fileID: 8300000, guid: 2810577c57b761943a69c7bf82293ec1, type: 3}
   waiting: 0
   maxMoveVelocity: 0
@@ -364,9 +341,9 @@ MonoBehaviour:
   - 0.31
   - 0.51
   score: 0
-  joystickNumber: 2
-  MaxDieDistanceX: 0.4
-  DieDistancePower: {x: 0.02, y: 0.01, z: 0}
+  joystickNumber: 1
+  MaxDieDistanceX: 0.2
+  DieDistancePower: {x: 1, y: 1, z: 0}
   SfxHitAir: {fileID: 8300000, guid: 45bcc273647f2d547a8c60237352c001, type: 3}
 --- !u!114 &114319567592566438
 MonoBehaviour:

@@ -10,6 +10,7 @@ public class Actor : MonoBehaviour
     protected BlinkSprite _blinkSprite;
 
     protected AudioSource audioSource;
+    protected AudioSource audioSourceCH02;
     protected SpriteRenderer spriteRenderer;
     protected new Rigidbody2D rigidbody2D;
     protected Animator animator;
@@ -19,6 +20,7 @@ public class Actor : MonoBehaviour
     protected bool isKnockOut = false;
 
     public Rigidbody2D Rigidbody2D { get { return rigidbody2D; } }
+    public AudioClip SfxDie;
     public float shakePower;
     public bool IsKnockOut { get { return isKnockOut; } }
     public bool facingRight = true;
@@ -82,6 +84,17 @@ public class Actor : MonoBehaviour
     {
         _shakeSprite = new ShakeSprite(spriteRenderer);
         _blinkSprite = new BlinkSprite(spriteRenderer);
+        audioSourceCH02 = gameObject.AddComponent<AudioSource>();
+    }
+
+    public void PlaySoundFXCH02(AudioClip audioClip, bool loop)
+    {
+        if (audioSourceCH02 != null && audioClip != null)
+        {
+            audioSourceCH02.clip = audioClip;
+            audioSourceCH02.loop = loop;
+            audioSourceCH02.Play();
+        }
     }
 
     public void PlaySoundsFX(AudioClip audioClip, bool loop)
@@ -134,9 +147,6 @@ public class Actor : MonoBehaviour
                 }
             }
 
-            if (Rigidbody2D != null)
-            { Rigidbody2D.velocity = new Vector2(0, 0); }
-
             if (Alive)
             {
                 if (isKnockOut)
@@ -155,6 +165,9 @@ public class Actor : MonoBehaviour
                 isKnockOut = false;
                 Die();
             }
+
+            if (damage.SfxHit != null)
+            { PlaySoundsFX(damage.SfxHit, false); }
         }
     }
 
@@ -170,7 +183,7 @@ public class Actor : MonoBehaviour
 
     public bool IsWalk()
     {
-        return rigidbody2D.velocity != Vector2.zero;
+        return rigidbody2D.velocity != Vector2.zero && !IsKnockOut && Alive;
     }
 
     public virtual void FixedUpdate()
