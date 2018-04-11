@@ -417,6 +417,9 @@ MonoBehaviour:
     Value: 1
     Knockout: 0
     AttackFromRight: 0
+  SfxHit1: {fileID: 8300000, guid: 8de7957feeb6c6b41be8a01322d4dae4, type: 3}
+  SfxHit2: {fileID: 0}
+  SfxHit3: {fileID: 0}
   waiting: 0
   maxMoveVelocity: 0
   moveVelocity: 25

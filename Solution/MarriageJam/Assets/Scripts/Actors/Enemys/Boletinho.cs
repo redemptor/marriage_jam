@@ -7,6 +7,7 @@ public class Boletinho : Enemy
     public AudioClip SfxDie;
     public AudioClip SfxKnockout;
 
+
     public override void Start()
     {
         base.Start();
@@ -70,6 +71,7 @@ public class Boletinho : Enemy
             PlaySoundsFX(SfxKnockout, false);
         }
 
+
         base.SetDamage(damage);
     }
 
@@ -79,4 +81,7 @@ public class Boletinho : Enemy
 
         PlaySoundsFX(SfxDie, false);
     }
+
+
+ 
 }
