@@ -28,7 +28,7 @@ public class Player : ActionActor
         base.Update();
         _knockoutActor.Update();
 
-        if (Time.time > timeNextHit)
+        if (comboHit > 0 && Time.time > timeNextHit)
         {
             SetHit(false);
             comboHit = 0;
@@ -51,17 +51,18 @@ public class Player : ActionActor
 
     public override void SetDamage(Damage damage)
     {
+        if (_knockoutActor.DoKnockOut)
+            return;
+
         if (damage.Knockout)
         {
             isKnockOut = true;
+            Stunned = false;
             timeKnockout = 0;
             _knockoutActor.KnockOut(DieDistancePower, MaxDieDistanceX);
         }
 
-        if (!_knockoutActor.DoKnockOut)
-        {
-            base.SetDamage(damage);
-        }
+        base.SetDamage(damage);
     }
 
     public override void FixedUpdate()
@@ -93,21 +94,30 @@ public class Player : ActionActor
         base.Attack();
         comboHit++;
 
-        if (comboHit == 1)
+        switch (comboHit)
         {
-            CurrentDamage = DamageNormal;
-            PlaySoundsFX(SfxHitAir, false);
+            case 1:
+                CurrentDamage = DamageNormal;
+                CurrentDamage.Combo = 1;
+                CurrentDamage.SfxHit = SfxHit1;
+                PlaySoundsFX(SfxHitAir, false);
+                break;
+            case 2:
+                CurrentDamage.Combo = 2;
+                CurrentDamage.SfxHit = SfxHit2;
+                break;
+
         }
 
         if (comboHit == hitDurations.Length)
         {
             CurrentDamage = DamageStrong;
+            CurrentDamage.Combo = 3;
+            CurrentDamage.SfxHit = SfxHit3;
         }
 
         if (comboHit > hitDurations.Length)
-        {
-            comboHit = 1;
-        }
+        { comboHit = 1; }
 
         timeNextAttack = Time.time + hitDurations[comboHit - 1];
         timeNextHit = timeNextAttack;

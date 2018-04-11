@@ -4,10 +4,6 @@ public class Boletinho : Enemy
 {
     private IaFollowActor _iaFollowActor;
 
-    public AudioClip SfxDie;
-    public AudioClip SfxKnockout;
-
-
     public override void Start()
     {
         base.Start();
@@ -27,7 +23,7 @@ public class Boletinho : Enemy
     {
         base.Update();
 
-        if (Time.time > timeNextHit)
+        if (comboHit > 0 && Time.time > timeNextHit)
         {
             SetHit(false);
             comboHit = 0;
@@ -36,25 +32,37 @@ public class Boletinho : Enemy
 
     public override void SetAnimation()
     {
-        base.SetAnimation();
-
         animator.SetInteger(ANIM_STATE.ATTACK.ToString(), comboHit);
+        base.SetAnimation();
     }
 
     public override void Attack()
     {
         if (!Alive || IsKnockOut || Stunned) { return; }
-        base.Attack();
 
+        base.Attack();
         comboHit++;
 
-        if (comboHit == 1)
-        { CurrentDamage = DamageNormal; }
+        switch (comboHit)
+        {
+            case 1:
+                CurrentDamage = DamageNormal;
+                CurrentDamage.Combo = 1;
+                CurrentDamage.SfxHit = SfxHit1;
+
+                break;
+            case 2:
+                CurrentDamage.Combo = 2;
+                CurrentDamage.SfxHit = SfxHit1;
+                break;
+        }
 
         if (comboHit == hitDurations.Length)
         {
             CurrentDamage = DamageStrong;
             _iaFollowActor.ForceRandomMove(true);
+            CurrentDamage.Combo = 3;
+            CurrentDamage.SfxHit = SfxHit1;
         }
 
         if (comboHit > hitDurations.Length)
@@ -66,12 +74,6 @@ public class Boletinho : Enemy
 
     public override void SetDamage(Damage damage)
     {
-        if (damage.Knockout)
-        {
-            PlaySoundsFX(SfxKnockout, false);
-        }
-
-
         base.SetDamage(damage);
     }
 
@@ -83,5 +85,5 @@ public class Boletinho : Enemy
     }
 
 
- 
+
 }

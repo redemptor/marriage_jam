@@ -4,6 +4,8 @@
 [RequireComponent(typeof(AudioSource))]
 public class ActionActor : Actor
 {
+    private AudioSource audioSourceKnockout;
+
     public Sprite NormalAvatar;
     public Sprite HittedAvatar;
     public Sprite NameActorSprite;
@@ -15,6 +17,8 @@ public class ActionActor : Actor
     public AudioClip SfxHit1;
     public AudioClip SfxHit2;
     public AudioClip SfxHit3;
+    public AudioClip SfxDie;
+    public AudioClip SfxKnockout;
 
     public bool waiting;
     public int ComboHit
@@ -36,11 +40,30 @@ public class ActionActor : Actor
         base.Start();
         if (DamageNormal != null)
         { CurrentDamage = DamageNormal; }
+
+        audioSourceKnockout = gameObject.AddComponent<AudioSource>();
+        audioSourceKnockout.clip = SfxKnockout;
     }
 
     public override void SetDamage(Damage damage)
     {
+        if (Alive)
+        {
+            if (health - damage.Value <= 0)
+            {
+                audioSourceKnockout.clip = SfxDie;
+                audioSourceKnockout.Play();
+            }
+            else if (damage.Knockout)
+            {
+                audioSourceKnockout.clip = SfxKnockout;
+                audioSourceKnockout.Play();
+            }
+        }
+
         base.SetDamage(damage);
+        if (damage.SfxHit != null)
+        { PlaySoundsFX(damage.SfxHit, false); }
     }
 
     public virtual void SetHit(bool isHit)
@@ -56,10 +79,7 @@ public class ActionActor : Actor
             timeNextHit = timeNextAttack;
         }
 
-        if (isHit)
-        {
-            PlayCurrentSoundHit(1);
-        }
+
     }
 
     public override void Update()
@@ -116,21 +136,5 @@ public class ActionActor : Actor
         base.Flip();
         DamageNormal.AttackFromRight = !facingRight;
         DamageStrong.AttackFromRight = !facingRight;
-    }
-
-    public void PlayCurrentSoundHit(int combo)
-    {
-        switch (combo)
-        {
-            case 1:
-                PlaySoundsFX(SfxHit1, false);
-                break;
-            case 2:
-                PlaySoundsFX(SfxHit2, false);
-                break;
-            case 3:
-                PlaySoundsFX(SfxHit3, false);
-                break;
-        }
     }
 }
