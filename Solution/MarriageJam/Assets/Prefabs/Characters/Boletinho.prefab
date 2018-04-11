@@ -405,32 +405,35 @@ MonoBehaviour:
   DamageNormal:
     Name: punch
     Value: 5
+    Combo: 0
     Knockout: 0
     AttackFromRight: 0
   DamageStrong:
     Name: uppercut
     Value: 15
+    Combo: 0
     Knockout: 1
     AttackFromRight: 0
   CurrentDamage:
     Name: default
     Value: 1
+    Combo: 0
     Knockout: 0
     AttackFromRight: 0
   SfxHit1: {fileID: 8300000, guid: 8de7957feeb6c6b41be8a01322d4dae4, type: 3}
-  SfxHit2: {fileID: 0}
-  SfxHit3: {fileID: 0}
+  SfxHit2: {fileID: 8300000, guid: b6750c927ff193b48b3a5c3f4e676be5, type: 3}
+  SfxHit3: {fileID: 8300000, guid: 568d71a10056a6d4ea5915891adf66e8, type: 3}
+  SfxDie: {fileID: 8300000, guid: 7544a3d42c158534c92c398cdfa05908, type: 3}
+  SfxKnockout: {fileID: 8300000, guid: 9baf3b42973bfb94d9f7bb356e6eef63, type: 3}
   waiting: 0
   maxMoveVelocity: 0
   moveVelocity: 25
   hitDurations:
-  - 0.41
-  - 0.41
-  - 0.41
+  - 0.6
+  - 0.6
+  - 0.6
   MaxDieDistanceX: 0.4
   DieDistancePower: {x: 0.02, y: 0.01, z: 0}
-  SfxDie: {fileID: 8300000, guid: 7544a3d42c158534c92c398cdfa05908, type: 3}
-  SfxKnockout: {fileID: 8300000, guid: 9baf3b42973bfb94d9f7bb356e6eef63, type: 3}
 --- !u!212 &212873305906010562
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -67,7 +67,6 @@ public class Continue : MonoBehaviour {
 			yield return null;
 		}
 		_state = States.gameOverOut;
-		Debug.Log("terminou FadeInText");
 	}
 
 	IEnumerator FadeOutText(Text text){
@@ -79,7 +78,6 @@ public class Continue : MonoBehaviour {
 			yield return null;
 		}
 		_state = States.continueIn;
-		Debug.Log("terminou FadeOutText");
 	}
 
 	IEnumerator FadeInImage(SpriteRenderer image){
@@ -99,7 +97,6 @@ public class Continue : MonoBehaviour {
 			yield return null;
 		}
 		_state = States.continueText;
-		Debug.Log("terminou FadeInImage");
 	}
 
 	IEnumerator FadeOutImage(SpriteRenderer image){
@@ -114,7 +111,6 @@ public class Continue : MonoBehaviour {
 			yield return null;
 		}
 		_state = States.sceneChange;
-		Debug.Log("terminou FadeOutImage");
 	}
 
 	IEnumerator SceneChange(){
@@ -123,7 +119,6 @@ public class Continue : MonoBehaviour {
 
 		SceneManager.LoadScene("Level 1");
 		yield return null;
-		Debug.Log("terminou SceneChange");
 	}
 
 	IEnumerator TextEnter(Text text){
@@ -147,7 +142,6 @@ public class Continue : MonoBehaviour {
 			yield return null;
 		}
 		_state = States.neutro;
-		Debug.Log("terminou FadeInButton");
 	}
 
 	public void buttonYesClick(){

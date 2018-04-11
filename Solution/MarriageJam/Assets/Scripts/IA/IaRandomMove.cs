@@ -45,7 +45,6 @@ public class IaRandomMove
         _follower.Rigidbody2D.velocity = direction * _follower.moveVelocity * Time.deltaTime;
 
         timeRandomMove = Time.time + MAX_TIME_RANDOM_MOVE;
-        Debug.Log("NOVO START ");
     }
 
     public void FixedUpdate()

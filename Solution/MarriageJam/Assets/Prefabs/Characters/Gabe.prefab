@@ -417,21 +417,26 @@ MonoBehaviour:
   DamageNormal:
     Name: punch
     Value: 10
+    Combo: 0
     Knockout: 0
     AttackFromRight: 0
   DamageStrong:
     Name: uppercut
     Value: 30
+    Combo: 0
     Knockout: 1
     AttackFromRight: 0
   CurrentDamage:
     Name: punch
     Value: 10
+    Combo: 0
     Knockout: 0
     AttackFromRight: 0
   SfxHit1: {fileID: 8300000, guid: 8de7957feeb6c6b41be8a01322d4dae4, type: 3}
-  SfxHit2: {fileID: 0}
-  SfxHit3: {fileID: 0}
+  SfxHit2: {fileID: 8300000, guid: 8de7957feeb6c6b41be8a01322d4dae4, type: 3}
+  SfxHit3: {fileID: 8300000, guid: 8de7957feeb6c6b41be8a01322d4dae4, type: 3}
+  SfxDie: {fileID: 8300000, guid: 144992e18713e8b4c8ffd651fd0e5701, type: 3}
+  SfxKnockout: {fileID: 8300000, guid: 94d8ba5607dd9544ea7b74730e6f7660, type: 3}
   waiting: 0
   maxMoveVelocity: 0
   moveVelocity: 30
@@ -443,7 +448,7 @@ MonoBehaviour:
   joystickNumber: 1
   MaxDieDistanceX: 0.4
   DieDistancePower: {x: 0.02, y: 0.01, z: 0}
-  SfxHitAir: {fileID: 0}
+  SfxHitAir: {fileID: 8300000, guid: 45651999f2da97143b4596b889a8e199, type: 3}
 --- !u!114 &114556981344005756
 MonoBehaviour:
   m_ObjectHideFlags: 1
