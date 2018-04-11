@@ -4,10 +4,10 @@ public class Enemy : ActionActor
 {
     private float KNOCKOUT_TIME = 1.0f;
     private float timeKnockout;
-    private KnockoutActor _knockoutActor;
 
+    protected KnockoutActor _knockoutActor;
     protected bool attacking = false;
-    
+
     public float MaxDieDistanceX = 0.5f;
     public Vector3 DieDistancePower = new Vector3(0.1f, 0f, 0);
 
@@ -65,7 +65,7 @@ public class Enemy : ActionActor
         _knockoutActor.KnockOut(DieDistancePower, MaxDieDistanceX);
     }
 
-    private void DieAnimation()
+    public virtual void DieAnimation()
     {
         if (!_knockoutActor.DoKnockOut)
         {

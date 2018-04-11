@@ -13,7 +13,7 @@ public class AzeitonatorBall : Actor
     public override void Start()
     {
         base.Start();
-        
+
         direction = new Vector2(velocity, 0);
         if (!facingRight && direction.x > 0)
         {
@@ -31,19 +31,29 @@ public class AzeitonatorBall : Actor
     {
         if (tagTarget.Contains(collision.tag) && collision.isTrigger)
         {
+
             if (collision.name.Equals("HitAttack"))
             {
                 direction.x *= -1;
                 reversed = true;
-                damage.AttackFromRight = !damage.AttackFromRight;
             }
             else
             {
+                if (direction.x < 0)
+                {
+                    damage.AttackFromRight = true;
+                }
+                else
+                {
+                    damage.AttackFromRight = false;
+                }
+
                 if (reversed && collision.tag.Equals("Bullet"))
                 {
                     collision.GetComponent<Actor>().Die();
                     Die();
                 }
+                //HIT at Azeitonator OR Player
                 else if (reversed || collision.tag.Equals("Player"))
                 {
                     collision.GetComponent<Actor>().SetDamage(damage);

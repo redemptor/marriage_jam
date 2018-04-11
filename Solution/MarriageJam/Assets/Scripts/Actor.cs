@@ -176,9 +176,9 @@ public class Actor : MonoBehaviour
         _shakeSprite.Shake(2, facingRight, shakePower);
     }
 
-    public void Blink()
+    public void Blink(int times = 5)
     {
-        _blinkSprite.Blink(5);
+        _blinkSprite.Blink(times);
     }
 
     public bool IsWalk()

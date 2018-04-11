@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     const float offset = 0.1f;
 
+    public GameObject MainCamera;
     public static GameManager instance;
     public static Difficulty difficulty = Difficulty.Normal;
     public static int NumPlayers = 1;
@@ -18,6 +19,8 @@ public class GameManager : MonoBehaviour
     public Player[] players;
     public PlayerHUD[] huds;
     public GameState State;
+
+    private CameraShake _cameraShake;
 
     private void Awake()
     {
@@ -35,6 +38,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        _cameraShake = MainCamera.GetComponent<CameraShake>();
+
         //if (SoundManager.instance != null)
         //{
         //    SoundManager.instance.StopMusic();
@@ -80,5 +85,10 @@ public class GameManager : MonoBehaviour
         //State = GameState.Wait;
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
+    }
+
+    public void ShakeScreen()
+    {
+        _cameraShake.shouldShake = true;
     }
 }

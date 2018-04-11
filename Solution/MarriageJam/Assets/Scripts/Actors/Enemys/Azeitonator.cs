@@ -5,7 +5,8 @@ public class Azeitonator : Enemy
 {
     private float ATTACK_RECOIL_MAX_TIME = 0.5f;
     private float MAX_TIME_CHANGE_ATTACK = 2;
-    private float MAX_TIME_RANGED_ATTACK = 4;
+    private float MAX_TIME_RANGED_ATTACK = 6;
+    private float MAX_TIME_NO_HIT_AFTER_TOUCH = 3;
 
     public Vector3 DistanceRanged;
     public AzeitonatorBall AzeitonatorBallObj;
@@ -20,6 +21,7 @@ public class Azeitonator : Enemy
 
     private bool DoRangedAttack = false;
     private float timeChangeAttack = 0;
+    private float timeNoHitAfterTouch = 0;
 
     public AudioClip SfxWalk;
     public AudioClip SfxShoot;
@@ -87,7 +89,8 @@ public class Azeitonator : Enemy
             if (Time.time > timeChangeAttack)
             {
                 DoRangedAttack = !DoRangedAttack;
-                _iaFollowActor.ForceRandomMove(false);
+                if (DoRangedAttack) { _iaFollowActor.ForceRandomMove(false); }
+                else { _iaFollowActor.ForceRandomMove(true); }
                 timeChangeAttack = 0;
             }
         }
@@ -100,7 +103,6 @@ public class Azeitonator : Enemy
         if (Time.time > timeNextHit)
         { SetHit(false); }
 
-        //  AnimateOpacity(currenteAlpha);
         AttackRecoilControll();
     }
 
@@ -152,8 +154,7 @@ public class Azeitonator : Enemy
         {
             //Animation finished
             if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1
-                  && !animator.IsInTransition(0)
-                 )
+                  && !animator.IsInTransition(0))
             {
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("Hit 1"))
                 {
@@ -179,6 +180,7 @@ public class Azeitonator : Enemy
         {
             PlaySoundsFX(SfxGetHitAzeitona, false);
             playingSfxWalk = false;
+            GameManager.instance.ShakeScreen();
             base.SetDamage(damage);
         }
         else
@@ -187,13 +189,40 @@ public class Azeitonator : Enemy
         }
     }
 
+    public override void SetHit(bool isHit)
+    {
+        base.SetHit(isHit);
+        if (isHit)
+        {
+            _iaFollowActor.ForceRandomMove(true);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (tagTarget.Contains(collision.tag) && collision.isTrigger)
         {
-            _iaFollowActor.ForceRandomMove(true);
-            playingSfxWalk = false;
-            PlaySoundsFX(SfxGetHit, false);
+            if (Time.time > timeNoHitAfterTouch)
+            {
+                playingSfxWalk = false;
+                PlaySoundsFX(SfxGetHit, false);
+                timeNoHitAfterTouch = Time.time + MAX_TIME_NO_HIT_AFTER_TOUCH;
+            }
+        }
+    }
+
+    public override void DieAnimation()
+    {
+        if (!_knockoutActor.DoKnockOut)
+        {
+            if (FinishBlink)
+            {
+                Destroy(gameObject);
+            }
+            if (!DoBlink)
+            {
+                Blink(10);
+            }
         }
     }
 

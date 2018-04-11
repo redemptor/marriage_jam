@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4295b3bf6098e304cb0e58e9474d7714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MainCamera: {fileID: 1910457062116976, guid: 7a1cb2736f3afba42a3a19add1ec3002, type: 2}
   playersPrefabs:
   - {fileID: 114460659392837550, guid: 4cd91dcfe4e6a8744af00e7af09abd88, type: 2}
   - {fileID: 114290675396058920, guid: f1a8dbe20be34114c8df133e616351f8, type: 2}

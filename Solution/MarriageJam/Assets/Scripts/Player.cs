@@ -54,6 +54,8 @@ public class Player : ActionActor
         if (_knockoutActor.DoKnockOut)
             return;
 
+        base.SetDamage(damage);
+
         if (damage.Knockout)
         {
             isKnockOut = true;
@@ -61,8 +63,6 @@ public class Player : ActionActor
             timeKnockout = 0;
             _knockoutActor.KnockOut(DieDistancePower, MaxDieDistanceX);
         }
-
-        base.SetDamage(damage);
     }
 
     public override void FixedUpdate()

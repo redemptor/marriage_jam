@@ -48,7 +48,6 @@ public class KnockoutActor
     {
         if (_actor.Animator.speed == 0)
         {
-
             Vector3 currentPosition = _actor.transform.position;
 
             //After actor up, will follown down
@@ -96,8 +95,10 @@ public class KnockoutActor
             }
 
             //Collide with stage, need stop
-            if(_actor.GetComponent<Rigidbody2D>().velocity == Vector2.zero)
+            if(_actor.GetComponent<Rigidbody2D>().velocity.x == 0 ||
+                _actor.GetComponent<Rigidbody2D>().velocity.y == 0)
             {
+                _actor.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 _actor.Animator.speed = 1;
             }
         }
