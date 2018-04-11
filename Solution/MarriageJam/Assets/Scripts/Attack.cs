@@ -20,6 +20,8 @@ public class Attack : MonoBehaviour
             {
                 collision.GetComponent<Actor>().SetDamage(actor.CurrentDamage);
                 actor.SetHit(true);
+
+
             }
         }
     }

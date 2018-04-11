@@ -337,7 +337,7 @@ Animator:
   m_GameObject: {fileID: 1104748577784230}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: 5b40b275320726649b1b173e95bb3b36, type: 2}
+  m_Controller: {fileID: 22100000, guid: 05c539e9fe253f44dad3f9f51e23364d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -385,17 +385,17 @@ MonoBehaviour:
     AttackFromRight: 0
     SfxHit: {fileID: 0}
   SfxHit1: {fileID: 8300000, guid: 8de7957feeb6c6b41be8a01322d4dae4, type: 3}
-  SfxHit2: {fileID: 0}
-  SfxHit3: {fileID: 0}
+  SfxHit2: {fileID: 8300000, guid: b6750c927ff193b48b3a5c3f4e676be5, type: 3}
+  SfxHit3: {fileID: 8300000, guid: 568d71a10056a6d4ea5915891adf66e8, type: 3}
   SfxKnockout: {fileID: 8300000, guid: 9baf3b42973bfb94d9f7bb356e6eef63, type: 3}
   waiting: 0
   maxMoveVelocity: 0
-  moveVelocity: 25
+  moveVelocity: 28
   hitDurations:
-  - 0.41
-  - 0.41
-  - 0.41
-  MaxDieDistanceX: 0.3
+  - 0.6
+  - 0.6
+  - 0.6
+  MaxDieDistanceX: 0.2
   DieDistancePower: {x: 1, y: 1, z: 0}
 --- !u!114 &114238948764588184
 MonoBehaviour:
@@ -471,8 +471,8 @@ SpriteRenderer:
   m_SortingLayerID: 1283148393
   m_SortingLayer: 0
   m_SortingOrder: 56
-  m_Sprite: {fileID: 21300000, guid: 56eb720092103ae488bf0575dfbe6661, type: 3}
-  m_Color: {r: 1, g: 0.36764705, b: 0.36764705, a: 1}
+  m_Sprite: {fileID: 21300016, guid: 6bb40acf8c1a98645aa2fb74d9333676, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

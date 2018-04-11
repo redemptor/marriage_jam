@@ -39,7 +39,6 @@ public class Boletinho : Enemy
     public override void Attack()
     {
         if (!Alive || IsKnockOut || Stunned) { return; }
-
         base.Attack();
         comboHit++;
 
@@ -56,7 +55,6 @@ public class Boletinho : Enemy
                 CurrentDamage.SfxHit = SfxHit1;
                 break;
         }
-
         if (comboHit == hitDurations.Length)
         {
             CurrentDamage = DamageStrong;
@@ -83,7 +81,4 @@ public class Boletinho : Enemy
 
         PlaySoundsFX(SfxDie, false);
     }
-
-
-
 }
