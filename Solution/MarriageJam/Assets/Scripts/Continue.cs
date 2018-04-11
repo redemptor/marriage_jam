@@ -9,9 +9,10 @@ public class Continue : MonoBehaviour {
 	public Text gameOver;
 	public Text continueText;
 
-	public Text yesButton;
+	public Image yesButton;
 
 	public SpriteRenderer continueImage;
+	public SpriteRenderer textBox;
 
 	enum States{gameOverIn, gameOverOut, continueIn, continueOut, continueText, buttonShow, sceneChange, neutro}
 	States _state = States.neutro;
@@ -89,6 +90,14 @@ public class Continue : MonoBehaviour {
 
 			yield return null;
 		}
+
+		for(float f = 0f;f <= 1f;f+=0.01f){
+			Color c = textBox.color;
+			c.a = f;
+			textBox.color = c;
+
+			yield return null;
+		}
 		_state = States.continueText;
 		Debug.Log("terminou FadeInImage");
 	}
@@ -100,6 +109,7 @@ public class Continue : MonoBehaviour {
 			image.color = c;
 			continueText.color = c;
 			yesButton.color = c;
+			textBox.color = c;
 
 			yield return null;
 		}
@@ -108,7 +118,7 @@ public class Continue : MonoBehaviour {
 	}
 
 	IEnumerator SceneChange(){
-		SceneManager.LoadScene("TesteMovimento");
+		SceneManager.LoadScene("Level 1");
 		yield return null;
 		Debug.Log("terminou SceneChange");
 	}
@@ -125,7 +135,7 @@ public class Continue : MonoBehaviour {
 		_state = States.buttonShow;
 	}
 
-	IEnumerator FadeInButton(Text text){
+	IEnumerator FadeInButton(Image text){
 		for(float f = 0f;f <=1f;f+=0.01f){
 			Color c = text.color;
 			c.a = f;
