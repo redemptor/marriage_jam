@@ -433,19 +433,30 @@ MonoBehaviour:
   NameActorSprite: {fileID: 0}
   DamageNormal:
     Name: shoot
-    Value: 1
+    Value: 20
+    Combo: 0
     Knockout: 1
     AttackFromRight: 0
+    SfxHit: {fileID: 0}
   DamageStrong:
     Name: none
-    Value: 1
+    Value: 30
+    Combo: 0
     Knockout: 1
     AttackFromRight: 0
+    SfxHit: {fileID: 0}
   CurrentDamage:
     Name: default
     Value: 1
+    Combo: 0
     Knockout: 0
     AttackFromRight: 0
+    SfxHit: {fileID: 0}
+  SfxHit1: {fileID: 0}
+  SfxHit2: {fileID: 0}
+  SfxHit3: {fileID: 0}
+  SfxDie: {fileID: 0}
+  SfxKnockout: {fileID: 0}
   waiting: 0
   maxMoveVelocity: 0
   moveVelocity: 40

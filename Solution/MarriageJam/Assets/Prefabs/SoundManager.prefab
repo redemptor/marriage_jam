@@ -218,4 +218,5 @@ MonoBehaviour:
   musicEnvironment1: {fileID: 8300000, guid: f14ae58a0197a314d916da3b0220152e, type: 3}
   musicMenu: {fileID: 8300000, guid: 0b048710332351246bba8e75e28e7e18, type: 3}
   musicLevel1: {fileID: 8300000, guid: 8ab04b3377c943d48a40e256fc6e4358, type: 3}
+  musicContinue: {fileID: 8300000, guid: ba34a54da2d147f41a99a87eb6981bc6, type: 3}
   sfxGO: {fileID: 8300000, guid: b3c8b84c7a788bc409e4339788b81d3b, type: 3}

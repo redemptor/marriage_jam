@@ -24,7 +24,7 @@ public class Level1 : MonoBehaviour
                 reloading = true;
                 if(GameManager.difficulty == Difficulty.Hard)
                 {
-                    SceneManager.LoadScene("Continue Screen");
+                    Invoke("ContinueScene", 3f);
                 }
                 else
                 {
@@ -53,5 +53,10 @@ public class Level1 : MonoBehaviour
     {
         reloading = false;
         GameManager.instance.ReloadLevel();
+    }
+
+    public void ContinueScene()
+    {
+        SceneManager.LoadScene("Continue Screen");
     }
 }

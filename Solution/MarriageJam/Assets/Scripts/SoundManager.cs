@@ -12,6 +12,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip musicEnvironment1;
     public AudioClip musicMenu;
     public AudioClip musicLevel1;
+    public AudioClip musicContinue;
     public AudioClip sfxGO;
 
     private void Awake()
@@ -47,6 +48,11 @@ public class SoundManager : MonoBehaviour
     public void PlayMusicLevel1()
     {
         PlayMusic(musicLevel1);
+    }
+
+    public void PlayMusicContinue()
+    {
+        PlayMusic(musicContinue);
     }
 
     public void PlayMusicMenu()

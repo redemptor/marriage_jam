@@ -19,7 +19,9 @@ public class Continue : MonoBehaviour {
 	public string textContinue;
 	// Use this for initialization
 	void Start () {
-		_state = States.gameOverIn;
+        SoundManager.instance.StopMusic();
+
+        _state = States.gameOverIn;
 	}
 	
 	// Update is called once per frame
@@ -96,7 +98,10 @@ public class Continue : MonoBehaviour {
 
 			yield return null;
 		}
-		_state = States.continueText;
+
+        SoundManager.instance.PlayMusicContinue();
+
+        _state = States.continueText;
 	}
 
 	IEnumerator FadeOutImage(SpriteRenderer image){

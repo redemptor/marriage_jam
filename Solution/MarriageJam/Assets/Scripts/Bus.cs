@@ -4,9 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Bus : MonoBehaviour
 {
-    const float offset = 0.1f;
-
-    public float speed = 20f;
+    public float speed = 50f;
     public Transform busStop;
     public float timeStop = 2f;
 

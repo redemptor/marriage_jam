@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    const float offset = 0.1f;
+
     public static GameManager instance;
     public static Difficulty difficulty = Difficulty.Normal;
     public static int NumPlayers = 1;
@@ -48,7 +50,8 @@ public class GameManager : MonoBehaviour
             var player = playersPrefabs[i];
             player.joystickNumber = i + 1;
 
-            players[i] = Instantiate(player, position, Quaternion.identity);
+            var playerPosition = new Vector2(position.x - offset + (i * offset * 2), position.y);
+            players[i] = Instantiate(player, playerPosition, Quaternion.identity);
             huds[i].SetPlayer(players[i]);
         }
     }

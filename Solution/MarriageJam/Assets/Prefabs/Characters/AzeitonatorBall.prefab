@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shakePower: 0
-  facingRight: 0
+  facingRight: 1
   health: 0
   tagTarget:
   - Player
@@ -127,9 +127,11 @@ MonoBehaviour:
   velocity: 1.5
   damage:
     Name: shoot
-    Value: 1
+    Value: 20
+    Combo: 0
     Knockout: 1
-    AttackFromRight: 1
+    AttackFromRight: 0
+    SfxHit: {fileID: 0}
 --- !u!212 &212479214694874870
 SpriteRenderer:
   m_ObjectHideFlags: 1
