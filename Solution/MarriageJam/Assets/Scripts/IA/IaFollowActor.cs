@@ -19,6 +19,7 @@ public class IaFollowActor
         if (!_follower.IsVisible)
         {
             randomMove = false;
+            timeRandomMove = 0;
         }
 
         if (timeRandomMove == 0)
@@ -40,6 +41,7 @@ public class IaFollowActor
             if (Time.time > timeRandomMove)
             {
                 randomMove = Random.Range(0, 2) == 1;
+                timeRandomMove = 0;
             }
 
             if (randomMove)
@@ -79,7 +81,6 @@ public class IaFollowActor
         { return; }
 
         DoRandomMove();
-
         if (randomMove) { return; }
 
         if (_following == null)

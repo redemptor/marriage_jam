@@ -18,6 +18,7 @@ public class SceneObject : Actor
 
         //Todo Delay time tem que ser conforme o tamanho do som
         Destroy(gameObject, 2);
+        GetComponent<BoxCollider2D>().enabled = false;
     }
 }
 
