@@ -143,7 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalAxis: P1_Horizontal
   m_VerticalAxis: P1_Vertical
-  m_SubmitButton: Submit
+  m_SubmitButton: P1_Attack
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
   m_RepeatDelay: 0.5
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 2085830540}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
 --- !u!4 &257570250
@@ -563,6 +563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameOver: {fileID: 1774440214}
   continueText: {fileID: 967872146}
+  button: {fileID: 2085830544}
   yesButton: {fileID: 2085830542}
   continueImage: {fileID: 412254793}
   textBox: {fileID: 2143417791}
@@ -771,7 +772,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 2085830542}
   m_OnClick:
     m_PersistentCalls:

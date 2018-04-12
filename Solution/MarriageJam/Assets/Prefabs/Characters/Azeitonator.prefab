@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 4071360868023854}
   - component: {fileID: 61540141267885750}
   - component: {fileID: 114603301696140638}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: ActorApproach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,9 +75,9 @@ GameObject:
   - component: {fileID: 4774235652708198}
   - component: {fileID: 61543172051581836}
   - component: {fileID: 114174629190644478}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: HitAttack
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4346712007474088}
   - component: {fileID: 70900284081456284}
-  m_Layer: 12
+  m_Layer: 16
   m_Name: GroundCollision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -468,6 +468,7 @@ MonoBehaviour:
   AzeitonatorBallObj: {fileID: 114254143431317052, guid: f85cc1cf6fdda5d4d816a590fe3b510e,
     type: 2}
   spawnAttak: {fileID: 4367342098461984}
+  actorApproach: {fileID: 1482598622257876}
   delayShoot: 0.5
   SfxWalk: {fileID: 8300000, guid: b53f8a5c1431d2641976797739fb262e, type: 3}
   SfxShoot: {fileID: 8300000, guid: ce721aa8e99f3964b9ae4749c896ae01, type: 3}

@@ -27,7 +27,7 @@ public class IaRangedFollowActor
             || _follower.waiting)
         { return; }
 
-        if (_following == null)
+        if (_following == null || !_following.Alive)
         {
             _following = LevelManager.GetRandomPlayerAtScene();
         }

@@ -22,8 +22,7 @@ public class Level1 : MonoBehaviour
         {
             if (GameManager.instance.players.All(x => !x.Alive) && !reloading)
             {
-                reloading = true;
-                if(GameManager.difficulty == Difficulty.Hard)
+                if (GameManager.difficulty == Difficulty.Hard)
                 {
                     Invoke("ContinueScene", 3f);
                 }
@@ -31,6 +30,8 @@ public class Level1 : MonoBehaviour
                 {
                     Invoke("ReloadLevel", 3f);
                 }
+
+                reloading = true;
             }
             else if (GameManager.instance.players.Any(x => !x.Alive) && GameManager.instance.players.Any(x => x.Alive))
             {
@@ -58,6 +59,6 @@ public class Level1 : MonoBehaviour
 
     public void ContinueScene()
     {
-        SceneManager.LoadScene("Continue Screen");
+        SceneManager.LoadScene("Continue Screen", LoadSceneMode.Single);
     }
 }

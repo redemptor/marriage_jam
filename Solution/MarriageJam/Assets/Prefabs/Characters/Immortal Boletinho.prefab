@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4217895327973988}
   - component: {fileID: 61050169665358538}
   - component: {fileID: 114620465981983496}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: HitAttack
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4494308841002108}
   - component: {fileID: 61154661813678522}
   - component: {fileID: 114886095801226540}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: ActorApproach
   m_TagString: Untagged
   m_Icon: {fileID: 0}

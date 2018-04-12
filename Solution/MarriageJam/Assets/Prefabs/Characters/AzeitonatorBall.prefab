@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50275668907802904}
   - component: {fileID: 95663334786324154}
   - component: {fileID: 114254143431317052}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AzeitonatorBall
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SfxDie: {fileID: 0}
   shakePower: 0
-  facingRight: 1
+  facingRight: 0
   health: 0
   tagTarget:
   - Player
@@ -131,7 +131,7 @@ MonoBehaviour:
     Value: 20
     Combo: 0
     Knockout: 1
-    AttackFromRight: 0
+    AttackFromRight: 1
     SfxHit: {fileID: 0}
 --- !u!212 &212479214694874870
 SpriteRenderer:

@@ -32,7 +32,7 @@ public class AzeitonatorBall : Actor
         if (tagTarget.Contains(collision.tag) && collision.isTrigger)
         {
 
-            if (collision.name.Equals("HitAttack"))
+            if (collision.CompareTag("Player") && collision.name.Equals("HitAttack"))
             {
                 direction.x *= -1;
                 reversed = true;

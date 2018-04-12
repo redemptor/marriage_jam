@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4564844658017458}
   - component: {fileID: 61143526497318536}
   - component: {fileID: 114104493448926998}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: HitAttack
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 4877353030343148}
   - component: {fileID: 61029511394385198}
   - component: {fileID: 114245406711701794}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: ActorApproach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1667193820419820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.475, y: -0.429, z: 0}
+  m_LocalPosition: {x: -1.377, y: -0.18619557, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4877353030343148}
@@ -170,7 +170,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.11, y: -0.021203145}
+  m_Offset: {x: 0.11, y: -0.10120315}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -195,7 +195,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.15947455, y: -0.021203145}
+  m_Offset: {x: 0.15947455, y: -0.10120315}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -220,11 +220,11 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.020772353, y: -0.015863542}
+  m_Offset: {x: 0.020772353, y: -0.09586354}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 0.64, y: 0.48}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -245,7 +245,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.014902823, y: -0.1378373}
+  m_Offset: {x: 0.014902823, y: -0.22}
   m_Size: {x: 0.2077591, y: 0.0432691}
   m_Direction: 1
 --- !u!82 &82099946590332588
@@ -470,7 +470,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 74
+  m_SortingOrder: 42
   m_Sprite: {fileID: 21300002, guid: ada226d6847a98945a8a60a47a809345, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

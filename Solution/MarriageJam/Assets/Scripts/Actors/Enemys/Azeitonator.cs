@@ -11,6 +11,7 @@ public class Azeitonator : Enemy
     public Vector3 DistanceRanged;
     public AzeitonatorBall AzeitonatorBallObj;
     public Transform spawnAttak;
+    public GameObject actorApproach;
     public float delayShoot;
 
     private IaAttackRangedActor ActorApproach;
@@ -49,12 +50,12 @@ public class Azeitonator : Enemy
                 if (DoRangedAttack)
                 {
                     _iaRangedFollowActor.FixedUpdate();
-                    transform.Find("ActorApproach").gameObject.SetActive(true);
+                    actorApproach.SetActive(true);
                 }
                 else
                 {
                     _iaFollowActor.FixedUpdate();
-                    transform.Find("ActorApproach").gameObject.SetActive(false);
+                    actorApproach.SetActive(false);
                 }
 
                 if (!playingSfxWalk)

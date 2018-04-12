@@ -29,7 +29,9 @@ public class IaAttackMeleeActor : MonoBehaviour
     {
         if (tagTarget.Contains(collision.tag) && collision.isTrigger)
         {
-            if (Time.time > timeToAttackTrigger)
+            var actorTarget = collision.GetComponent<Actor>();
+
+            if (Time.time > timeToAttackTrigger && actorTarget != null && actorTarget.Alive)
             {
                 actor.Attack();
                 timeToAttackTrigger = Time.time + TimeToAttack;
