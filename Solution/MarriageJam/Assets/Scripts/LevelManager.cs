@@ -6,6 +6,11 @@ public class LevelManager : MonoBehaviour
 {
     public Scene scene;
 
+    public void LoadStartScreen()
+    {
+        LoadLevel("Start Screen");
+    }
+
     public void LoadLevel(string name)
     {
         Debug.Log("Scene loaded: " + name);

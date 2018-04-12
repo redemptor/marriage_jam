@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Congratulation : MonoBehaviour
@@ -20,14 +21,24 @@ public class Congratulation : MonoBehaviour
             SoundManager.instance.PlayMusicMenu();
 
             Invoke("ShowMessage", 1f);
-            Invoke("SetSpeed", 5f);
+            Invoke("EndGame", 8f);
         }
     }
 
-    private void SetSpeed()
+    private void Update()
+    {
+        if (picture.gameObject.activeSelf && Input.anyKey)
+        {
+            Invoke("LoadCredits", 2f);
+        }
+    }
+
+    private void EndGame()
     {
         followCamera.maxCameraPos.x = followCamera.transform.position.x;
         picture.transform.position = new Vector2(followCamera.transform.position.x, picture.transform.position.y);
+
+        message.gameObject.SetActive(false);
 
         bus.speed = 60;
         Invoke("ShowPicture", 2f);
@@ -40,8 +51,11 @@ public class Congratulation : MonoBehaviour
 
     private void ShowPicture()
     {
-        message.gameObject.SetActive(false);
-
         picture.gameObject.SetActive(true);
+    }
+
+    private void LoadCredits()
+    {
+        SceneManager.LoadScene("Credits", LoadSceneMode.Single);
     }
 }

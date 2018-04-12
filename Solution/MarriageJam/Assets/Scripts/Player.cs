@@ -129,6 +129,8 @@ public class Player : ActionActor
     public void Revive()
     {
         health = maxHealth;
+        timeCanDamage = Time.time + 3f;
+        Blink(6);
     }
 
     private string GetButtonName(string button)

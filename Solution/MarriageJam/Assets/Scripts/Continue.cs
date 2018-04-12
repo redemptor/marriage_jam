@@ -10,8 +10,8 @@ public class Continue : MonoBehaviour
     public Text gameOver;
     public Text continueText;
 
-    public Button button;
-    public Image yesButton;
+    public Button[] buttons;
+    public Image[] imageButton;
 
     public SpriteRenderer continueImage;
     public SpriteRenderer textBox;
@@ -24,7 +24,10 @@ public class Continue : MonoBehaviour
     {
         SoundManager.instance.StopMusic();
 
-        button.interactable = false;
+        foreach (var button in buttons)
+        {
+            button.interactable = false;
+        }
 
         _state = States.gameOverIn;
     }
@@ -59,7 +62,11 @@ public class Continue : MonoBehaviour
                 _state = States.neutro;
                 break;
             case States.buttonShow:
-                StartCoroutine("FadeInButton", yesButton);
+                foreach (var imgButton in imageButton)
+                {
+                    StartCoroutine("FadeInButton", imgButton);
+                }
+
                 _state = States.neutro;
                 break;
             default:
@@ -126,7 +133,7 @@ public class Continue : MonoBehaviour
             c.a = f;
             image.color = c;
             continueText.color = c;
-            yesButton.color = c;
+            //yesButton.color = c;
             textBox.color = c;
 
             yield return null;
@@ -168,7 +175,11 @@ public class Continue : MonoBehaviour
             yield return null;
         }
 
-        button.interactable = true;
+        foreach (var button in buttons)
+        {
+            button.interactable = true;
+        }
+
         _state = States.canContinue;
     }
 
@@ -177,6 +188,15 @@ public class Continue : MonoBehaviour
         if (_state == States.canContinue)
         {
             _state = States.continueOut;
+        }
+    }
+
+    public void buttonNoClick()
+    {
+        if (_state == States.canContinue)
+        {
+            Debug.Log("close...");
+            Application.Quit();
         }
     }
 }
