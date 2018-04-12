@@ -36,9 +36,10 @@ public class SpawnerEnimy : MonoBehaviour
             if (enemies <= 0)
             {
                 _camera.camFollow = true;
+                _camera.minCameraPos.x = _camera.transform.position.x;
                 //FindObjectOfType<LimitPlayerCam>().LimitCamActive(false);
                 FindObjectOfType<GoOnIndication>().TurnOnSignaling();
-                Destroy(this.gameObject);
+                Destroy(gameObject);
             }
         }
     }
@@ -66,6 +67,7 @@ public class SpawnerEnimy : MonoBehaviour
             GetComponent<BoxCollider2D>().enabled = false;
             //FindObjectOfType<LimitPlayerCam>().LimitCamActive(true);
             _camera.camFollow = false;
+
             SpawnEnemy();
         }
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-     const float offset = 0;
+    const float offset = 0;
 
     public Transform[] targets;
     [Range(0f, 2f)]
@@ -31,7 +31,7 @@ public class FollowCamera : MonoBehaviour
 
     private void CameraFollow(bool active)
     {
-        if (active)
+        if (active && targets.All(x => x != null))
         {
             var center = Vector2.zero;
 

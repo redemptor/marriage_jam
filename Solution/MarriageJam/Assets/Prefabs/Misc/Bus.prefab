@@ -26,9 +26,10 @@ GameObject:
   - component: {fileID: 114411546023078418}
   - component: {fileID: 82935651029091470}
   - component: {fileID: 82675644082731896}
+  - component: {fileID: 61707920795647936}
   m_Layer: 0
   m_Name: Bus
-  m_TagString: Untagged
+  m_TagString: Bus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,6 +67,31 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!61 &61707920795647936
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1103693309430912}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.011979818, y: -0.22761542}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.5, y: 0.99}
+    newSize: {x: 1.5, y: 0.99}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.3642297, y: 0.09551132}
+  m_EdgeRadius: 0
 --- !u!82 &82675644082731896
 AudioSource:
   m_ObjectHideFlags: 1
@@ -257,10 +283,12 @@ MonoBehaviour:
   speed: 50
   busStop: {fileID: 0}
   timeStop: 3
+  audioSourceEngine: {fileID: 82935651029091470}
   audioSourceFX: {fileID: 82675644082731896}
   sfxDoorOpen: {fileID: 8300000, guid: b219ca397214fd6458465cd0ada5815f, type: 3}
   sfxDoorClose: {fileID: 8300000, guid: 746003484a67b064892247b0af01ac67, type: 3}
   DestroyObjects:
+  - {fileID: 0}
   - {fileID: 0}
 --- !u!114 &114688771581397434
 MonoBehaviour:

@@ -80,7 +80,7 @@ public class Player : ActionActor
             move.y = Input.GetAxis(GetButtonName("Vertical")) * moveVelocity * Time.deltaTime;
         }
 
-        if (!isKnockOut)
+        if (GameManager.instance.State == GameState.Play && !isKnockOut)
         {
             rigidbody2D.velocity = move;
         }

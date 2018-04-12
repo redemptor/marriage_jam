@@ -10,6 +10,7 @@ TagManager:
   - Collectable
   - Bullet
   - PlayerHUD
+  - Bus
   layers:
   - Default
   - TransparentFX

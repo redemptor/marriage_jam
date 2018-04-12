@@ -8,6 +8,7 @@ public class Bus : MonoBehaviour
     public Transform busStop;
     public float timeStop = 2f;
 
+    public AudioSource audioSourceEngine;
     public AudioSource audioSourceFX;
     public AudioClip sfxDoorOpen;
     public AudioClip sfxDoorClose;
@@ -35,7 +36,14 @@ public class Bus : MonoBehaviour
         //    }
         //}
 
-        GameManager.instance.State = GameState.Wait;
+        if (GameManager.instance.State != GameState.Win)
+        {
+            GameManager.instance.State = GameState.Wait;
+        }
+        else
+        {
+
+        }
     }
 
     private void FixedUpdate()
@@ -50,18 +58,14 @@ public class Bus : MonoBehaviour
         {
             gameCamera.minCameraPos.x = busStop.position.x;
 
-            //for (int i = 0; i < GameManager.instance.players.Length; i++)
-            //{
-            //    if (GameManager.instance.players[i] != null)
-            //    {
-            //        GameManager.instance.players[i].transform.position = new Vector2(busStop.position.x - offset + (i * offset * 2), busStop.position.y);
-            //        GameManager.instance.players[i].gameObject.SetActive(true);
-            //    }
-            //}
-            GameManager.instance.SpawnPlayers(busStop.position);
+            if (GameManager.instance.State != GameState.Win)
+            {
+                GameManager.instance.SpawnPlayers(busStop.position);
+                gameCamera.targets = GameManager.instance.players.Select(x => x.transform).ToArray();
+            }
+
             GameManager.instance.ShowHUD(false);
 
-            gameCamera.targets = GameManager.instance.players.Select(x => x.transform).ToArray();
             spawnPlayer = true;
         }
 
@@ -90,15 +94,12 @@ public class Bus : MonoBehaviour
     {
         if (transform.position.x > busStop.position.x)
         {
-            GameManager.instance.State = GameState.Play;
-            SoundManager.instance.PlayMusicLevel1();
-
-            //for (int i = 0; i < GameManager.instance.players.Length; i++)
-            //{
-            //    GameManager.instance.huds[i].SetPlayer(GameManager.instance.players[i]);
-            //}
-
-            GameManager.instance.ShowHUD(true);
+            if (GameManager.instance.State != GameState.Win)
+            {
+                GameManager.instance.State = GameState.Play;
+                GameManager.instance.ShowHUD(true);
+                SoundManager.instance.PlayMusicLevel1();
+            }
 
             Destroy(gameObject);
         }
