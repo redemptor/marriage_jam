@@ -387,20 +387,20 @@ MonoBehaviour:
   SfxDie: {fileID: 8300000, guid: 7544a3d42c158534c92c398cdfa05908, type: 3}
   shakePower: 0.015
   facingRight: 1
-  health: 300
+  health: 100
   NormalAvatar: {fileID: 0}
   HittedAvatar: {fileID: 0}
   NameActorSprite: {fileID: 0}
   DamageNormal:
     Name: punch
-    Value: 20
+    Value: 15
     Combo: 0
     Knockout: 0
     AttackFromRight: 0
     SfxHit: {fileID: 0}
   DamageStrong:
     Name: uppercut
-    Value: 30
+    Value: 20
     Combo: 0
     Knockout: 1
     AttackFromRight: 0
@@ -468,7 +468,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1283148393
+  m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 74
   m_Sprite: {fileID: 21300002, guid: ada226d6847a98945a8a60a47a809345, type: 3}

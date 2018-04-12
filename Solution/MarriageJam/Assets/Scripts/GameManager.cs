@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         _cameraShake = MainCamera.GetComponent<CameraShake>();
+        players = new Player[0];
 
         //if (SoundManager.instance != null)
         //{

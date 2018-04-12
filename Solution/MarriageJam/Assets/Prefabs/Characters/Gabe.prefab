@@ -448,7 +448,7 @@ MonoBehaviour:
   - 0.31
   - 0.51
   score: 0
-  joystickNumber: 1
+  joystickNumber: 2
   MaxDieDistanceX: 0.2
   DieDistancePower: {x: 1, y: 1, z: 0}
   SfxHitAir: {fileID: 8300000, guid: 45651999f2da97143b4596b889a8e199, type: 3}

@@ -105,7 +105,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -150,7 +150,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -174,7 +174,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!114 &114695626151013950
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -195,6 +195,7 @@ MonoBehaviour:
   - {fileID: 1914864913972482, guid: 484806ff554ab18479dd4df6d9b657aa, type: 2}
   - {fileID: 1715686517791732, guid: 77a199c9dae4eba4cad1bc5aa05914f7, type: 2}
   - {fileID: 1749195919444444, guid: 8bc77700cd12400488ac67273991afbd, type: 2}
+  - {fileID: 1603365521696974, guid: aea6c6de9e6ce5a46b9bdfa9ae6cd1b2, type: 2}
 --- !u!114 &114952858471182268
 MonoBehaviour:
   m_ObjectHideFlags: 1

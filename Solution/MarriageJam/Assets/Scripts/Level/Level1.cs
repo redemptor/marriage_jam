@@ -10,8 +10,8 @@ public class Level1 : MonoBehaviour
 
     void Start()
     {
-        SoundManager.instance.PlayMusicLevel1();
-        //SoundManager.instance.PlayMusicEnvironment1();
+        //SoundManager.instance.PlayMusicLevel1();
+        SoundManager.instance.PlayMusicEnvironment1();
         Debug.Log(GameManager.difficulty);
     }
 

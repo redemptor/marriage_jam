@@ -530,7 +530,7 @@ MonoBehaviour:
   power: 0.05
   durantion: 0.2
   slowDownAmount: 1
-  shouldShake: 1
+  shouldShake: 0
 --- !u!114 &114710952165316748
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -543,6 +543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targets:
+  - {fileID: 0}
   - {fileID: 0}
   smothTime: 0.35
   minCameraPos: {x: -3, y: 0, z: -10}
@@ -559,14 +560,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f88f1386dd63147198d003daff00d37d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenResolution: {x: 414, y: 233}
+  screenResolution: {x: 857, y: 482}
   internalResolution: {x: 320, y: 180}
-  upscaledResolution: {x: 640, y: 360}
+  upscaledResolution: {x: 960, y: 540}
   smooth: 0
   forceSquarePixels: 1
   pixels: {x: 320, y: 180}
   pixelsPerUnit: 100
-  finalBlitStretch: {x: 1, y: 1.0005368}
+  finalBlitStretch: {x: 1.0001297, y: 1}
   mainCamera: {fileID: 20777321299376886}
   mainCanvas: {fileID: 0}
 --- !u!124 &124910100751573824

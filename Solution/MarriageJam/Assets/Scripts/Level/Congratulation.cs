@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Credits : MonoBehaviour
+public class Congratulation : MonoBehaviour
 {
     public FollowCamera followCamera;
     public Bus bus;

@@ -464,7 +464,7 @@ MonoBehaviour:
   - 0
   MaxDieDistanceX: 1
   DieDistancePower: {x: 1, y: 0, z: 0}
-  DistanceRanged: {x: 2.5, y: 0, z: 0}
+  DistanceRanged: {x: 0.6, y: 0, z: 0}
   AzeitonatorBallObj: {fileID: 114254143431317052, guid: f85cc1cf6fdda5d4d816a590fe3b510e,
     type: 2}
   spawnAttak: {fileID: 4367342098461984}
