@@ -137,4 +137,14 @@ public class Player : ActionActor
     {
         return string.Format(buttonNameFormat, joystickNumber, button);
     }
+
+    public override void SetHit(bool isHit)
+    {
+        base.SetHit(isHit);
+
+        if (isHit)
+        {
+            score += comboHit * 5;
+        }
+    }
 }

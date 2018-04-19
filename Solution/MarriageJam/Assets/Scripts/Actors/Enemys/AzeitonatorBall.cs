@@ -53,11 +53,14 @@ public class AzeitonatorBall : Actor
                     collision.GetComponent<Actor>().Die();
                     Die();
                 }
-                //HIT at Azeitonator OR Player
                 else if (reversed || collision.tag.Equals("Player"))
                 {
-                    collision.GetComponent<Actor>().SetDamage(damage);
-                    Die();
+                    var actor = collision.GetComponent<Actor>();
+                    if (actor != null)
+                    {
+                        actor.SetDamage(damage);
+                        Die();
+                    }
                 }
             }
         }

@@ -157,7 +157,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  score: 30
+  score: 70
 --- !u!212 &212495297128123766
 SpriteRenderer:
   m_ObjectHideFlags: 1

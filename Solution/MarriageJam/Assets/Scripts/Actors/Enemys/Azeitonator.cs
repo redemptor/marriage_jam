@@ -177,8 +177,12 @@ public class Azeitonator : Enemy
 
     public override void SetDamage(Damage damage)
     {
+        Debug.Log("damage azeitona");
+
         if (damage.Name.Equals("shoot"))
         {
+            Debug.Log("shoot");
+
             PlaySoundsFX(SfxGetHitAzeitona, false);
             playingSfxWalk = false;
             GameManager.instance.ShakeScreen();
@@ -186,6 +190,8 @@ public class Azeitonator : Enemy
         }
         else
         {
+            Debug.Log("else");
+
             PlaySoundsFX(SfxGetHit, false);
         }
     }

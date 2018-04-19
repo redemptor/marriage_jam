@@ -49,7 +49,7 @@ public class PlayerHUD : MonoBehaviour
 
     void UpdatePlayer()
     {
-        if(player != null)
+        if (player != null)
         {
             avatar.sprite = player.NormalAvatar;
             namePlayer.sprite = player.NameActorSprite;
@@ -86,7 +86,7 @@ public class PlayerHUD : MonoBehaviour
     {
         if (currentScore != player.score)
         {
-            var scoreList = player.score.ToString("00000").ToCharArray().Select(x => (int)char.GetNumericValue(x)).ToArray();
+            var scoreList = player.score.ToString("00000").ToCharArray().Select(x => int.Parse(x.ToString())).ToArray();
 
             for (int i = 0; i < score.Length; i++)
             {
